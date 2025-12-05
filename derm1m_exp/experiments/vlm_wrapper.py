@@ -1,224 +1,244 @@
+#!/usr/bin/env python3
 """
-VLM 래퍼 모듈
+VLM (Vision-Language Model) Wrapper
 
-GPT-4o를 독립적으로 사용할 수 있는 래퍼 클래스
-qwen_vl_utils 등 의존성 문제를 피하기 위해 별도로 구현
+GPT-4o API 래퍼 모듈
+증상 통합 실험 스크립트에서 사용
+
+Author: DermAgent Team
 """
 
 import os
 import base64
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Union
 from openai import OpenAI
-import openai
 
 
 def encode_image(image_path: str) -> str:
     """이미지를 base64로 인코딩"""
     with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
-
-
-def compress_image(image_path: str, output_path: str, quality: int = 50) -> str:
-    """이미지 압축"""
-    try:
-        from PIL import Image
-        img = Image.open(image_path)
-
-        # RGBA -> RGB 변환 (JPEG는 알파 채널 지원 안함)
-        if img.mode in ('RGBA', 'LA', 'P'):
-            img = img.convert('RGB')
-
-        # 크기 조정 (필요시)
-        max_size = 1024
-        if max(img.size) > max_size:
-            ratio = max_size / max(img.size)
-            new_size = (int(img.size[0] * ratio), int(img.size[1] * ratio))
-            img = img.resize(new_size, Image.LANCZOS)
-
-        os.makedirs(os.path.dirname(output_path), exist_ok=True)
-        img.save(output_path, 'JPEG', quality=quality)
-        return output_path
-    except Exception as e:
-        print(f"이미지 압축 실패: {e}")
-        return image_path
+        return base64.b64encode(image_file.read()).decode("utf-8")
 
 
 class GPT4oWrapper:
-    """
-    GPT-4o 래퍼 클래스
-
-    기존 model.py의 GPT4o 클래스와 호환되는 인터페이스 제공
-    """
+    """GPT-4o Vision API 래퍼"""
 
     def __init__(
         self,
-        api_key: str,
-        use_labels_prompt: bool = True,
+        api_key: Optional[str] = None,
         model: str = "gpt-4o",
-        disease_labels_path: Optional[str] = None
+        use_labels_prompt: bool = True,
+        max_tokens: int = 1024
     ):
         """
         Args:
-            api_key: OpenAI API 키
-            use_labels_prompt: 질병 라벨 목록 사용 여부
-            model: 사용할 모델 (기본값: gpt-4o)
-            disease_labels_path: 질병 라벨 파일 경로
+            api_key: OpenAI API 키 (없으면 환경변수에서 가져옴)
+            model: 사용할 모델 (기본: gpt-4o)
+            use_labels_prompt: 질병 레이블 목록을 프롬프트에 포함할지 여부
+            max_tokens: 최대 출력 토큰 수
         """
-        self.client = OpenAI(api_key=api_key)
+        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
+        if not self.api_key:
+            raise ValueError("OPENAI_API_KEY가 필요합니다.")
+
+        self.client = OpenAI(api_key=self.api_key)
         self.model = model
+        self.max_tokens = max_tokens
+        self.use_labels_prompt = use_labels_prompt
 
-        # 시스템 프롬프트 설정
+        # 질병 레이블 로드 (선택적)
+        self.disease_labels = []
         if use_labels_prompt:
-            disease_labels_str = self._load_disease_labels(disease_labels_path)
-            self.instruction = f"""You are a dermatology expert. You are provided with a skin image and a question about it.
+            self._load_disease_labels()
+
+        # 시스템 프롬프트
+        self.system_prompt = self._build_system_prompt()
+
+    def _load_disease_labels(self):
+        """질병 레이블 목록 로드"""
+        script_dir = Path(__file__).parent
+        label_paths = [
+            script_dir.parent / "baseline" / "extracted_node_names.txt",
+            script_dir / "extracted_node_names.txt",
+        ]
+
+        for path in label_paths:
+            if path.exists():
+                with open(path, "r") as f:
+                    self.disease_labels = [
+                        line.strip().split("→")[1] if "→" in line else line.strip()
+                        for line in f.readlines() if line.strip()
+                    ]
+                break
+
+    def _build_system_prompt(self) -> str:
+        """시스템 프롬프트 생성"""
+        base_prompt = """You are a dermatology expert. You are provided with a skin image and a question about it.
 Please analyze the image carefully and provide a detailed diagnosis or answer based on your expertise.
-Focus on identifying skin conditions, lesions, or abnormalities visible in the image.
+Focus on identifying skin conditions, lesions, or abnormalities visible in the image."""
 
-When identifying skin conditions, the disease_label should be one of the following: {disease_labels_str}
+        if self.use_labels_prompt and self.disease_labels:
+            labels_str = ", ".join(self.disease_labels[:100])  # 처음 100개만
+            base_prompt += f"\n\nWhen identifying skin conditions, consider these possible diagnoses: {labels_str}"
 
-Provide a clear and professional response."""
-        else:
-            self.instruction = """You are a dermatology expert. You are provided with a skin image and a question about it.
-Analyze the image carefully and provide a detailed, professional answer about visible skin findings.
-Do NOT assume or reference any predefined disease label list. If uncertain, state the likely differentials."""
+        base_prompt += "\n\nProvide a clear and professional response."
+        return base_prompt
 
-    def _load_disease_labels(self, disease_labels_path: Optional[str] = None) -> str:
-        """질병 라벨 목록 로드"""
-        if disease_labels_path is None:
-            # 기본 경로 탐색
-            script_dir = Path(__file__).parent
-            possible_paths = [
-                script_dir.parent / "baseline" / "extracted_node_names.txt",
-                script_dir.parent.parent / "derm1m_exp" / "baseline" / "extracted_node_names.txt",
-            ]
-            for path in possible_paths:
-                if path.exists():
-                    disease_labels_path = str(path)
-                    break
-
-        if disease_labels_path and os.path.exists(disease_labels_path):
-            with open(disease_labels_path, "r") as f:
-                disease_labels = [
-                    line.strip().split("→")[1] if "→" in line else line.strip()
-                    for line in f.readlines() if line.strip()
-                ]
-            return ", ".join(disease_labels)
-        else:
-            # 온톨로지에서 직접 로드 시도
-            try:
-                import sys
-                sys.path.insert(0, str(Path(__file__).parent.parent / "eval"))
-                from ontology_utils import OntologyTree
-                tree = OntologyTree()
-                return ", ".join(sorted(tree.valid_nodes))
-            except Exception:
-                return ""
-
-    def chat_img(
+    def analyze_image(
         self,
-        input_text: str,
-        image_path: List[str],
-        max_tokens: int = 512
+        image_paths: Union[str, List[str]],
+        prompt: str,
+        system_prompt: Optional[str] = None
     ) -> str:
         """
-        이미지와 텍스트로 대화
+        이미지 분석
 
         Args:
-            input_text: 질문 텍스트
-            image_path: 이미지 경로 리스트
-            max_tokens: 최대 토큰 수
+            image_paths: 이미지 경로 (단일 또는 리스트)
+            prompt: 사용자 프롬프트
+            system_prompt: 커스텀 시스템 프롬프트 (선택)
+
+        Returns:
+            모델 응답 텍스트
+        """
+        if isinstance(image_paths, str):
+            image_paths = [image_paths]
+
+        # 메시지 구성
+        messages = [
+            {"role": "system", "content": system_prompt or self.system_prompt},
+            {
+                "role": "user",
+                "content": [{"type": "text", "text": prompt}]
+            }
+        ]
+
+        # 이미지 추가
+        for img_path in image_paths:
+            if os.path.exists(img_path):
+                base64_image = encode_image(img_path)
+                messages[1]["content"].append({
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{base64_image}"
+                    }
+                })
+
+        # API 호출
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=messages,
+                max_tokens=self.max_tokens
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            return f"Error: {str(e)}"
+
+    def diagnose(
+        self,
+        image_path: str,
+        symptoms: Optional[str] = None,
+        additional_context: Optional[str] = None
+    ) -> str:
+        """
+        피부 질환 진단
+
+        Args:
+            image_path: 이미지 경로
+            symptoms: 증상 정보 (선택)
+            additional_context: 추가 컨텍스트 (선택)
+
+        Returns:
+            진단 결과 텍스트
+        """
+        prompt_parts = ["Please diagnose the skin condition shown in this image."]
+
+        if symptoms:
+            prompt_parts.append(f"\n\nPatient-reported symptoms: {symptoms}")
+
+        if additional_context:
+            prompt_parts.append(f"\n\nAdditional context: {additional_context}")
+
+        prompt_parts.append("\n\nProvide your diagnosis with reasoning.")
+
+        return self.analyze_image(image_path, "".join(prompt_parts))
+
+    def extract_diagnosis_label(self, response: str) -> str:
+        """
+        응답에서 진단명 추출 (간단한 휴리스틱)
+
+        Args:
+            response: 모델 응답
+
+        Returns:
+            추출된 진단명
+        """
+        # 일반적인 패턴으로 진단명 추출 시도
+        import re
+
+        patterns = [
+            r"diagnosis[:\s]+([A-Za-z\s]+)",
+            r"condition[:\s]+([A-Za-z\s]+)",
+            r"appears to be[:\s]+([A-Za-z\s]+)",
+            r"likely[:\s]+([A-Za-z\s]+)",
+        ]
+
+        for pattern in patterns:
+            match = re.search(pattern, response, re.IGNORECASE)
+            if match:
+                return match.group(1).strip()
+
+        # 패턴 매칭 실패 시 응답 첫 줄 반환
+        first_line = response.split('\n')[0]
+        return first_line[:100] if len(first_line) > 100 else first_line
+
+    def chat(self, prompt: str, image_paths: Optional[List[str]] = None) -> str:
+        """
+        일반 채팅 인터페이스
+
+        Args:
+            prompt: 사용자 프롬프트
+            image_paths: 이미지 경로 리스트 (선택)
 
         Returns:
             모델 응답
         """
+        if image_paths:
+            return self.analyze_image(image_paths, prompt)
+
+        # 텍스트만 있는 경우
+        messages = [
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": prompt}
+        ]
+
         try:
-            # 이미지 인코딩
-            base64_images = []
-            for image in image_path:
-                if os.path.exists(image):
-                    base64_image = encode_image(image)
-                    base64_images.append(base64_image)
-
-            # 메시지 구성
-            messages = [
-                {"role": "system", "content": self.instruction},
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": input_text},
-                    ]
-                }
-            ]
-
-            # 이미지 추가
-            for image in base64_images:
-                messages[1]["content"].append({
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/png;base64,{image}"
-                    }
-                })
-
-            # API 호출
-            completion = self.client.chat.completions.create(
+            response = self.client.chat.completions.create(
                 model=self.model,
                 messages=messages,
-                max_tokens=max_tokens
+                max_tokens=self.max_tokens
             )
-
-            # None 응답 처리 - API가 content를 반환하지 않을 수 있음
-            content = completion.choices[0].message.content
-            if content is None:
-                print("[VLM Warning] API returned None content, retrying once...")
-                completion = self.client.chat.completions.create(
-                    model=self.model,
-                    messages=messages,
-                    max_tokens=max_tokens
-                )
-                content = completion.choices[0].message.content
-                if content is None:
-                    print("[VLM Warning] API returned None content again; returning empty string.")
-                    return ""
-            return content
-
-        except openai.APIStatusError as e:
-            if "413" in str(e):
-                print("이미지가 너무 큽니다. 압축 후 재시도...")
-                compressed_images = []
-                # tmp_file 경로를 experiments 폴더 내부로 설정
-                tmp_dir = Path(__file__).parent / "tmp_file"
-                tmp_dir.mkdir(parents=True, exist_ok=True)
-                for i, image in enumerate(image_path):
-                    compressed_path = str(tmp_dir / f"compressed_image_{i}.jpg")
-                    compressed_images.append(compress_image(image, compressed_path, quality=50))
-                return self.chat_img(input_text, compressed_images, max_tokens)
-            else:
-                raise e
+            return response.choices[0].message.content
+        except Exception as e:
+            return f"Error: {str(e)}"
 
 
-# GPT4o 별칭 (기존 코드 호환성)
-GPT4o = GPT4oWrapper
+# 테스트 코드
+if __name__ == "__main__":
+    import sys
 
-
-def test_vlm():
-    """VLM 래퍼 테스트"""
-    print("=" * 60)
-    print("VLM Wrapper Test")
-    print("=" * 60)
-
+    # API 키 확인
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
-        print("OPENAI_API_KEY 환경 변수가 설정되지 않았습니다.")
-        print("테스트를 건너뜁니다.")
-        return
+        print("OPENAI_API_KEY 환경변수를 설정하세요.")
+        sys.exit(1)
 
-    print("GPT4oWrapper 초기화 테스트...")
+    # 래퍼 초기화
     vlm = GPT4oWrapper(api_key=api_key, use_labels_prompt=False)
-    print(f"  모델: {vlm.model}")
-    print(f"  시스템 프롬프트 길이: {len(vlm.instruction)} chars")
-    print("초기화 성공!")
 
-
-if __name__ == "__main__":
-    test_vlm()
+    # 간단한 테스트
+    print("VLM Wrapper 초기화 성공!")
+    print(f"Model: {vlm.model}")
+    print(f"Max tokens: {vlm.max_tokens}")
