@@ -1,0 +1,501 @@
+source_file,filename,ground_truth_raw,predicted_raw,ground_truth_canonical,predicted_canonical,valid_gt,exact_match
+gpt4o_predictions.csv,youtube/nSw7XdNR0bg_frame_35881_3.jpg,vasculitis,Acne vulgaris,,Acne vulgaris,0,0
+gpt4o_predictions.csv,youtube/7SJ--nNILsI_frame_160_0_0.jpg,allergic contact dermatitis,Melanocytic nevus,Allergic contact dermatitis,Melanocytic nevus,1,0
+gpt4o_predictions.csv,pubmed/19_1d_PMC6755624_10.1177_2324709619877050_fig1_2.png,eruptive xanthoma,Rheumatoid nodule,Eruptive xanthoma,Rheumatoid nodule,1,0
+gpt4o_predictions.csv,pubmed/3b_fd_PMC8024261_41467_2021_22340_Fig1_HTML_10.jpg,no definitive diagnosis,Parse error,,,0,0
+gpt4o_predictions.csv,pubmed/98_a8_PMC9907656_SRT-28-357-g001_0.jpg,no definitive diagnosis,Erythema dyschromicum perstans,,Erythema dyschromicum perstans,0,0
+gpt4o_predictions.csv,pubmed/00_58_PMC5621200_IDOJ-8-361-g003_3.jpg,dermatitis,Herpes zoster,,Herpes zoster,0,0
+gpt4o_predictions.csv,youtube/ZV3lmTHN3_w_frame_51138_2.jpg,allergic contact dermatitis,Basal cell carcinoma,Allergic contact dermatitis,Basal cell carcinoma,1,0
+gpt4o_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分3_00361_17625_0.png",bloom syndrome,Rosacea,,Rosacea,0,0
+gpt4o_predictions.csv,youtube/jJjxGxhcjpU_frame_15202_0_0.jpg,allergic contact dermatitis,Molluscum contagiosum,Allergic contact dermatitis,Molluscum contagiosum,1,0
+gpt4o_predictions.csv,youtube/qW99IuAPApU_frame_23492_2.jpg,allergic contact dermatitis,Angioma,Allergic contact dermatitis,"Angioma, Hemangioma",1,0
+gpt4o_predictions.csv,youtube/SVKBH_vJ5fA_frame_60409_1.jpg,libido racemosa,Lichen planus,,Lichen planus,0,0
+gpt4o_predictions.csv,youtube/QGbWOPXpGqM_frame_34554_0_0.jpg,allergic contact dermatitis,Herpes zoster,Allergic contact dermatitis,Herpes zoster,1,0
+gpt4o_predictions.csv,public/-6844673583459020552.png,rosacea,Rosacea,Rosacea,Rosacea,1,1
+gpt4o_predictions.csv,IIYI/20385_2.png,hidradenitis suppurativa,Acne vulgaris,hidradenitis suppurativa,Acne vulgaris,1,0
+gpt4o_predictions.csv,edu/实用皮肤性病手册part1_00311_12159.png,drug eruption,Erythema multiforme,"Drug eruption, Drug eruptions & reactions",Erythema multiforme,1,0
+gpt4o_predictions.csv,pubmed/78_bc_PMC8896184_IANN_A_2044511_F0010_C_2.png,onychomycosis,Subungual hematoma,Onychomycosis,,1,0
+gpt4o_predictions.csv,public/dermoscopy-00--fusc2021--0247--2d-none.png,"foot ulcer, ulcer",Ulcer,,Ulcer,0,0
+gpt4o_predictions.csv,youtube/EHy_53RfOtU_frame_1625_0_0.jpg,abscess,Paronychia,Abscess,Paronychia,1,0
+gpt4o_predictions.csv,pubmed/7c_b9_PMC5707863_IDOJ_8_521_g002.png,autoimmune hemolytic anemia,Erythema multiforme,,Erythema multiforme,0,0
+gpt4o_predictions.csv,youtube/qn2EHDqBHk0_frame_13218_2.jpg,no definitive diagnosis,Basal cell carcinoma,,Basal cell carcinoma,0,0
+gpt4o_predictions.csv,pubmed/2b_db_PMC7315058_MBSEH_52_119_g001_0.png,no definitive diagnosis,Cutaneous larva migrans,,Cutaneous larva migrans,0,0
+gpt4o_predictions.csv,youtube/Rcom9v03f9g_frame_1238_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Parse error,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+gpt4o_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00281_01568_0.png",no definitive diagnosis,Xerosis,,Xerosis,0,0
+gpt4o_predictions.csv,IIYI/12237_2.png,pityriasis rosea,Pityriasis rosea,Pityriasis rosea,Pityriasis rosea,1,1
+gpt4o_predictions.csv,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00110_07579.png,cellulitis,Scarlet Fever Rash,Cellulitis,,1,0
+gpt4o_predictions.csv,IIYI/25760_2.png,"neurodermatitis, dermatitis",Psoriasis,,Psoriasis,0,0
+gpt4o_predictions.csv,public/ISIC_5562413.JPG,nevus,Melanoma,,"Malignant melanoma, melanoma",0,0
+gpt4o_predictions.csv,pubmed/d9_75_PMC7490996_gr3.png,no definitive diagnosis,Malignant melanoma,,"Malignant melanoma, melanoma",0,0
+gpt4o_predictions.csv,edu/Sauer - Manual of Skin Diseases-批量 OCR_00224_11642_0.jpg,ichthyosis,Erythema migrans,Ichthyosis,"Erythema migrans, Palpable migrating erythema",1,0
+gpt4o_predictions.csv,youtube/ZhQn7oXdsZs_frame_45517_0_0.jpg,allergic contact dermatitis,"Chronic dermatitis, NOS",Allergic contact dermatitis,"Chronic dermatitis, NOS",1,0
+gpt4o_predictions.csv,youtube/DSIkGCsikYU_frame_37665_11.jpg,allergic contact dermatitis,Psoriasis,Allergic contact dermatitis,Psoriasis,1,0
+gpt4o_predictions.csv,IIYI/18372_2.png,nevus,Cutaneous larva migrans,,Cutaneous larva migrans,0,0
+gpt4o_predictions.csv,youtube/IGc9CwT3jPw_frame_14160_1.jpg,paraneoplastic pemphigus,Erythema multiforme,,Erythema multiforme,0,0
+gpt4o_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy- An Illustrate_00348_17052_0.png",no definitive diagnosis,Melanocytic nevus,,Melanocytic nevus,0,0
+gpt4o_predictions.csv,youtube/qn2EHDqBHk0_frame_13191_0.jpg,no definitive diagnosis,Kaposi's sarcoma of skin,,Kaposi's sarcoma of skin,0,0
+gpt4o_predictions.csv,youtube/J9sVNh8KUAU_frame_55281_0_0.jpg,mucormycosis,Periorbital edema,,,0,0
+gpt4o_predictions.csv,IIYI/19461_4.png,"eczema, lichen planus, nail disease",Parse error,,,0,0
+gpt4o_predictions.csv,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part6_00276_01143_0.png,erythrasma,Condyloma acuminatum,,Condyloma acuminatum,0,0
+gpt4o_predictions.csv,youtube/p5-sNkNQHUY_frame_29037_0.jpg,allergic contact dermatitis,Erythema multiforme,Allergic contact dermatitis,Erythema multiforme,1,0
+gpt4o_predictions.csv,pubmed/71_7f_PMC4149335_cia_9_1409Fig1_1.png,cellulitis,Mucocele,Cellulitis,Mucocele,1,0
+gpt4o_predictions.csv,youtube/jdaN189qAVU_frame_1394_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Ulcer,"irritated seborrheic keratosis (from ""sk/isk"")",Ulcer,1,0
+gpt4o_predictions.csv,pubmed/bd_c1_PMC8884525_gox-10-e4001-g004_0.jpg,local infection of wound,Ulcer,Local infection of wound,Ulcer,1,0
+gpt4o_predictions.csv,youtube/283tIZpT1nA_frame_4307_0.jpg,melanoma,Lichen planus,"Malignant melanoma, melanoma",Lichen planus,1,0
+gpt4o_predictions.csv,youtube/1OuTdRRFqd0_frame_12623_0_0.jpg,no definitive diagnosis,Condyloma acuminatum,,Condyloma acuminatum,0,0
+gpt4o_predictions.csv,youtube/7RWVilxv6r8_frame_14966_0_0.jpg,lymphoma,Pityriasis versicolor,,,0,0
+gpt4o_predictions.csv,public/lentigo-adults-42.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Poikiloderma,"irritated seborrheic keratosis (from ""sk/isk"")",Poikiloderma,1,0
+gpt4o_predictions.csv,youtube/NQXKZcaxkaE_frame_35901_0_0.jpg,choroidal swelling,Conjunctival papilloma,,,0,0
+gpt4o_predictions.csv,IIYI/1135_3.png,cellulitis,Parse error,Cellulitis,,1,0
+gpt4o_predictions.csv,youtube/Rwvw8xmMVP4_frame_8653_0_0.jpg,psoriasis,Wound/Abrasion,Psoriasis,Wound/Abrasion,1,0
+gpt4o_predictions.csv,public/drug-eruptions-74.jpg,drug eruption,Drug eruption,"Drug eruption, Drug eruptions & reactions","Drug eruption, Drug eruptions & reactions",1,1
+gpt4o_predictions.csv,IIYI/28145_5.png,"chronic actinic dermatitis, dermatitis",Psoriasis,,Psoriasis,0,0
+gpt4o_predictions.csv,"edu/Electra Nicolaidou, Clio Dessinioti, Andreas Katsambas - Hypopigmentation. 1-CRC Press (2019)_00173_00668.png",xeroderma pigmentosum,Melasma,Xeroderma pigmentosum,"Melasma, Lentigo",1,0
+gpt4o_predictions.csv,IIYI/5381_1.png,"contact dermatitis, drug eruption, dermatitis",Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+gpt4o_predictions.csv,youtube/Pi20y_f-dfY_frame_49685_0_0.jpg,allergic contact dermatitis,Epidermoid cyst,Allergic contact dermatitis,Epidermoid cyst,1,0
+gpt4o_predictions.csv,youtube/3Dx-63EZR24_frame_27589_0_0.jpg,no definitive diagnosis,Parse error,,,0,0
+gpt4o_predictions.csv,youtube/Lng9V5iMGJQ_frame_8835_0_0.jpg,allergic contact dermatitis,Telangiectasia,Allergic contact dermatitis,,1,0
+gpt4o_predictions.csv,pubmed/64_38_PMC8088159_IDOJ_12_312_g002_0.png,"irritated seborrheic keratosis (from ""sk/isk"")",Acne keloidalis nuchae,"irritated seborrheic keratosis (from ""sk/isk"")",Acne keloidalis nuchae,1,0
+gpt4o_predictions.csv,public/herpes-type-1-recurrent-3.jpg,molluscum contagiosum,Herpes simplex virus,Molluscum contagiosum,Herpes simplex virus,1,0
+gpt4o_predictions.csv,youtube/xEYjjpXikwc_frame_3712_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Pityriasis rosea,"irritated seborrheic keratosis (from ""sk/isk"")",Pityriasis rosea,1,0
+gpt4o_predictions.csv,IIYI/12557_4.png,measles,Viral exanthem,,Viral exanthem,0,0
+gpt4o_predictions.csv,pubmed/fc_11_PMC10884590_Vetworld-17-150-g001_0.jpg,no definitive diagnosis,Not a human skin condition,,,0,0
+gpt4o_predictions.csv,youtube/R9Drgo1xMqg_frame_8972_0_0.jpg,allergic contact dermatitis,Wound/Abrasion,Allergic contact dermatitis,Wound/Abrasion,1,0
+gpt4o_predictions.csv,youtube/iFnBzD19FrE_frame_64737_0.jpg,proliferations,Parse error,proliferations,,1,0
+gpt4o_predictions.csv,pubmed/15_03_PMC10327660_dr-15-2-9617-g001_0.jpg,drug eruption,Psoriasis,"Drug eruption, Drug eruptions & reactions",Psoriasis,1,0
+gpt4o_predictions.csv,youtube/ZO_3RM9qssE_frame_26250_1.jpg,exophytic papillary growth,Pyogenic granuloma,,Pyogenic granuloma,0,0
+gpt4o_predictions.csv,edu/Amanda Oakley - Dermatology Made Easy-SCION PUBLISHING (2017)-OCR1_00475_17075.png,"eczema, discoid eczema",Psoriasis,,Psoriasis,0,0
+gpt4o_predictions.csv,youtube/Vrk7360xziM_frame_6521_0.jpg,allergic contact dermatitis,Basal cell carcinoma,Allergic contact dermatitis,Basal cell carcinoma,1,0
+gpt4o_predictions.csv,youtube/OT0JmxCglI4_frame_178469_2.jpg,no definitive diagnosis,Parse error,,,0,0
+gpt4o_predictions.csv,pubmed/8b_be_PMC10195979_gr4a.png,no definitive diagnosis,Wound/Abrasion,,Wound/Abrasion,0,0
+gpt4o_predictions.csv,youtube/GamzNQ1mnRE_frame_809_0_0.jpg,pyogenic granuloma,Pyogenic granuloma,Pyogenic granuloma,Pyogenic granuloma,1,1
+gpt4o_predictions.csv,pubmed/f3_be_PMC10868120_12903_2024_3998_Fig1_HTML.png,no definitive diagnosis,The specific skin disease visible in the image,,,0,0
+gpt4o_predictions.csv,public/dermoscopy-00--isic2017-task1--ISIC-0010185--2d-none.png,"melanocytic nevus, nevus",Seborrheic keratosis,,Seborrheic keratosis,0,0
+gpt4o_predictions.csv,pubmed/18_db_PMC3956789_ad-26-139-g001_2.jpg,striae,Lichen planus,Striae,Lichen planus,1,0
+gpt4o_predictions.csv,youtube/N6AUh84mRrI_frame_73721_2.jpg,no definitive diagnosis,Entropion,,,0,0
+gpt4o_predictions.csv,pubmed/e5_f4_PMC8355434_RCR2_9_e0827_g006_2.png,vasculitis,Dermatitis (acute and chronic),,Dermatitis (acute and chronic),0,0
+gpt4o_predictions.csv,youtube/BC-OLAoqCk4_frame_10492_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Parse error,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+gpt4o_predictions.csv,youtube/Xm46eaDAQ9c_frame_328_0_0.jpg,allergic contact dermatitis,Scabies,Allergic contact dermatitis,Scabies,1,0
+gpt4o_predictions.csv,youtube/7kHm0OypXeI_frame_13724_2.jpg,acral dermatitis,Erythema multiforme,,Erythema multiforme,0,0
+gpt4o_predictions.csv,edu/Aimilios Lallas- Zoe Apalla- Elizabeth Lazaridou- Dimitrios Ioannides - Dermatoscopy A-Z-CRC Press (2019)_00025_00174.png,basal cell carcinoma,Seborrheic keratosis,Basal cell carcinoma,Seborrheic keratosis,1,0
+gpt4o_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00269_01464_0.png",no definitive diagnosis,Rosacea,,Rosacea,0,0
+gpt4o_predictions.csv,youtube/cxnwhiVwGbg_frame_9310_0.jpg,non-melanocytic lesions,Basal cell carcinoma,,Basal cell carcinoma,0,0
+gpt4o_predictions.csv,public/dermoscopy-00--isic2016-task1--ISIC-0000065--2d-none.png,melanoma,Melanocytic nevus,"Malignant melanoma, melanoma",Melanocytic nevus,1,0
+gpt4o_predictions.csv,IIYI/16689_1.png,cutaneous sporotrichosis,Ulcer,,Ulcer,0,0
+gpt4o_predictions.csv,youtube/1O4E-aTIIiY_frame_8576_6.jpg,squamous cell carcinoma,Skin lesion in drug addict,Squamous cell carcinoma,Skin lesion in drug addict,1,0
+gpt4o_predictions.csv,IIYI/23009_1.png,actinic solar damage(solar purpura),Purpura,Actinic solar damage(solar purpura),,1,0
+gpt4o_predictions.csv,pubmed/c0_95_PMC8567499_WJCC_9_9228_g004_0.png,no definitive diagnosis,Vitiligo,,Vitiligo,0,0
+gpt4o_predictions.csv,youtube/Sv7YGWDfkQo_frame_9321_0_0.jpg,contact dermatitis,Malignant melanoma,Contact dermatitis,"Malignant melanoma, melanoma",1,0
+gpt4o_predictions.csv,pubmed/73_ca_PMC4872913_1679-4508-eins-14-1-0025-gf01-pt_2.jpg,no definitive diagnosis,Human bite wound,,,0,0
+gpt4o_predictions.csv,pubmed/54_31_PMC3827529_IJD_58_492a_g001.png,"tinea, tinea cruris",Condyloma acuminatum,,Condyloma acuminatum,0,0
+gpt4o_predictions.csv,youtube/LuzZ5bAaWDY_frame_3863_2.jpg,squamous cell carcinoma,Erythema multiforme,Squamous cell carcinoma,Erythema multiforme,1,0
+gpt4o_predictions.csv,youtube/_IxzrKPJdyw_frame_5576_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Xerosis,"irritated seborrheic keratosis (from ""sk/isk"")",Xerosis,1,0
+gpt4o_predictions.csv,youtube/KtE0xQG2ceI_frame_6866_6.jpg,allergic contact dermatitis,Bullous pemphigoid,Allergic contact dermatitis,Bullous pemphigoid,1,0
+gpt4o_predictions.csv,youtube/ypkfPgxNFms_frame_14666_1.jpg,no definitive diagnosis,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+gpt4o_predictions.csv,"edu/Dr. Anthony J. Mancini MD  FAAP  FAAD (editor), Dr. Daniel P. Krowchuk MD  FAAP (editor) - Pediatric Dermatology- A Quick Reference Guide-American Academy of Pediatrics (2020)_00381_11401.png",dermatitis,Infantile atopic dermatitis,,Infantile atopic dermatitis,0,0
+gpt4o_predictions.csv,"edu/Habif, Thomas P. - Clinical Dermatology (5th ed.)  -Elsevier Health Sciences-部分2_00017_04888.png",cradle cap,Xerotic eczema,,Xerotic eczema,0,0
+gpt4o_predictions.csv,youtube/ZfpA_Vc0f60_frame_59_0_0.jpg,contact dermatitis,Actinic solar damage(pigmentation),Contact dermatitis,Actinic solar damage(pigmentation),1,0
+gpt4o_predictions.csv,youtube/wFwNjR0Rogc_frame_132227_0.jpg,no definitive diagnosis,Rosacea,,Rosacea,0,0
+gpt4o_predictions.csv,youtube/fmL_3Mt08GQ_frame_13703_0.jpg,cutaneous t-cell lymphoma (mf),Mongolian spot,,,0,0
+gpt4o_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分5_00345_16576_1.png",no definitive diagnosis,Rosacea,,Rosacea,0,0
+gpt4o_predictions.csv,pubmed/6b_ac_PMC5808376_dp0801a14g003_2.png,"lentigo, lentigo maligna",Lentigo maligna melanoma,,"Lentigo maligna melanoma, Lentigo maligna",0,0
+internvl3_14b_predictions.csv,youtube/nSw7XdNR0bg_frame_35881_3.jpg,vasculitis,Actinic solar damage(actinic keratosis),,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+internvl3_14b_predictions.csv,youtube/7SJ--nNILsI_frame_160_0_0.jpg,allergic contact dermatitis,Actinic solar damage(pigmentation),Allergic contact dermatitis,Actinic solar damage(pigmentation),1,0
+internvl3_14b_predictions.csv,pubmed/19_1d_PMC6755624_10.1177_2324709619877050_fig1_2.png,eruptive xanthoma,Furuncle,Eruptive xanthoma,Furuncle,1,0
+internvl3_14b_predictions.csv,pubmed/3b_fd_PMC8024261_41467_2021_22340_Fig1_HTML_10.jpg,no definitive diagnosis,Radiodermatitis,,Radiodermatitis,0,0
+internvl3_14b_predictions.csv,pubmed/98_a8_PMC9907656_SRT-28-357-g001_0.jpg,no definitive diagnosis,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,pubmed/00_58_PMC5621200_IDOJ-8-361-g003_3.jpg,dermatitis,Acute dermatitis,,Acute dermatitis,0,0
+internvl3_14b_predictions.csv,youtube/ZV3lmTHN3_w_frame_51138_2.jpg,allergic contact dermatitis,Keloid,Allergic contact dermatitis,Keloid,1,0
+internvl3_14b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分3_00361_17625_0.png",bloom syndrome,Rosacea,,Rosacea,0,0
+internvl3_14b_predictions.csv,youtube/jJjxGxhcjpU_frame_15202_0_0.jpg,allergic contact dermatitis,Seborrheic keratosis,Allergic contact dermatitis,Seborrheic keratosis,1,0
+internvl3_14b_predictions.csv,youtube/qW99IuAPApU_frame_23492_2.jpg,allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),Allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_14b_predictions.csv,youtube/SVKBH_vJ5fA_frame_60409_1.jpg,libido racemosa,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_14b_predictions.csv,youtube/QGbWOPXpGqM_frame_34554_0_0.jpg,allergic contact dermatitis,Erythema multiforme,Allergic contact dermatitis,Erythema multiforme,1,0
+internvl3_14b_predictions.csv,public/-6844673583459020552.png,rosacea,Rosacea,Rosacea,Rosacea,1,1
+internvl3_14b_predictions.csv,IIYI/20385_2.png,hidradenitis suppurativa,Actinic solar damage(actinic keratosis),hidradenitis suppurativa,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+internvl3_14b_predictions.csv,edu/实用皮肤性病手册part1_00311_12159.png,drug eruption,Acne vulgaris,"Drug eruption, Drug eruptions & reactions",Acne vulgaris,1,0
+internvl3_14b_predictions.csv,pubmed/78_bc_PMC8896184_IANN_A_2044511_F0010_C_2.png,onychomycosis,Onychomycosis,Onychomycosis,Onychomycosis,1,1
+internvl3_14b_predictions.csv,public/dermoscopy-00--fusc2021--0247--2d-none.png,"foot ulcer, ulcer",Pressure ulcer,,Pressure ulcer,0,0
+internvl3_14b_predictions.csv,youtube/EHy_53RfOtU_frame_1625_0_0.jpg,abscess,Paronychia,Abscess,Paronychia,1,0
+internvl3_14b_predictions.csv,pubmed/7c_b9_PMC5707863_IDOJ_8_521_g002.png,autoimmune hemolytic anemia,Seborrheic keratosis,,Seborrheic keratosis,0,0
+internvl3_14b_predictions.csv,youtube/qn2EHDqBHk0_frame_13218_2.jpg,no definitive diagnosis,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,pubmed/2b_db_PMC7315058_MBSEH_52_119_g001_0.png,no definitive diagnosis,Callus,,Callus,0,0
+internvl3_14b_predictions.csv,youtube/Rcom9v03f9g_frame_1238_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",None,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+internvl3_14b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00281_01568_0.png",no definitive diagnosis,Actinic solar damage(telangiectasia),,Actinic solar damage(telangiectasia),0,0
+internvl3_14b_predictions.csv,IIYI/12237_2.png,pityriasis rosea,Acne vulgaris,Pityriasis rosea,Acne vulgaris,1,0
+internvl3_14b_predictions.csv,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00110_07579.png,cellulitis,Acute dermatitis,Cellulitis,Acute dermatitis,1,0
+internvl3_14b_predictions.csv,IIYI/25760_2.png,"neurodermatitis, dermatitis",Impetigo,,Impetigo,0,0
+internvl3_14b_predictions.csv,public/ISIC_5562413.JPG,nevus,Melanocytic nevus,,Melanocytic nevus,0,0
+internvl3_14b_predictions.csv,pubmed/d9_75_PMC7490996_gr3.png,no definitive diagnosis,Abscess,,Abscess,0,0
+internvl3_14b_predictions.csv,edu/Sauer - Manual of Skin Diseases-批量 OCR_00224_11642_0.jpg,ichthyosis,Actinic solar damage(pigmentation),Ichthyosis,Actinic solar damage(pigmentation),1,0
+internvl3_14b_predictions.csv,youtube/ZhQn7oXdsZs_frame_45517_0_0.jpg,allergic contact dermatitis,Stasis dermatitis,Allergic contact dermatitis,Stasis dermatitis,1,0
+internvl3_14b_predictions.csv,youtube/DSIkGCsikYU_frame_37665_11.jpg,allergic contact dermatitis,Callus,Allergic contact dermatitis,Callus,1,0
+internvl3_14b_predictions.csv,IIYI/18372_2.png,nevus,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,youtube/IGc9CwT3jPw_frame_14160_1.jpg,paraneoplastic pemphigus,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy- An Illustrate_00348_17052_0.png",no definitive diagnosis,Melanocytic nevus,,Melanocytic nevus,0,0
+internvl3_14b_predictions.csv,youtube/qn2EHDqBHk0_frame_13191_0.jpg,no definitive diagnosis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_14b_predictions.csv,youtube/J9sVNh8KUAU_frame_55281_0_0.jpg,mucormycosis,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,IIYI/19461_4.png,"eczema, lichen planus, nail disease",None,,,0,0
+internvl3_14b_predictions.csv,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part6_00276_01143_0.png,erythrasma,Seborrheic keratosis,,Seborrheic keratosis,0,0
+internvl3_14b_predictions.csv,youtube/p5-sNkNQHUY_frame_29037_0.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+internvl3_14b_predictions.csv,pubmed/71_7f_PMC4149335_cia_9_1409Fig1_1.png,cellulitis,Angular cheilitis,Cellulitis,Angular cheilitis,1,0
+internvl3_14b_predictions.csv,youtube/jdaN189qAVU_frame_1394_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Ulcer,"irritated seborrheic keratosis (from ""sk/isk"")",Ulcer,1,0
+internvl3_14b_predictions.csv,pubmed/bd_c1_PMC8884525_gox-10-e4001-g004_0.jpg,local infection of wound,Pressure ulcer,Local infection of wound,Pressure ulcer,1,0
+internvl3_14b_predictions.csv,youtube/283tIZpT1nA_frame_4307_0.jpg,melanoma,Actinic solar damage(actinic keratosis),"Malignant melanoma, melanoma","Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+internvl3_14b_predictions.csv,youtube/1OuTdRRFqd0_frame_12623_0_0.jpg,no definitive diagnosis,Seborrheic keratosis,,Seborrheic keratosis,0,0
+internvl3_14b_predictions.csv,youtube/7RWVilxv6r8_frame_14966_0_0.jpg,lymphoma,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,public/lentigo-adults-42.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Seborrheic keratosis,"irritated seborrheic keratosis (from ""sk/isk"")",Seborrheic keratosis,1,0
+internvl3_14b_predictions.csv,youtube/NQXKZcaxkaE_frame_35901_0_0.jpg,choroidal swelling,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,IIYI/1135_3.png,cellulitis,None,Cellulitis,,1,0
+internvl3_14b_predictions.csv,youtube/Rwvw8xmMVP4_frame_8653_0_0.jpg,psoriasis,Pressure ulcer,Psoriasis,Pressure ulcer,1,0
+internvl3_14b_predictions.csv,public/drug-eruptions-74.jpg,drug eruption,Actinic solar damage(pigmentation),"Drug eruption, Drug eruptions & reactions",Actinic solar damage(pigmentation),1,0
+internvl3_14b_predictions.csv,IIYI/28145_5.png,"chronic actinic dermatitis, dermatitis",Acute vesicular dermatitis,,Acute vesicular dermatitis,0,0
+internvl3_14b_predictions.csv,"edu/Electra Nicolaidou, Clio Dessinioti, Andreas Katsambas - Hypopigmentation. 1-CRC Press (2019)_00173_00668.png",xeroderma pigmentosum,Actinic solar damage(cutis rhomboidalis nuchae),Xeroderma pigmentosum,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_14b_predictions.csv,IIYI/5381_1.png,"contact dermatitis, drug eruption, dermatitis",Actinic solar damage(solar elastosis),,Actinic solar damage(solar elastosis),0,0
+internvl3_14b_predictions.csv,youtube/Pi20y_f-dfY_frame_49685_0_0.jpg,allergic contact dermatitis,Sebaceous hyperplasia,Allergic contact dermatitis,"Sebaceous gland hyperplasia, Sebaceous hyperplasia",1,0
+internvl3_14b_predictions.csv,youtube/3Dx-63EZR24_frame_27589_0_0.jpg,no definitive diagnosis,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,youtube/Lng9V5iMGJQ_frame_8835_0_0.jpg,allergic contact dermatitis,Angular cheilitis,Allergic contact dermatitis,Angular cheilitis,1,0
+internvl3_14b_predictions.csv,pubmed/64_38_PMC8088159_IDOJ_12_312_g002_0.png,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,1,0
+internvl3_14b_predictions.csv,public/herpes-type-1-recurrent-3.jpg,molluscum contagiosum,Angular cheilitis,Molluscum contagiosum,Angular cheilitis,1,0
+internvl3_14b_predictions.csv,youtube/xEYjjpXikwc_frame_3712_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Actinic keratosis,"irritated seborrheic keratosis (from ""sk/isk"")","Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+internvl3_14b_predictions.csv,IIYI/12557_4.png,measles,Erythema annulare centrifugum,,Erythema annulare centrifugum,0,0
+internvl3_14b_predictions.csv,pubmed/fc_11_PMC10884590_Vetworld-17-150-g001_0.jpg,no definitive diagnosis,Seborrheic keratosis,,Seborrheic keratosis,0,0
+internvl3_14b_predictions.csv,youtube/R9Drgo1xMqg_frame_8972_0_0.jpg,allergic contact dermatitis,Cellulitis,Allergic contact dermatitis,Cellulitis,1,0
+internvl3_14b_predictions.csv,youtube/iFnBzD19FrE_frame_64737_0.jpg,proliferations,Wound/Abrasion,proliferations,Wound/Abrasion,1,0
+internvl3_14b_predictions.csv,pubmed/15_03_PMC10327660_dr-15-2-9617-g001_0.jpg,drug eruption,Actinic solar damage(cutis rhomboidalis nuchae),"Drug eruption, Drug eruptions & reactions",Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_14b_predictions.csv,youtube/ZO_3RM9qssE_frame_26250_1.jpg,exophytic papillary growth,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,edu/Amanda Oakley - Dermatology Made Easy-SCION PUBLISHING (2017)-OCR1_00475_17075.png,"eczema, discoid eczema",Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,youtube/Vrk7360xziM_frame_6521_0.jpg,allergic contact dermatitis,Seborrheic keratosis,Allergic contact dermatitis,Seborrheic keratosis,1,0
+internvl3_14b_predictions.csv,youtube/OT0JmxCglI4_frame_178469_2.jpg,no definitive diagnosis,Acrochordon,,,0,0
+internvl3_14b_predictions.csv,pubmed/8b_be_PMC10195979_gr4a.png,no definitive diagnosis,Wound/Abrasion,,Wound/Abrasion,0,0
+internvl3_14b_predictions.csv,youtube/GamzNQ1mnRE_frame_809_0_0.jpg,pyogenic granuloma,Furuncle,Pyogenic granuloma,Furuncle,1,0
+internvl3_14b_predictions.csv,pubmed/f3_be_PMC10868120_12903_2024_3998_Fig1_HTML.png,no definitive diagnosis,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,public/dermoscopy-00--isic2017-task1--ISIC-0010185--2d-none.png,"melanocytic nevus, nevus",Seborrheic keratosis,,Seborrheic keratosis,0,0
+internvl3_14b_predictions.csv,pubmed/18_db_PMC3956789_ad-26-139-g001_2.jpg,striae,Pressure ulcer,Striae,Pressure ulcer,1,0
+internvl3_14b_predictions.csv,youtube/N6AUh84mRrI_frame_73721_2.jpg,no definitive diagnosis,Keloid,,Keloid,0,0
+internvl3_14b_predictions.csv,pubmed/e5_f4_PMC8355434_RCR2_9_e0827_g006_2.png,vasculitis,Plantar wart,,,0,0
+internvl3_14b_predictions.csv,youtube/BC-OLAoqCk4_frame_10492_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,1,0
+internvl3_14b_predictions.csv,youtube/Xm46eaDAQ9c_frame_328_0_0.jpg,allergic contact dermatitis,Tick bite,Allergic contact dermatitis,Tick bite,1,0
+internvl3_14b_predictions.csv,youtube/7kHm0OypXeI_frame_13724_2.jpg,acral dermatitis,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,edu/Aimilios Lallas- Zoe Apalla- Elizabeth Lazaridou- Dimitrios Ioannides - Dermatoscopy A-Z-CRC Press (2019)_00025_00174.png,basal cell carcinoma,Seborrheic keratosis,Basal cell carcinoma,Seborrheic keratosis,1,0
+internvl3_14b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00269_01464_0.png",no definitive diagnosis,Actinic solar damage(telangiectasia),,Actinic solar damage(telangiectasia),0,0
+internvl3_14b_predictions.csv,youtube/cxnwhiVwGbg_frame_9310_0.jpg,non-melanocytic lesions,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_14b_predictions.csv,public/dermoscopy-00--isic2016-task1--ISIC-0000065--2d-none.png,melanoma,Lentigo,"Malignant melanoma, melanoma","Melasma, Lentigo",1,0
+internvl3_14b_predictions.csv,IIYI/16689_1.png,cutaneous sporotrichosis,Abscess,,Abscess,0,0
+internvl3_14b_predictions.csv,youtube/1O4E-aTIIiY_frame_8576_6.jpg,squamous cell carcinoma,Angular cheilitis,Squamous cell carcinoma,Angular cheilitis,1,0
+internvl3_14b_predictions.csv,IIYI/23009_1.png,actinic solar damage(solar purpura),Bruise,Actinic solar damage(solar purpura),,1,0
+internvl3_14b_predictions.csv,pubmed/c0_95_PMC8567499_WJCC_9_9228_g004_0.png,no definitive diagnosis,Callus,,Callus,0,0
+internvl3_14b_predictions.csv,youtube/Sv7YGWDfkQo_frame_9321_0_0.jpg,contact dermatitis,Melanoma,Contact dermatitis,"Malignant melanoma, melanoma",1,0
+internvl3_14b_predictions.csv,pubmed/73_ca_PMC4872913_1679-4508-eins-14-1-0025-gf01-pt_2.jpg,no definitive diagnosis,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+internvl3_14b_predictions.csv,pubmed/54_31_PMC3827529_IJD_58_492a_g001.png,"tinea, tinea cruris",Plantar wart,,,0,0
+internvl3_14b_predictions.csv,youtube/LuzZ5bAaWDY_frame_3863_2.jpg,squamous cell carcinoma,Seborrheic keratosis,Squamous cell carcinoma,Seborrheic keratosis,1,0
+internvl3_14b_predictions.csv,youtube/_IxzrKPJdyw_frame_5576_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Pruritus,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+internvl3_14b_predictions.csv,youtube/KtE0xQG2ceI_frame_6866_6.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+internvl3_14b_predictions.csv,youtube/ypkfPgxNFms_frame_14666_1.jpg,no definitive diagnosis,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+internvl3_14b_predictions.csv,"edu/Dr. Anthony J. Mancini MD  FAAP  FAAD (editor), Dr. Daniel P. Krowchuk MD  FAAP (editor) - Pediatric Dermatology- A Quick Reference Guide-American Academy of Pediatrics (2020)_00381_11401.png",dermatitis,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+internvl3_14b_predictions.csv,"edu/Habif, Thomas P. - Clinical Dermatology (5th ed.)  -Elsevier Health Sciences-部分2_00017_04888.png",cradle cap,Callus,,Callus,0,0
+internvl3_14b_predictions.csv,youtube/ZfpA_Vc0f60_frame_59_0_0.jpg,contact dermatitis,Angular cheilitis,Contact dermatitis,Angular cheilitis,1,0
+internvl3_14b_predictions.csv,youtube/wFwNjR0Rogc_frame_132227_0.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_14b_predictions.csv,youtube/fmL_3Mt08GQ_frame_13703_0.jpg,cutaneous t-cell lymphoma (mf),Nevus sebaceous of Jadassohn,,Nevus sebaceous of Jadassohn,0,0
+internvl3_14b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分5_00345_16576_1.png",no definitive diagnosis,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_14b_predictions.csv,pubmed/6b_ac_PMC5808376_dp0801a14g003_2.png,"lentigo, lentigo maligna",Actinic solar damage(actinic keratosis),,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+internvl3_8b_predictions.csv,youtube/nSw7XdNR0bg_frame_35881_3.jpg,vasculitis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/7SJ--nNILsI_frame_160_0_0.jpg,allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),Allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,pubmed/19_1d_PMC6755624_10.1177_2324709619877050_fig1_2.png,eruptive xanthoma,Acne vulgaris,Eruptive xanthoma,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,pubmed/3b_fd_PMC8024261_41467_2021_22340_Fig1_HTML_10.jpg,no definitive diagnosis,Parse error,,,0,0
+internvl3_8b_predictions.csv,pubmed/98_a8_PMC9907656_SRT-28-357-g001_0.jpg,no definitive diagnosis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,pubmed/00_58_PMC5621200_IDOJ-8-361-g003_3.jpg,dermatitis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/ZV3lmTHN3_w_frame_51138_2.jpg,allergic contact dermatitis,Acne keloidalis nuchae,Allergic contact dermatitis,Acne keloidalis nuchae,1,0
+internvl3_8b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分3_00361_17625_0.png",bloom syndrome,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/jJjxGxhcjpU_frame_15202_0_0.jpg,allergic contact dermatitis,Epidermoid cyst,Allergic contact dermatitis,Epidermoid cyst,1,0
+internvl3_8b_predictions.csv,youtube/qW99IuAPApU_frame_23492_2.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,youtube/SVKBH_vJ5fA_frame_60409_1.jpg,libido racemosa,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/QGbWOPXpGqM_frame_34554_0_0.jpg,allergic contact dermatitis,Acute vesicular dermatitis,Allergic contact dermatitis,Acute vesicular dermatitis,1,0
+internvl3_8b_predictions.csv,public/-6844673583459020552.png,rosacea,Acne vulgaris,Rosacea,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,IIYI/20385_2.png,hidradenitis suppurativa,Acne vulgaris,hidradenitis suppurativa,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,edu/实用皮肤性病手册part1_00311_12159.png,drug eruption,Acne vulgaris,"Drug eruption, Drug eruptions & reactions",Acne vulgaris,1,0
+internvl3_8b_predictions.csv,pubmed/78_bc_PMC8896184_IANN_A_2044511_F0010_C_2.png,onychomycosis,Actinic solar damage(cutis rhomboidalis nuchae),Onychomycosis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,public/dermoscopy-00--fusc2021--0247--2d-none.png,"foot ulcer, ulcer",Pressure ulcer,,Pressure ulcer,0,0
+internvl3_8b_predictions.csv,youtube/EHy_53RfOtU_frame_1625_0_0.jpg,abscess,Acne vulgaris,Abscess,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,pubmed/7c_b9_PMC5707863_IDOJ_8_521_g002.png,autoimmune hemolytic anemia,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/qn2EHDqBHk0_frame_13218_2.jpg,no definitive diagnosis,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_8b_predictions.csv,pubmed/2b_db_PMC7315058_MBSEH_52_119_g001_0.png,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/Rcom9v03f9g_frame_1238_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",None,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+internvl3_8b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00281_01568_0.png",no definitive diagnosis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,IIYI/12237_2.png,pityriasis rosea,Livedo reticularis,Pityriasis rosea,Livedo reticularis,1,0
+internvl3_8b_predictions.csv,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00110_07579.png,cellulitis,Erythema migrans,Cellulitis,"Erythema migrans, Palpable migrating erythema",1,0
+internvl3_8b_predictions.csv,IIYI/25760_2.png,"neurodermatitis, dermatitis",Acute vesicular dermatitis,,Acute vesicular dermatitis,0,0
+internvl3_8b_predictions.csv,public/ISIC_5562413.JPG,nevus,Melanocytic nevus,,Melanocytic nevus,0,0
+internvl3_8b_predictions.csv,pubmed/d9_75_PMC7490996_gr3.png,no definitive diagnosis,Furuncle,,Furuncle,0,0
+internvl3_8b_predictions.csv,edu/Sauer - Manual of Skin Diseases-批量 OCR_00224_11642_0.jpg,ichthyosis,Actinic solar damage(cutis rhomboidalis nuchae),Ichthyosis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,youtube/ZhQn7oXdsZs_frame_45517_0_0.jpg,allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),Allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,youtube/DSIkGCsikYU_frame_37665_11.jpg,allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),Allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,IIYI/18372_2.png,nevus,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/IGc9CwT3jPw_frame_14160_1.jpg,paraneoplastic pemphigus,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_8b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy- An Illustrate_00348_17052_0.png",no definitive diagnosis,Melanocytic nevus,,Melanocytic nevus,0,0
+internvl3_8b_predictions.csv,youtube/qn2EHDqBHk0_frame_13191_0.jpg,no definitive diagnosis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/J9sVNh8KUAU_frame_55281_0_0.jpg,mucormycosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,IIYI/19461_4.png,"eczema, lichen planus, nail disease",None,,,0,0
+internvl3_8b_predictions.csv,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part6_00276_01143_0.png,erythrasma,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+internvl3_8b_predictions.csv,youtube/p5-sNkNQHUY_frame_29037_0.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,pubmed/71_7f_PMC4149335_cia_9_1409Fig1_1.png,cellulitis,Angular cheilitis,Cellulitis,Angular cheilitis,1,0
+internvl3_8b_predictions.csv,youtube/jdaN189qAVU_frame_1394_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Acute vesicular dermatitis,"irritated seborrheic keratosis (from ""sk/isk"")",Acute vesicular dermatitis,1,0
+internvl3_8b_predictions.csv,pubmed/bd_c1_PMC8884525_gox-10-e4001-g004_0.jpg,local infection of wound,Actinic solar damage(cutis rhomboidalis nuchae),Local infection of wound,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,youtube/283tIZpT1nA_frame_4307_0.jpg,melanoma,Acne vulgaris,"Malignant melanoma, melanoma",Acne vulgaris,1,0
+internvl3_8b_predictions.csv,youtube/1OuTdRRFqd0_frame_12623_0_0.jpg,no definitive diagnosis,Seborrheicic keratosis,,,0,0
+internvl3_8b_predictions.csv,youtube/7RWVilxv6r8_frame_14966_0_0.jpg,lymphoma,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,public/lentigo-adults-42.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(cutis rhomboidalis nuchae),"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,youtube/NQXKZcaxkaE_frame_35901_0_0.jpg,choroidal swelling,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+internvl3_8b_predictions.csv,IIYI/1135_3.png,cellulitis,Parse error,Cellulitis,,1,0
+internvl3_8b_predictions.csv,youtube/Rwvw8xmMVP4_frame_8653_0_0.jpg,psoriasis,Sunburn,Psoriasis,Sunburn,1,0
+internvl3_8b_predictions.csv,public/drug-eruptions-74.jpg,drug eruption,Acute generalized exanthematous pustulosis,"Drug eruption, Drug eruptions & reactions",Acute generalized exanthematous pustulosis,1,0
+internvl3_8b_predictions.csv,IIYI/28145_5.png,"chronic actinic dermatitis, dermatitis",Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,"edu/Electra Nicolaidou, Clio Dessinioti, Andreas Katsambas - Hypopigmentation. 1-CRC Press (2019)_00173_00668.png",xeroderma pigmentosum,Actinic solar damage(cutis rhomboidalis nuchae),Xeroderma pigmentosum,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,IIYI/5381_1.png,"contact dermatitis, drug eruption, dermatitis",Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/Pi20y_f-dfY_frame_49685_0_0.jpg,allergic contact dermatitis,Keloid,Allergic contact dermatitis,Keloid,1,0
+internvl3_8b_predictions.csv,youtube/3Dx-63EZR24_frame_27589_0_0.jpg,no definitive diagnosis,Urticaria,,Urticaria,0,0
+internvl3_8b_predictions.csv,youtube/Lng9V5iMGJQ_frame_8835_0_0.jpg,allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),Allergic contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,pubmed/64_38_PMC8088159_IDOJ_12_312_g002_0.png,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,1,0
+internvl3_8b_predictions.csv,public/herpes-type-1-recurrent-3.jpg,molluscum contagiosum,Angular cheilitis,Molluscum contagiosum,Angular cheilitis,1,0
+internvl3_8b_predictions.csv,youtube/xEYjjpXikwc_frame_3712_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(cutis rhomboidalis nuchae),"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,IIYI/12557_4.png,measles,Erythema migrans,,"Erythema migrans, Palpable migrating erythema",0,0
+internvl3_8b_predictions.csv,pubmed/fc_11_PMC10884590_Vetworld-17-150-g001_0.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/R9Drgo1xMqg_frame_8972_0_0.jpg,allergic contact dermatitis,Burn of skin,Allergic contact dermatitis,Burn of skin,1,0
+internvl3_8b_predictions.csv,youtube/iFnBzD19FrE_frame_64737_0.jpg,proliferations,Sunburn,proliferations,Sunburn,1,0
+internvl3_8b_predictions.csv,pubmed/15_03_PMC10327660_dr-15-2-9617-g001_0.jpg,drug eruption,Actinic solar damage(cutis rhomboidalis nuchae),"Drug eruption, Drug eruptions & reactions",Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,youtube/ZO_3RM9qssE_frame_26250_1.jpg,exophytic papillary growth,Acute dermatitis,,Acute dermatitis,0,0
+internvl3_8b_predictions.csv,edu/Amanda Oakley - Dermatology Made Easy-SCION PUBLISHING (2017)-OCR1_00475_17075.png,"eczema, discoid eczema",Acute generalized exanthematous pustulosis,,Acute generalized exanthematous pustulosis,0,0
+internvl3_8b_predictions.csv,youtube/Vrk7360xziM_frame_6521_0.jpg,allergic contact dermatitis,Epidermoid cyst,Allergic contact dermatitis,Epidermoid cyst,1,0
+internvl3_8b_predictions.csv,youtube/OT0JmxCglI4_frame_178469_2.jpg,no definitive diagnosis,Pyoderma gangrenosum,,Pyoderma gangrenosum,0,0
+internvl3_8b_predictions.csv,pubmed/8b_be_PMC10195979_gr4a.png,no definitive diagnosis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/GamzNQ1mnRE_frame_809_0_0.jpg,pyogenic granuloma,Epidermoid cyst,Pyogenic granuloma,Epidermoid cyst,1,0
+internvl3_8b_predictions.csv,pubmed/f3_be_PMC10868120_12903_2024_3998_Fig1_HTML.png,no definitive diagnosis,Angular cheilitis,,Angular cheilitis,0,0
+internvl3_8b_predictions.csv,public/dermoscopy-00--isic2017-task1--ISIC-0010185--2d-none.png,"melanocytic nevus, nevus",Melanocytic nevus,,Melanocytic nevus,0,0
+internvl3_8b_predictions.csv,pubmed/18_db_PMC3956789_ad-26-139-g001_2.jpg,striae,Actinic solar damage(cutis rhomboidalis nuchae),Striae,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,youtube/N6AUh84mRrI_frame_73721_2.jpg,no definitive diagnosis,Acute vesicular dermatitis,,Acute vesicular dermatitis,0,0
+internvl3_8b_predictions.csv,pubmed/e5_f4_PMC8355434_RCR2_9_e0827_g006_2.png,vasculitis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/BC-OLAoqCk4_frame_10492_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,1,0
+internvl3_8b_predictions.csv,youtube/Xm46eaDAQ9c_frame_328_0_0.jpg,allergic contact dermatitis,Tinea corporis,Allergic contact dermatitis,Tinea corporis,1,0
+internvl3_8b_predictions.csv,youtube/7kHm0OypXeI_frame_13724_2.jpg,acral dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,edu/Aimilios Lallas- Zoe Apalla- Elizabeth Lazaridou- Dimitrios Ioannides - Dermatoscopy A-Z-CRC Press (2019)_00025_00174.png,basal cell carcinoma,Melasma,Basal cell carcinoma,"Melasma, Lentigo",1,0
+internvl3_8b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00269_01464_0.png",no definitive diagnosis,Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+internvl3_8b_predictions.csv,youtube/cxnwhiVwGbg_frame_9310_0.jpg,non-melanocytic lesions,Acute vesicular dermatitis,,Acute vesicular dermatitis,0,0
+internvl3_8b_predictions.csv,public/dermoscopy-00--isic2016-task1--ISIC-0000065--2d-none.png,melanoma,Melanoma,"Malignant melanoma, melanoma","Malignant melanoma, melanoma",1,1
+internvl3_8b_predictions.csv,IIYI/16689_1.png,cutaneous sporotrichosis,Acute vesicular dermatitis,,Acute vesicular dermatitis,0,0
+internvl3_8b_predictions.csv,youtube/1O4E-aTIIiY_frame_8576_6.jpg,squamous cell carcinoma,Angular cheilitis,Squamous cell carcinoma,Angular cheilitis,1,0
+internvl3_8b_predictions.csv,IIYI/23009_1.png,actinic solar damage(solar purpura),Actinic solar damage(cutis rhomboidalis nuchae),Actinic solar damage(solar purpura),Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,pubmed/c0_95_PMC8567499_WJCC_9_9228_g004_0.png,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/Sv7YGWDfkQo_frame_9321_0_0.jpg,contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),Contact dermatitis,Actinic solar damage(cutis rhomboidalis nuchae),1,0
+internvl3_8b_predictions.csv,pubmed/73_ca_PMC4872913_1679-4508-eins-14-1-0025-gf01-pt_2.jpg,no definitive diagnosis,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+internvl3_8b_predictions.csv,pubmed/54_31_PMC3827529_IJD_58_492a_g001.png,"tinea, tinea cruris",Angular cheilitis,,Angular cheilitis,0,0
+internvl3_8b_predictions.csv,youtube/LuzZ5bAaWDY_frame_3863_2.jpg,squamous cell carcinoma,Acne vulgaris,Squamous cell carcinoma,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,youtube/_IxzrKPJdyw_frame_5576_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",None,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+internvl3_8b_predictions.csv,youtube/KtE0xQG2ceI_frame_6866_6.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+internvl3_8b_predictions.csv,youtube/ypkfPgxNFms_frame_14666_1.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,"edu/Dr. Anthony J. Mancini MD  FAAP  FAAD (editor), Dr. Daniel P. Krowchuk MD  FAAP (editor) - Pediatric Dermatology- A Quick Reference Guide-American Academy of Pediatrics (2020)_00381_11401.png",dermatitis,Café au lait macule,,Café au lait macule,0,0
+internvl3_8b_predictions.csv,"edu/Habif, Thomas P. - Clinical Dermatology (5th ed.)  -Elsevier Health Sciences-部分2_00017_04888.png",cradle cap,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/ZfpA_Vc0f60_frame_59_0_0.jpg,contact dermatitis,Angular cheilitis,Contact dermatitis,Angular cheilitis,1,0
+internvl3_8b_predictions.csv,youtube/wFwNjR0Rogc_frame_132227_0.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,youtube/fmL_3Mt08GQ_frame_13703_0.jpg,cutaneous t-cell lymphoma (mf),Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分5_00345_16576_1.png",no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+internvl3_8b_predictions.csv,pubmed/6b_ac_PMC5808376_dp0801a14g003_2.png,"lentigo, lentigo maligna",Actinic solar damage(cutis rhomboidalis nuchae),,Actinic solar damage(cutis rhomboidalis nuchae),0,0
+qwen3vl32b_predictions.csv,youtube/nSw7XdNR0bg_frame_35881_3.jpg,vasculitis,Psoriasis,,Psoriasis,0,0
+qwen3vl32b_predictions.csv,youtube/7SJ--nNILsI_frame_160_0_0.jpg,allergic contact dermatitis,Seborrheic keratosis,Allergic contact dermatitis,Seborrheic keratosis,1,0
+qwen3vl32b_predictions.csv,pubmed/19_1d_PMC6755624_10.1177_2324709619877050_fig1_2.png,eruptive xanthoma,Callus,Eruptive xanthoma,Callus,1,0
+qwen3vl32b_predictions.csv,pubmed/3b_fd_PMC8024261_41467_2021_22340_Fig1_HTML_10.jpg,no definitive diagnosis,None,,,0,0
+qwen3vl32b_predictions.csv,pubmed/98_a8_PMC9907656_SRT-28-357-g001_0.jpg,no definitive diagnosis,Acanthosis nigricans,,Acanthosis nigricans,0,0
+qwen3vl32b_predictions.csv,pubmed/00_58_PMC5621200_IDOJ-8-361-g003_3.jpg,dermatitis,Hematoma of skin,,Hematoma of skin,0,0
+qwen3vl32b_predictions.csv,youtube/ZV3lmTHN3_w_frame_51138_2.jpg,allergic contact dermatitis,Pyoderma gangrenosum,Allergic contact dermatitis,Pyoderma gangrenosum,1,0
+qwen3vl32b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分3_00361_17625_0.png",bloom syndrome,Rosacea,,Rosacea,0,0
+qwen3vl32b_predictions.csv,youtube/jJjxGxhcjpU_frame_15202_0_0.jpg,allergic contact dermatitis,Molluscum contagiosum,Allergic contact dermatitis,Molluscum contagiosum,1,0
+qwen3vl32b_predictions.csv,youtube/qW99IuAPApU_frame_23492_2.jpg,allergic contact dermatitis,Seborrheic keratosis,Allergic contact dermatitis,Seborrheic keratosis,1,0
+qwen3vl32b_predictions.csv,youtube/SVKBH_vJ5fA_frame_60409_1.jpg,libido racemosa,Actinic solar damage(telangiectasia),,Actinic solar damage(telangiectasia),0,0
+qwen3vl32b_predictions.csv,youtube/QGbWOPXpGqM_frame_34554_0_0.jpg,allergic contact dermatitis,Herpes zoster,Allergic contact dermatitis,Herpes zoster,1,0
+qwen3vl32b_predictions.csv,public/-6844673583459020552.png,rosacea,Rosacea,Rosacea,Rosacea,1,1
+qwen3vl32b_predictions.csv,IIYI/20385_2.png,hidradenitis suppurativa,Acne vulgaris,hidradenitis suppurativa,Acne vulgaris,1,0
+qwen3vl32b_predictions.csv,edu/实用皮肤性病手册part1_00311_12159.png,drug eruption,Exfoliative dermatitis,"Drug eruption, Drug eruptions & reactions",Exfoliative dermatitis,1,0
+qwen3vl32b_predictions.csv,pubmed/78_bc_PMC8896184_IANN_A_2044511_F0010_C_2.png,onychomycosis,Onychomycosis,Onychomycosis,Onychomycosis,1,1
+qwen3vl32b_predictions.csv,public/dermoscopy-00--fusc2021--0247--2d-none.png,"foot ulcer, ulcer",Pyoderma gangrenosum,,Pyoderma gangrenosum,0,0
+qwen3vl32b_predictions.csv,youtube/EHy_53RfOtU_frame_1625_0_0.jpg,abscess,Paronychia,Abscess,Paronychia,1,0
+qwen3vl32b_predictions.csv,pubmed/7c_b9_PMC5707863_IDOJ_8_521_g002.png,autoimmune hemolytic anemia,Hematoma of skin,,Hematoma of skin,0,0
+qwen3vl32b_predictions.csv,youtube/qn2EHDqBHk0_frame_13218_2.jpg,no definitive diagnosis,Chondrodermatitis nodularis helicis,,Chondrodermatitis nodularis helicis,0,0
+qwen3vl32b_predictions.csv,pubmed/2b_db_PMC7315058_MBSEH_52_119_g001_0.png,no definitive diagnosis,Actinic solar damage(telangiectasia),,Actinic solar damage(telangiectasia),0,0
+qwen3vl32b_predictions.csv,youtube/Rcom9v03f9g_frame_1238_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",None,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+qwen3vl32b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00281_01568_0.png",no definitive diagnosis,Erythema craquele,,Erythema craquele,0,0
+qwen3vl32b_predictions.csv,IIYI/12237_2.png,pityriasis rosea,Atopic dermatitis,Pityriasis rosea,Atopic dermatitis,1,0
+qwen3vl32b_predictions.csv,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00110_07579.png,cellulitis,Sunburn,Cellulitis,Sunburn,1,0
+qwen3vl32b_predictions.csv,IIYI/25760_2.png,"neurodermatitis, dermatitis",Hand eczema,,Hand eczema,0,0
+qwen3vl32b_predictions.csv,public/ISIC_5562413.JPG,nevus,Melanocytic nevus,,Melanocytic nevus,0,0
+qwen3vl32b_predictions.csv,pubmed/d9_75_PMC7490996_gr3.png,no definitive diagnosis,Kaposi sarcoma,,Kaposi sarcoma,0,0
+qwen3vl32b_predictions.csv,edu/Sauer - Manual of Skin Diseases-批量 OCR_00224_11642_0.jpg,ichthyosis,Actinic solar damage(solar elastosis),Ichthyosis,Actinic solar damage(solar elastosis),1,0
+qwen3vl32b_predictions.csv,youtube/ZhQn7oXdsZs_frame_45517_0_0.jpg,allergic contact dermatitis,Acanthosis nigricans,Allergic contact dermatitis,Acanthosis nigricans,1,0
+qwen3vl32b_predictions.csv,youtube/DSIkGCsikYU_frame_37665_11.jpg,allergic contact dermatitis,Callus,Allergic contact dermatitis,Callus,1,0
+qwen3vl32b_predictions.csv,IIYI/18372_2.png,nevus,Actinic solar damage(pigmentation),,Actinic solar damage(pigmentation),0,0
+qwen3vl32b_predictions.csv,youtube/IGc9CwT3jPw_frame_14160_1.jpg,paraneoplastic pemphigus,Herpes simplex virus,,Herpes simplex virus,0,0
+qwen3vl32b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy- An Illustrate_00348_17052_0.png",no definitive diagnosis,Seborrheic keratosis,,Seborrheic keratosis,0,0
+qwen3vl32b_predictions.csv,youtube/qn2EHDqBHk0_frame_13191_0.jpg,no definitive diagnosis,Basal cell carcinoma,,Basal cell carcinoma,0,0
+qwen3vl32b_predictions.csv,youtube/J9sVNh8KUAU_frame_55281_0_0.jpg,mucormycosis,Acute dermatitis,,Acute dermatitis,0,0
+qwen3vl32b_predictions.csv,IIYI/19461_4.png,"eczema, lichen planus, nail disease",None,,,0,0
+qwen3vl32b_predictions.csv,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part6_00276_01143_0.png,erythrasma,Folliculitis,,Folliculitis,0,0
+qwen3vl32b_predictions.csv,youtube/p5-sNkNQHUY_frame_29037_0.jpg,allergic contact dermatitis,Erythema annulare centrifugum,Allergic contact dermatitis,Erythema annulare centrifugum,1,0
+qwen3vl32b_predictions.csv,pubmed/71_7f_PMC4149335_cia_9_1409Fig1_1.png,cellulitis,Angular cheilitis,Cellulitis,Angular cheilitis,1,0
+qwen3vl32b_predictions.csv,youtube/jdaN189qAVU_frame_1394_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Pyoderma gangrenosum,"irritated seborrheic keratosis (from ""sk/isk"")",Pyoderma gangrenosum,1,0
+qwen3vl32b_predictions.csv,pubmed/bd_c1_PMC8884525_gox-10-e4001-g004_0.jpg,local infection of wound,Wound/Abrasion,Local infection of wound,Wound/Abrasion,1,0
+qwen3vl32b_predictions.csv,youtube/283tIZpT1nA_frame_4307_0.jpg,melanoma,Melanocytic nevus,"Malignant melanoma, melanoma",Melanocytic nevus,1,0
+qwen3vl32b_predictions.csv,youtube/1OuTdRRFqd0_frame_12623_0_0.jpg,no definitive diagnosis,Angioma,,"Angioma, Hemangioma",0,0
+qwen3vl32b_predictions.csv,youtube/7RWVilxv6r8_frame_14966_0_0.jpg,lymphoma,Actinic solar damage(solar elastosis),,Actinic solar damage(solar elastosis),0,0
+qwen3vl32b_predictions.csv,public/lentigo-adults-42.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(solar elastosis),"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(solar elastosis),1,0
+qwen3vl32b_predictions.csv,youtube/NQXKZcaxkaE_frame_35901_0_0.jpg,choroidal swelling,Herpes simplex virus,,Herpes simplex virus,0,0
+qwen3vl32b_predictions.csv,IIYI/1135_3.png,cellulitis,None,Cellulitis,,1,0
+qwen3vl32b_predictions.csv,youtube/Rwvw8xmMVP4_frame_8653_0_0.jpg,psoriasis,Burn of forearm,Psoriasis,Burn of forearm,1,0
+qwen3vl32b_predictions.csv,public/drug-eruptions-74.jpg,drug eruption,Exfoliative dermatitis,"Drug eruption, Drug eruptions & reactions",Exfoliative dermatitis,1,0
+qwen3vl32b_predictions.csv,IIYI/28145_5.png,"chronic actinic dermatitis, dermatitis",Psoriasis,,Psoriasis,0,0
+qwen3vl32b_predictions.csv,"edu/Electra Nicolaidou, Clio Dessinioti, Andreas Katsambas - Hypopigmentation. 1-CRC Press (2019)_00173_00668.png",xeroderma pigmentosum,Actinic solar damage(pigmentation),Xeroderma pigmentosum,Actinic solar damage(pigmentation),1,0
+qwen3vl32b_predictions.csv,IIYI/5381_1.png,"contact dermatitis, drug eruption, dermatitis",Hand eczema,,Hand eczema,0,0
+qwen3vl32b_predictions.csv,youtube/Pi20y_f-dfY_frame_49685_0_0.jpg,allergic contact dermatitis,Epidermoid cyst,Allergic contact dermatitis,Epidermoid cyst,1,0
+qwen3vl32b_predictions.csv,youtube/3Dx-63EZR24_frame_27589_0_0.jpg,no definitive diagnosis,None,,,0,0
+qwen3vl32b_predictions.csv,youtube/Lng9V5iMGJQ_frame_8835_0_0.jpg,allergic contact dermatitis,Actinic solar damage(telangiectasia),Allergic contact dermatitis,Actinic solar damage(telangiectasia),1,0
+qwen3vl32b_predictions.csv,pubmed/64_38_PMC8088159_IDOJ_12_312_g002_0.png,"irritated seborrheic keratosis (from ""sk/isk"")",Acne keloidalis nuchae,"irritated seborrheic keratosis (from ""sk/isk"")",Acne keloidalis nuchae,1,0
+qwen3vl32b_predictions.csv,public/herpes-type-1-recurrent-3.jpg,molluscum contagiosum,Angular cheilitis,Molluscum contagiosum,Angular cheilitis,1,0
+qwen3vl32b_predictions.csv,youtube/xEYjjpXikwc_frame_3712_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Erythema annulare centrifugum,"irritated seborrheic keratosis (from ""sk/isk"")",Erythema annulare centrifugum,1,0
+qwen3vl32b_predictions.csv,IIYI/12557_4.png,measles,Erythema multiforme,,Erythema multiforme,0,0
+qwen3vl32b_predictions.csv,pubmed/fc_11_PMC10884590_Vetworld-17-150-g001_0.jpg,no definitive diagnosis,benign,,benign,0,0
+qwen3vl32b_predictions.csv,youtube/R9Drgo1xMqg_frame_8972_0_0.jpg,allergic contact dermatitis,Wound/Abrasion,Allergic contact dermatitis,Wound/Abrasion,1,0
+qwen3vl32b_predictions.csv,youtube/iFnBzD19FrE_frame_64737_0.jpg,proliferations,None,proliferations,,1,0
+qwen3vl32b_predictions.csv,pubmed/15_03_PMC10327660_dr-15-2-9617-g001_0.jpg,drug eruption,Actinic solar damage(solar elastosis),"Drug eruption, Drug eruptions & reactions",Actinic solar damage(solar elastosis),1,0
+qwen3vl32b_predictions.csv,youtube/ZO_3RM9qssE_frame_26250_1.jpg,exophytic papillary growth,Angular cheilitis,,Angular cheilitis,0,0
+qwen3vl32b_predictions.csv,edu/Amanda Oakley - Dermatology Made Easy-SCION PUBLISHING (2017)-OCR1_00475_17075.png,"eczema, discoid eczema",Psoriasis (plaque),,Psoriasis (plaque),0,0
+qwen3vl32b_predictions.csv,youtube/Vrk7360xziM_frame_6521_0.jpg,allergic contact dermatitis,Actinic keratosis,Allergic contact dermatitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl32b_predictions.csv,youtube/OT0JmxCglI4_frame_178469_2.jpg,no definitive diagnosis,Granulation tissue,,Granulation tissue,0,0
+qwen3vl32b_predictions.csv,pubmed/8b_be_PMC10195979_gr4a.png,no definitive diagnosis,Wound/Abrasion,,Wound/Abrasion,0,0
+qwen3vl32b_predictions.csv,youtube/GamzNQ1mnRE_frame_809_0_0.jpg,pyogenic granuloma,Pyogenic granuloma,Pyogenic granuloma,Pyogenic granuloma,1,1
+qwen3vl32b_predictions.csv,pubmed/f3_be_PMC10868120_12903_2024_3998_Fig1_HTML.png,no definitive diagnosis,Geographic tongue,,Geographic tongue,0,0
+qwen3vl32b_predictions.csv,public/dermoscopy-00--isic2017-task1--ISIC-0010185--2d-none.png,"melanocytic nevus, nevus",Melanocytic nevus,,Melanocytic nevus,0,0
+qwen3vl32b_predictions.csv,pubmed/18_db_PMC3956789_ad-26-139-g001_2.jpg,striae,Scar,Striae,Scar,1,0
+qwen3vl32b_predictions.csv,youtube/N6AUh84mRrI_frame_73721_2.jpg,no definitive diagnosis,Herpes simplex virus,,Herpes simplex virus,0,0
+qwen3vl32b_predictions.csv,pubmed/e5_f4_PMC8355434_RCR2_9_e0827_g006_2.png,vasculitis,Acute dermatitis,,Acute dermatitis,0,0
+qwen3vl32b_predictions.csv,youtube/BC-OLAoqCk4_frame_10492_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Infantile atopic dermatitis,"irritated seborrheic keratosis (from ""sk/isk"")",Infantile atopic dermatitis,1,0
+qwen3vl32b_predictions.csv,youtube/Xm46eaDAQ9c_frame_328_0_0.jpg,allergic contact dermatitis,Tick bite,Allergic contact dermatitis,Tick bite,1,0
+qwen3vl32b_predictions.csv,youtube/7kHm0OypXeI_frame_13724_2.jpg,acral dermatitis,Actinic solar damage(solar elastosis),,Actinic solar damage(solar elastosis),0,0
+qwen3vl32b_predictions.csv,edu/Aimilios Lallas- Zoe Apalla- Elizabeth Lazaridou- Dimitrios Ioannides - Dermatoscopy A-Z-CRC Press (2019)_00025_00174.png,basal cell carcinoma,Actinic solar damage(pigmentation),Basal cell carcinoma,Actinic solar damage(pigmentation),1,0
+qwen3vl32b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00269_01464_0.png",no definitive diagnosis,Actinic solar damage(solar elastosis),,Actinic solar damage(solar elastosis),0,0
+qwen3vl32b_predictions.csv,youtube/cxnwhiVwGbg_frame_9310_0.jpg,non-melanocytic lesions,Pyogenic granuloma,,Pyogenic granuloma,0,0
+qwen3vl32b_predictions.csv,public/dermoscopy-00--isic2016-task1--ISIC-0000065--2d-none.png,melanoma,Dysplastic nevus,"Malignant melanoma, melanoma",Dysplastic nevus,1,0
+qwen3vl32b_predictions.csv,IIYI/16689_1.png,cutaneous sporotrichosis,Pyoderma gangrenosum,,Pyoderma gangrenosum,0,0
+qwen3vl32b_predictions.csv,youtube/1O4E-aTIIiY_frame_8576_6.jpg,squamous cell carcinoma,Angular cheilitis,Squamous cell carcinoma,Angular cheilitis,1,0
+qwen3vl32b_predictions.csv,IIYI/23009_1.png,actinic solar damage(solar purpura),Hematoma of skin,Actinic solar damage(solar purpura),Hematoma of skin,1,0
+qwen3vl32b_predictions.csv,pubmed/c0_95_PMC8567499_WJCC_9_9228_g004_0.png,no definitive diagnosis,Xerosis,,Xerosis,0,0
+qwen3vl32b_predictions.csv,youtube/Sv7YGWDfkQo_frame_9321_0_0.jpg,contact dermatitis,Superficial spreading melanoma SSM,Contact dermatitis,Superficial spreading melanoma SSM,1,0
+qwen3vl32b_predictions.csv,pubmed/73_ca_PMC4872913_1679-4508-eins-14-1-0025-gf01-pt_2.jpg,no definitive diagnosis,Pyogenic granuloma,,Pyogenic granuloma,0,0
+qwen3vl32b_predictions.csv,pubmed/54_31_PMC3827529_IJD_58_492a_g001.png,"tinea, tinea cruris",Condyloma acuminatum,,Condyloma acuminatum,0,0
+qwen3vl32b_predictions.csv,youtube/LuzZ5bAaWDY_frame_3863_2.jpg,squamous cell carcinoma,Xerosis,Squamous cell carcinoma,Xerosis,1,0
+qwen3vl32b_predictions.csv,youtube/_IxzrKPJdyw_frame_5576_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Post-inflammatory pruritus,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+qwen3vl32b_predictions.csv,youtube/KtE0xQG2ceI_frame_6866_6.jpg,allergic contact dermatitis,Seborrheic keratoses,Allergic contact dermatitis,Seborrheic keratoses,1,0
+qwen3vl32b_predictions.csv,youtube/ypkfPgxNFms_frame_14666_1.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl32b_predictions.csv,"edu/Dr. Anthony J. Mancini MD  FAAP  FAAD (editor), Dr. Daniel P. Krowchuk MD  FAAP (editor) - Pediatric Dermatology- A Quick Reference Guide-American Academy of Pediatrics (2020)_00381_11401.png",dermatitis,Seborrheic dermatitis,,Seborrheic dermatitis,0,0
+qwen3vl32b_predictions.csv,"edu/Habif, Thomas P. - Clinical Dermatology (5th ed.)  -Elsevier Health Sciences-部分2_00017_04888.png",cradle cap,Xerosis,,Xerosis,0,0
+qwen3vl32b_predictions.csv,youtube/ZfpA_Vc0f60_frame_59_0_0.jpg,contact dermatitis,Acne keloidalis nuchae,Contact dermatitis,Acne keloidalis nuchae,1,0
+qwen3vl32b_predictions.csv,youtube/wFwNjR0Rogc_frame_132227_0.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl32b_predictions.csv,youtube/fmL_3Mt08GQ_frame_13703_0.jpg,cutaneous t-cell lymphoma (mf),Stasis dermatitis,,Stasis dermatitis,0,0
+qwen3vl32b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分5_00345_16576_1.png",no definitive diagnosis,Actinic solar damage(solar elastosis),,Actinic solar damage(solar elastosis),0,0
+qwen3vl32b_predictions.csv,pubmed/6b_ac_PMC5808376_dp0801a14g003_2.png,"lentigo, lentigo maligna",Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,youtube/nSw7XdNR0bg_frame_35881_3.jpg,vasculitis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/7SJ--nNILsI_frame_160_0_0.jpg,allergic contact dermatitis,Melanoma,Allergic contact dermatitis,"Malignant melanoma, melanoma",1,0
+qwen3vl_7b_predictions.csv,pubmed/19_1d_PMC6755624_10.1177_2324709619877050_fig1_2.png,eruptive xanthoma,Acne keloidalis nuchae,Eruptive xanthoma,Acne keloidalis nuchae,1,0
+qwen3vl_7b_predictions.csv,pubmed/3b_fd_PMC8024261_41467_2021_22340_Fig1_HTML_10.jpg,no definitive diagnosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,pubmed/98_a8_PMC9907656_SRT-28-357-g001_0.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,pubmed/00_58_PMC5621200_IDOJ-8-361-g003_3.jpg,dermatitis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/ZV3lmTHN3_w_frame_51138_2.jpg,allergic contact dermatitis,Actinic keratosis,Allergic contact dermatitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分3_00361_17625_0.png",bloom syndrome,Actinic solar damage,,,0,0
+qwen3vl_7b_predictions.csv,youtube/jJjxGxhcjpU_frame_15202_0_0.jpg,allergic contact dermatitis,Milia,Allergic contact dermatitis,Milia,1,0
+qwen3vl_7b_predictions.csv,youtube/qW99IuAPApU_frame_23492_2.jpg,allergic contact dermatitis,Acne keloidalis nuchae,Allergic contact dermatitis,Acne keloidalis nuchae,1,0
+qwen3vl_7b_predictions.csv,youtube/SVKBH_vJ5fA_frame_60409_1.jpg,libido racemosa,Actinic solar damage (telangiectasia),,,0,0
+qwen3vl_7b_predictions.csv,youtube/QGbWOPXpGqM_frame_34554_0_0.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,public/-6844673583459020552.png,rosacea,Acne vulgaris,Rosacea,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,IIYI/20385_2.png,hidradenitis suppurativa,Acne vulgaris,hidradenitis suppurativa,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,edu/实用皮肤性病手册part1_00311_12159.png,drug eruption,Actinic solar damage,"Drug eruption, Drug eruptions & reactions",,1,0
+qwen3vl_7b_predictions.csv,pubmed/78_bc_PMC8896184_IANN_A_2044511_F0010_C_2.png,onychomycosis,Onychomycosis,Onychomycosis,Onychomycosis,1,1
+qwen3vl_7b_predictions.csv,public/dermoscopy-00--fusc2021--0247--2d-none.png,"foot ulcer, ulcer",Wound/Abrasion,,Wound/Abrasion,0,0
+qwen3vl_7b_predictions.csv,youtube/EHy_53RfOtU_frame_1625_0_0.jpg,abscess,Acute vesicular dermatitis,Abscess,Acute vesicular dermatitis,1,0
+qwen3vl_7b_predictions.csv,pubmed/7c_b9_PMC5707863_IDOJ_8_521_g002.png,autoimmune hemolytic anemia,Actinic solar damage (cutis rhomboidalis nuchae),,,0,0
+qwen3vl_7b_predictions.csv,youtube/qn2EHDqBHk0_frame_13218_2.jpg,no definitive diagnosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,pubmed/2b_db_PMC7315058_MBSEH_52_119_g001_0.png,no definitive diagnosis,Milia,,Milia,0,0
+qwen3vl_7b_predictions.csv,youtube/Rcom9v03f9g_frame_1238_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",None,"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+qwen3vl_7b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00281_01568_0.png",no definitive diagnosis,Seborrheic keratosis,,Seborrheic keratosis,0,0
+qwen3vl_7b_predictions.csv,IIYI/12237_2.png,pityriasis rosea,Acne vulgaris,Pityriasis rosea,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00110_07579.png,cellulitis,Actinic solar damage,Cellulitis,,1,0
+qwen3vl_7b_predictions.csv,IIYI/25760_2.png,"neurodermatitis, dermatitis",Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,public/ISIC_5562413.JPG,nevus,Melanocytic nevus,,Melanocytic nevus,0,0
+qwen3vl_7b_predictions.csv,pubmed/d9_75_PMC7490996_gr3.png,no definitive diagnosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,edu/Sauer - Manual of Skin Diseases-批量 OCR_00224_11642_0.jpg,ichthyosis,Actinic solar damage (cutis rhomboidalis nuchae),Ichthyosis,,1,0
+qwen3vl_7b_predictions.csv,youtube/ZhQn7oXdsZs_frame_45517_0_0.jpg,allergic contact dermatitis,Acute vesicular dermatitis,Allergic contact dermatitis,Acute vesicular dermatitis,1,0
+qwen3vl_7b_predictions.csv,youtube/DSIkGCsikYU_frame_37665_11.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,IIYI/18372_2.png,nevus,Malignant melanoma,,"Malignant melanoma, melanoma",0,0
+qwen3vl_7b_predictions.csv,youtube/IGc9CwT3jPw_frame_14160_1.jpg,paraneoplastic pemphigus,Vitiligo,,Vitiligo,0,0
+qwen3vl_7b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy- An Illustrate_00348_17052_0.png",no definitive diagnosis,Malignant melanoma,,"Malignant melanoma, melanoma",0,0
+qwen3vl_7b_predictions.csv,youtube/qn2EHDqBHk0_frame_13191_0.jpg,no definitive diagnosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,youtube/J9sVNh8KUAU_frame_55281_0_0.jpg,mucormycosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,IIYI/19461_4.png,"eczema, lichen planus, nail disease",None,,,0,0
+qwen3vl_7b_predictions.csv,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part6_00276_01143_0.png,erythrasma,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/p5-sNkNQHUY_frame_29037_0.jpg,allergic contact dermatitis,Actinic keratosis,Allergic contact dermatitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,pubmed/71_7f_PMC4149335_cia_9_1409Fig1_1.png,cellulitis,Actinic keratosis,Cellulitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,youtube/jdaN189qAVU_frame_1394_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage (cutis rhomboidalis nuchae),"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+qwen3vl_7b_predictions.csv,pubmed/bd_c1_PMC8884525_gox-10-e4001-g004_0.jpg,local infection of wound,Actinic solar damage (cutis rhomboidalis nuchae),Local infection of wound,,1,0
+qwen3vl_7b_predictions.csv,youtube/283tIZpT1nA_frame_4307_0.jpg,melanoma,Acne vulgaris,"Malignant melanoma, melanoma",Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,youtube/1OuTdRRFqd0_frame_12623_0_0.jpg,no definitive diagnosis,Nevus sebaceous of Jadassohn,,Nevus sebaceous of Jadassohn,0,0
+qwen3vl_7b_predictions.csv,youtube/7RWVilxv6r8_frame_14966_0_0.jpg,lymphoma,Actinic solar damage,,,0,0
+qwen3vl_7b_predictions.csv,public/lentigo-adults-42.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage (cutis rhomboidalis nuchae),"irritated seborrheic keratosis (from ""sk/isk"")",,1,0
+qwen3vl_7b_predictions.csv,youtube/NQXKZcaxkaE_frame_35901_0_0.jpg,choroidal swelling,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,IIYI/1135_3.png,cellulitis,No specific skin disease or condition is visible in the image,Cellulitis,,1,0
+qwen3vl_7b_predictions.csv,youtube/Rwvw8xmMVP4_frame_8653_0_0.jpg,psoriasis,Burn of skin,Psoriasis,Burn of skin,1,0
+qwen3vl_7b_predictions.csv,public/drug-eruptions-74.jpg,drug eruption,Acne vulgaris,"Drug eruption, Drug eruptions & reactions",Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,IIYI/28145_5.png,"chronic actinic dermatitis, dermatitis",Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,"edu/Electra Nicolaidou, Clio Dessinioti, Andreas Katsambas - Hypopigmentation. 1-CRC Press (2019)_00173_00668.png",xeroderma pigmentosum,Actinic solar damage,Xeroderma pigmentosum,,1,0
+qwen3vl_7b_predictions.csv,IIYI/5381_1.png,"contact dermatitis, drug eruption, dermatitis",Actinic solar damage (cutis rhomboidalis nuchae),,,0,0
+qwen3vl_7b_predictions.csv,youtube/Pi20y_f-dfY_frame_49685_0_0.jpg,allergic contact dermatitis,Actinic keratosis,Allergic contact dermatitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,youtube/3Dx-63EZR24_frame_27589_0_0.jpg,no definitive diagnosis,Actinic solar damage,,,0,0
+qwen3vl_7b_predictions.csv,youtube/Lng9V5iMGJQ_frame_8835_0_0.jpg,allergic contact dermatitis,Actinic keratosis,Allergic contact dermatitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,pubmed/64_38_PMC8088159_IDOJ_12_312_g002_0.png,"irritated seborrheic keratosis (from ""sk/isk"")",Psoriasis,"irritated seborrheic keratosis (from ""sk/isk"")",Psoriasis,1,0
+qwen3vl_7b_predictions.csv,public/herpes-type-1-recurrent-3.jpg,molluscum contagiosum,Acne vulgaris,Molluscum contagiosum,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,youtube/xEYjjpXikwc_frame_3712_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Lentigo,"irritated seborrheic keratosis (from ""sk/isk"")","Melasma, Lentigo",1,0
+qwen3vl_7b_predictions.csv,IIYI/12557_4.png,measles,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,pubmed/fc_11_PMC10884590_Vetworld-17-150-g001_0.jpg,no definitive diagnosis,Actinic solar damage,,,0,0
+qwen3vl_7b_predictions.csv,youtube/R9Drgo1xMqg_frame_8972_0_0.jpg,allergic contact dermatitis,Wound/Abrasion,Allergic contact dermatitis,Wound/Abrasion,1,0
+qwen3vl_7b_predictions.csv,youtube/iFnBzD19FrE_frame_64737_0.jpg,proliferations,No skin condition detected,proliferations,,1,0
+qwen3vl_7b_predictions.csv,pubmed/15_03_PMC10327660_dr-15-2-9617-g001_0.jpg,drug eruption,Actinic solar damage,"Drug eruption, Drug eruptions & reactions",,1,0
+qwen3vl_7b_predictions.csv,youtube/ZO_3RM9qssE_frame_26250_1.jpg,exophytic papillary growth,Angular cheilitis,,Angular cheilitis,0,0
+qwen3vl_7b_predictions.csv,edu/Amanda Oakley - Dermatology Made Easy-SCION PUBLISHING (2017)-OCR1_00475_17075.png,"eczema, discoid eczema",Psoriasis,,Psoriasis,0,0
+qwen3vl_7b_predictions.csv,youtube/Vrk7360xziM_frame_6521_0.jpg,allergic contact dermatitis,Actinic keratosis,Allergic contact dermatitis,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,youtube/OT0JmxCglI4_frame_178469_2.jpg,no definitive diagnosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,pubmed/8b_be_PMC10195979_gr4a.png,no definitive diagnosis,Wound/Abrasion,,Wound/Abrasion,0,0
+qwen3vl_7b_predictions.csv,youtube/GamzNQ1mnRE_frame_809_0_0.jpg,pyogenic granuloma,Actinic keratosis,Pyogenic granuloma,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,pubmed/f3_be_PMC10868120_12903_2024_3998_Fig1_HTML.png,no definitive diagnosis,Acute vesicular dermatitis,,Acute vesicular dermatitis,0,0
+qwen3vl_7b_predictions.csv,public/dermoscopy-00--isic2017-task1--ISIC-0010185--2d-none.png,"melanocytic nevus, nevus",Malignant melanoma,,"Malignant melanoma, melanoma",0,0
+qwen3vl_7b_predictions.csv,pubmed/18_db_PMC3956789_ad-26-139-g001_2.jpg,striae,Actinic solar damage,Striae,,1,0
+qwen3vl_7b_predictions.csv,youtube/N6AUh84mRrI_frame_73721_2.jpg,no definitive diagnosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,pubmed/e5_f4_PMC8355434_RCR2_9_e0827_g006_2.png,vasculitis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/BC-OLAoqCk4_frame_10492_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,"irritated seborrheic keratosis (from ""sk/isk"")",Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,youtube/Xm46eaDAQ9c_frame_328_0_0.jpg,allergic contact dermatitis,Acute vesicular dermatitis,Allergic contact dermatitis,Acute vesicular dermatitis,1,0
+qwen3vl_7b_predictions.csv,youtube/7kHm0OypXeI_frame_13724_2.jpg,acral dermatitis,Actinic solar damage (cutis rhomboidalis nuchae),,,0,0
+qwen3vl_7b_predictions.csv,edu/Aimilios Lallas- Zoe Apalla- Elizabeth Lazaridou- Dimitrios Ioannides - Dermatoscopy A-Z-CRC Press (2019)_00025_00174.png,basal cell carcinoma,Actinic solar damage,Basal cell carcinoma,,1,0
+qwen3vl_7b_predictions.csv,"note/Robert Johr, Wilhelm Stolz - Dermoscopy Criteria Review-McGraw-Hill Professional (2019)_00269_01464_0.png",no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/cxnwhiVwGbg_frame_9310_0.jpg,non-melanocytic lesions,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,public/dermoscopy-00--isic2016-task1--ISIC-0000065--2d-none.png,melanoma,Malignant melanoma,"Malignant melanoma, melanoma","Malignant melanoma, melanoma",1,1
+qwen3vl_7b_predictions.csv,IIYI/16689_1.png,cutaneous sporotrichosis,Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0
+qwen3vl_7b_predictions.csv,youtube/1O4E-aTIIiY_frame_8576_6.jpg,squamous cell carcinoma,Actinic keratosis,Squamous cell carcinoma,"Actinic solar damage(actinic keratosis), Actinic keratosis",1,0
+qwen3vl_7b_predictions.csv,IIYI/23009_1.png,actinic solar damage(solar purpura),Actinic solar damage,Actinic solar damage(solar purpura),,1,0
+qwen3vl_7b_predictions.csv,pubmed/c0_95_PMC8567499_WJCC_9_9228_g004_0.png,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/Sv7YGWDfkQo_frame_9321_0_0.jpg,contact dermatitis,Malignant melanoma,Contact dermatitis,"Malignant melanoma, melanoma",1,0
+qwen3vl_7b_predictions.csv,pubmed/73_ca_PMC4872913_1679-4508-eins-14-1-0025-gf01-pt_2.jpg,no definitive diagnosis,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+qwen3vl_7b_predictions.csv,pubmed/54_31_PMC3827529_IJD_58_492a_g001.png,"tinea, tinea cruris",Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/LuzZ5bAaWDY_frame_3863_2.jpg,squamous cell carcinoma,No specific skin disease or condition visible,Squamous cell carcinoma,,1,0
+qwen3vl_7b_predictions.csv,youtube/_IxzrKPJdyw_frame_5576_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")",Post-inflammatory pigmentation,"irritated seborrheic keratosis (from ""sk/isk"")","Post-inflammatory pigmentation, post-inflammatory hyperpigmentation",1,0
+qwen3vl_7b_predictions.csv,youtube/KtE0xQG2ceI_frame_6866_6.jpg,allergic contact dermatitis,Acne vulgaris,Allergic contact dermatitis,Acne vulgaris,1,0
+qwen3vl_7b_predictions.csv,youtube/ypkfPgxNFms_frame_14666_1.jpg,no definitive diagnosis,Acne keloidalis nuchae,,Acne keloidalis nuchae,0,0
+qwen3vl_7b_predictions.csv,"edu/Dr. Anthony J. Mancini MD  FAAP  FAAD (editor), Dr. Daniel P. Krowchuk MD  FAAP (editor) - Pediatric Dermatology- A Quick Reference Guide-American Academy of Pediatrics (2020)_00381_11401.png",dermatitis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,"edu/Habif, Thomas P. - Clinical Dermatology (5th ed.)  -Elsevier Health Sciences-部分2_00017_04888.png",cradle cap,Psoriasis,,Psoriasis,0,0
+qwen3vl_7b_predictions.csv,youtube/ZfpA_Vc0f60_frame_59_0_0.jpg,contact dermatitis,Acanthosis nigricans,Contact dermatitis,Acanthosis nigricans,1,0
+qwen3vl_7b_predictions.csv,youtube/wFwNjR0Rogc_frame_132227_0.jpg,no definitive diagnosis,Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,youtube/fmL_3Mt08GQ_frame_13703_0.jpg,cutaneous t-cell lymphoma (mf),Acne vulgaris,,Acne vulgaris,0,0
+qwen3vl_7b_predictions.csv,"note/Klaus Wolff, Lowell Goldsmith, Stephen Katz, Barbara Gilchrest, Amy Paller, D-部分5_00345_16576_1.png",no definitive diagnosis,Actinic solar damage,,,0,0
+qwen3vl_7b_predictions.csv,pubmed/6b_ac_PMC5808376_dp0801a14g003_2.png,"lentigo, lentigo maligna",Actinic keratosis,,"Actinic solar damage(actinic keratosis), Actinic keratosis",0,0

@@ -9,6 +9,7 @@ Ontology Utility Functions for Derm1M Dataset
 """
 
 import json
+import re
 import os
 import sys
 from pathlib import Path
@@ -98,6 +99,8 @@ class OntologyTree:
         
         # 모든 유효 노드 집합 (root 제외)
         self.valid_nodes: Set[str] = set(self.ontology.keys()) - {'root'}
+        # 평가 시 특수 케이스로 허용하는 라벨 추가
+        self.valid_nodes.add("no definitive diagnosis")
         
         # 정규화된 노드 이름 매핑 (소문자 -> 원본)
         self.normalized_map: Dict[str, str] = {}
@@ -131,8 +134,12 @@ class OntologyTree:
     
     @staticmethod
     def normalize_label(label: str) -> str:
-        """라벨 정규화 (소문자 변환, 앞뒤 공백 제거)"""
-        return label.lower().strip()
+        """라벨 정규화 (소문자, 공백/구두점 정리)"""
+        text = str(label).lower().strip()
+        text = text.replace('"', '').replace("'", "")  # 따옴표 제거
+        text = text.rstrip(" .,:;")                    # 흔한 말미 구두점 제거
+        text = re.sub(r"\s+", " ", text)               # 공백 축소
+        return text
     
     def is_valid_node(self, node: str) -> bool:
         """노드가 온톨로지에 존재하는지 확인"""
@@ -319,7 +326,20 @@ class OntologyTree:
         """유효한 라벨만 필터링하여 반환"""
         valid = []
         for label in labels:
-            canonical = self.get_canonical_name(label)
+            if label is None:
+                continue
+            cleaned = str(label).strip()
+            if not cleaned:
+                continue
+            # 흔한 구두점/공백 잡음 제거
+            cleaned = cleaned.rstrip(" .,:;")
+
+            # Special case: "no definitive diagnosis" is valid without ontology check
+            if cleaned.lower() == "no definitive diagnosis":
+                valid.append("no definitive diagnosis")
+                continue
+
+            canonical = self.get_canonical_name(cleaned)
             if canonical is not None:
                 valid.append(canonical)
         return valid

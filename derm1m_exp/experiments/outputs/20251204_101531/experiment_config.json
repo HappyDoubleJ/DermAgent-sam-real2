@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-12-04T10:15:31.156618",
+  "input_csv": "/home/heodnjswns/DermAgent/dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv",
+  "output_dir": "outputs/20251204_101531",
+  "model": "gpt-4o",
+  "num_samples": 100,
+  "test_mode": false,
+  "methods": [
+    "baseline_labels",
+    "baseline_no_labels",
+    "baseline_hierarchical",
+    "dermatology_agent",
+    "react_agent"
+  ]
+}

@@ -1,0 +1,2 @@
+﻿method,exact_match,partial_match,hierarchical_f1,avg_distance,partial_credit,total_samples,valid_samples,level_1_acc,level_2_acc,level_3_acc,level_4_acc,level_5_acc,top_1_accuracy,top_3_accuracy,top_5_accuracy,top_1_h_f1,top_3_h_f1,top_5_h_f1
+dermatology_agent_sam,0.06,0.06,0.11932748571232729,3.210526315789474,0.13883333333333334,100,100,0.20833333333333334,0.0967741935483871,0.07865168539325842,0.017241379310344827,0.0,0.05,0.05,0.06,0.11195238095238091,0.11837765922793463,0.11932748571232726

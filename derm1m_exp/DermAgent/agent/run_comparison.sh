@@ -33,7 +33,6 @@ echo -e "${GREEN}CSV File:${NC} $CSV_FILE"
 echo ""
 
 # 옵션 파싱
-MOCK_MODE=""
 SEED=""
 ROW="--row 5"  # 기본값: row 5 (allergic contact dermatitis)
 
@@ -41,13 +40,11 @@ usage() {
     echo "Usage: $0 [OPTIONS]"
     echo ""
     echo "Options:"
-    echo "  --mock          Use mock VLM instead of GPT-4o"
     echo "  --seed N        Random seed for sample selection"
     echo "  --row N         Use specific row (0-indexed)"
     echo "  --help          Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0 --mock                  # Test with mock VLM"
     echo "  $0 --seed 42               # Use seed 42 for random selection"
     echo "  $0 --row 5                 # Use row 5 from CSV"
     echo "  $0                         # Random sample with GPT-4o"
@@ -56,10 +53,6 @@ usage() {
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        --mock)
-            MOCK_MODE="--mock"
-            shift
-            ;;
         --seed)
             SEED="--seed $2"
             shift 2
@@ -96,10 +89,8 @@ echo -e "  ${GREEN}✓${NC} Python found: $(python --version)"
 
 # 필요한 패키지 확인
 python -c "import openai" 2>/dev/null && echo -e "  ${GREEN}✓${NC} openai package installed" || {
-    if [ -z "$MOCK_MODE" ]; then
-        echo -e "  ${YELLOW}!${NC} openai not installed. Installing..."
-        pip install openai -q
-    fi
+    echo -e "  ${YELLOW}!${NC} openai not installed. Installing..."
+    pip install openai -q
 }
 
 python -c "from dotenv import load_dotenv" 2>/dev/null && echo -e "  ${GREEN}✓${NC} python-dotenv installed" || {
@@ -117,7 +108,7 @@ python compare_agents.py \
     --csv "$CSV_FILE" \
     --image_dir "$DATASET_DIR" \
     --output_dir "$OUTPUT_DIR" \
-    $MOCK_MODE $SEED $ROW
+    $SEED $ROW
 
 # 결과 파일 확인
 echo ""

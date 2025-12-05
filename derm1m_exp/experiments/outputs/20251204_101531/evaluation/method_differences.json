@@ -1,0 +1,79 @@
+{
+  "all_correct_count": 2,
+  "all_wrong_count": 93,
+  "different_count": 5,
+  "different_samples": [
+    {
+      "sample_id": 2,
+      "ground_truth": "no definitive diagnosis",
+      "predictions": {
+        "baseline_labels": "Median nail dystrophy",
+        "baseline_no_labels": "Melanonychia",
+        "baseline_hierarchical": "Beau's lines",
+        "dermatology_agent": "no definitive diagnosis",
+        "react_agent": "no definitive diagnosis"
+      },
+      "correct_methods": [
+        "dermatology_agent",
+        "react_agent"
+      ]
+    },
+    {
+      "sample_id": 3,
+      "ground_truth": "no definitive diagnosis",
+      "predictions": {
+        "baseline_labels": "Contact dermatitis",
+        "baseline_no_labels": "no definitive diagnosis",
+        "baseline_hierarchical": "Contact dermatitis",
+        "dermatology_agent": "Polymorphous light eruption",
+        "react_agent": "no definitive diagnosis"
+      },
+      "correct_methods": [
+        "baseline_no_labels",
+        "react_agent"
+      ]
+    },
+    {
+      "sample_id": 4,
+      "ground_truth": "no definitive diagnosis",
+      "predictions": {
+        "baseline_labels": "Basal cell carcinoma",
+        "baseline_no_labels": "Basal Cell Carcinoma",
+        "baseline_hierarchical": "Basal cell carcinoma",
+        "dermatology_agent": "Basal cell carcinoma",
+        "react_agent": "no definitive diagnosis"
+      },
+      "correct_methods": [
+        "react_agent"
+      ]
+    },
+    {
+      "sample_id": 45,
+      "ground_truth": "lichen planus",
+      "predictions": {
+        "baseline_labels": "Pustular psoriasis",
+        "baseline_no_labels": "lichen planus",
+        "baseline_hierarchical": "Psoriasis",
+        "dermatology_agent": "Psoriasis",
+        "react_agent": "no definitive diagnosis"
+      },
+      "correct_methods": [
+        "baseline_no_labels"
+      ]
+    },
+    {
+      "sample_id": 59,
+      "ground_truth": "vitiligo",
+      "predictions": {
+        "baseline_labels": "Post-inflammatory hypopigmentation",
+        "baseline_no_labels": "vitiligo",
+        "baseline_hierarchical": "Vitiligo",
+        "dermatology_agent": "lichen sclerosis et atrophicus, Lichen sclerosus et atrophicus",
+        "react_agent": "no definitive diagnosis"
+      },
+      "correct_methods": [
+        "baseline_no_labels"
+      ]
+    }
+  ]
+}

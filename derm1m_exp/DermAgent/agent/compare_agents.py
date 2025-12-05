@@ -386,8 +386,6 @@ def main():
                        help='Random seed for sample selection')
     parser.add_argument('--row', type=int, default=None,
                        help='Specific row number to use (0-indexed)')
-    parser.add_argument('--mock', action='store_true',
-                       help='Use mock VLM instead of GPT-4o')
     args = parser.parse_args()
 
     # 출력 디렉터리 설정
@@ -399,7 +397,7 @@ def main():
 
     # 메인 로거 설정 (파일 전용, 터미널 출력 없음)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_name = "mock" if args.mock else "gpt-4o"
+    model_name = "gpt-4o"
     main_log_file = output_dir / f"comparison_{model_name}_{timestamp}.log"
 
     # 터미널에 시작 메시지만 출력
@@ -458,23 +456,19 @@ def main():
     logger.info(f"Image Exists: {image_path.exists()}\n")
 
     # VLM 초기화
-    if args.mock:
-        logger.info("Using Mock VLM")
-        vlm = None
-    else:
-        # API 키 로드
-        env_path = Path(__file__).resolve().parent.parent.parent.parent / ".env"
-        if env_path.exists():
-            from dotenv import load_dotenv
-            load_dotenv(env_path)
+    # API 키 로드
+    env_path = Path(__file__).resolve().parent.parent.parent.parent / ".env"
+    if env_path.exists():
+        from dotenv import load_dotenv
+        load_dotenv(env_path)
 
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            logger.error("OPENAI_API_KEY not found. Use --mock for testing without API.")
-            sys.exit(1)
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        logger.error("OPENAI_API_KEY not found.")
+        sys.exit(1)
 
-        logger.info(f"API Key loaded: {api_key[:20]}...")
-        vlm = GPT4oVLM(api_key, logger)
+    logger.info(f"API Key loaded: {api_key[:4]}...")  # 앞자리만 로깅
+    vlm = GPT4oVLM(api_key, logger)
 
     # 에이전트 실행
     derm_result, derm_json = run_dermatology_agent(image_path, vlm, logger, output_dir, model_name)

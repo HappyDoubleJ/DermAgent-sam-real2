@@ -1,0 +1,101 @@
+﻿sample_id,filename,ground_truth,hierarchical_gt,prediction,confidence,reasoning,raw_response,all_predictions
+0,pubmed/fa_03_PMC6872615_JVIM-33-2770-g004_5.jpg,no definitive diagnosis,nan,no definitive diagnosis,0.5,,,['no definitive diagnosis']
+1,youtube/IXZC_NOKpq0_frame_20623_0_0.jpg,no definitive diagnosis,no definitive diagnosis,no definitive diagnosis,0.5,,,['no definitive diagnosis']
+2,pubmed/5e_ea_PMC7007033_abd-94-04-0491-g03_1.jpg,no definitive diagnosis,nan,no definitive diagnosis,0.5,,,['no definitive diagnosis']
+3,pubmed/42_f3_PMC8202470_IDOJ_12_454_g001_0.png,no definitive diagnosis,nan,Polymorphous light eruption,0.5,,,"['Polymorphous light eruption', 'Sunburn', 'Contact dermatitis']"
+4,youtube/0JGlIffYRuM_frame_4049_0.jpg,no definitive diagnosis,no definitive diagnosis,Basal cell carcinoma,0.5,,,"['Basal cell carcinoma', 'Actinic solar damage(actinic keratosis), Actinic keratosis', 'Squamous cell carcinoma']"
+5,youtube/TyY1qef8dIM_frame_562_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Inflammatory dermatosis,0.5,,,"['Inflammatory dermatosis', 'Bullous pemphigoid', 'Contact dermatitis']"
+6,youtube/y06F3fLlDzM_frame_2891_0_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+7,youtube/TL_AhJVL7Xg_frame_3317_1.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Onychomycosis,0.5,,,"['Onychomycosis', 'Psoriasis', 'Eczema']"
+8,youtube/TlLO0Ujv_wg_frame_29136_0_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Pyoderma,0.5,,,"['Pyoderma', 'Ecthyma, ecthyma gangrenosum', 'Impetigo', 'Abscess']"
+9,youtube/RBEULrR75Ic_frame_51337_1.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Cellulitis,0.5,,,['Cellulitis']
+10,youtube/ES7RUPzSx3U_frame_1830_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",Seborrheic keratosis,0.5,,,['Seborrheic keratosis']
+11,youtube/KC3Yyxprz20_frame_10935_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",Actinic solar damage(telangiectasia),0.5,,,['Actinic solar damage(telangiectasia)']
+12,youtube/s0YmSISoUug_frame_3817_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+13,youtube/v3Hn2eplsiw_frame_67623_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+14,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part8_00290_03575_0.png,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",Basal cell carcinoma,0.5,,,"['Basal cell carcinoma', 'Squamous cell carcinoma']"
+15,IIYI/66_1.png,psoriasis,"inflammatory, non-infectious, psoriasis",Psoriasis,0.5,,,"['Psoriasis', 'Eczema', 'Lichen planus']"
+16,youtube/o1YUsJxsHdU_frame_138268_1.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+17,youtube/7yKeNoCB8_E_frame_33920_1.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+18,youtube/iIhr9-LwS5Q_frame_11211_9.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+19,youtube/Xl3sMLqhK30_frame_29964_5.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",Angiokeratoma,0.5,,,['Angiokeratoma']
+20,public/5453977556464879778.png,eczema,"inflammatory, non-infectious, eczema",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+21,youtube/Z3Oa5mxfCOw_frame_15078_0_0.jpg,eczema,"inflammatory, non-infectious, eczema",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+22,IIYI/1587_2.png,eczema,"inflammatory, non-infectious, eczema",Inflammatory dermatosis,0.5,,,"['Inflammatory dermatosis', 'Seborrheic dermatitis', 'Psoriasis']"
+23,public/stasis-dermatitis-20.jpg,eczema,"inflammatory, non-infectious, eczema","Chronic dermatitis, NOS",0.5,,,"['Chronic dermatitis, NOS', 'Stasis dermatitis']"
+24,youtube/uzcGVrNYLaI_frame_343_0_0.jpg,eczema,"inflammatory, non-infectious, eczema",Psoriasis,0.5,,,"['Psoriasis', 'Nummular eczema', 'Lichen simplex chronicus, ']"
+25,public/ISIC_1842966.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Basal cell carcinoma,0.5,,,"['Basal cell carcinoma', 'Actinic solar damage(actinic keratosis), Actinic keratosis', 'Squamous cell carcinoma']"
+26,public/ISIC_0022074.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Dysplastic nevus,0.5,,,"['Dysplastic nevus', 'Melanocytic nevus', 'Melasma, Lentigo']"
+27,youtube/ibybqKzOz54_frame_5920_1.jpg,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Basal cell carcinoma,0.5,,,['Basal cell carcinoma']
+28,public/ISIC_0022408.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Basal cell carcinoma,0.5,,,"['Basal cell carcinoma', 'Actinic solar damage(actinic keratosis), Actinic keratosis']"
+29,youtube/jt3qSMam07o_frame_4640_1.jpg,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Basal cell carcinoma,0.5,,,"['Basal cell carcinoma', 'Merkel cell carcinoma']"
+30,youtube/ZkntcZt0aho_frame_58923_1.jpg,proliferations,proliferations,no definitive diagnosis,0.5,,,['no definitive diagnosis']
+31,youtube/ue12XjkOV_E_frame_48562_0_0.jpg,proliferations,proliferations,"Chronic dermatitis, NOS",0.5,,,"['Chronic dermatitis, NOS']"
+32,youtube/BZ21v4OaWpM_frame_21990_2.jpg,proliferations,proliferations,Mucocele,0.5,,,"['Mucocele', 'Lipoma', 'Angioma, Hemangioma']"
+33,youtube/4DN_SfwZZXU_frame_19788_0_0.jpg,proliferations,proliferations,Foreign body reaction of the skin,0.5,,,"['Foreign body reaction of the skin', 'Contact dermatitis', 'Candidiasis']"
+34,youtube/oa3o-pGMz-U_frame_0_0.jpg,proliferations,proliferations,Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis']"
+35,"edu/Argenziano, Giuseppe- Giacomel, Jason- Zalaudek, Iris - Dermatoscopy of Non-Pigmented Skin Tumors - Pink - Think - Blink.-CRC Press (2015)_00030_07186_1.jpg",squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Basal cell carcinoma,0.5,,,['Basal cell carcinoma']
+36,youtube/1O4E-aTIIiY_frame_8598_0.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma","Ecthyma, ecthyma gangrenosum",0.5,,,"['Ecthyma, ecthyma gangrenosum', 'Impetigo', 'Abscess', 'Pyoderma']"
+37,youtube/ydZgOLJuf6U_frame_43277_1.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Central centrifugal cicatricial alopecia,0.5,,,['Central centrifugal cicatricial alopecia']
+38,youtube/EScWfQK7pvA_frame_36436_0.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Central centrifugal cicatricial alopecia,0.5,,,['Central centrifugal cicatricial alopecia']
+39,public/ISIC_0021072.JPG,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Exfoliative dermatitis,0.5,,,['Exfoliative dermatitis']
+40,IIYI/20486_2.png,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+41,public/-1542787778564695920.png,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",Exfoliative dermatitis,0.5,,,"['Exfoliative dermatitis', 'Contact dermatitis', 'Psoriasis']"
+42,youtube/EHC3ejfvcrY_frame_3125_0_0.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis', 'Rosacea']"
+43,youtube/sdvE0xFsk7U_frame_896_0_0.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis', 'Atopic dermatitis']"
+44,youtube/eH4cE2rg_ak_frame_29458_1.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria","Chronic dermatitis, NOS",0.5,,,"['Chronic dermatitis, NOS', 'Lichen simplex chronicus, ', 'Contact dermatitis']"
+45,youtube/d-nF_cZBgBY_frame_31402_0_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",Psoriasis,0.5,,,['Psoriasis']
+46,youtube/tMQAGKMxUEw_frame_73886_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",Blue nevus,0.5,,,['Blue nevus']
+47,pubmed/a4_f4_PMC8859620_JOMFP_25_383_g004.png,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+48,youtube/jDTD1kfijoY_frame_17131_0_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",Exfoliative dermatitis,0.5,,,"['Exfoliative dermatitis', 'Psoriasis', 'Contact dermatitis']"
+49,IIYI/10730_4.png,lichen planus,"inflammatory, non-infectious, lichen planus","Chronic dermatitis, NOS",0.5,,,"['Chronic dermatitis, NOS']"
+50,public/warts-common-39.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Skin tag,0.5,,,['Skin tag']
+51,IIYI/29217_1.png,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Molluscum contagiosum,0.5,,,"['Molluscum contagiosum', 'Herpes simplex virus']"
+52,public/herpes-type-1-recurrent-94.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Herpes simplex virus,0.5,,,['Herpes simplex virus']
+53,public/warts-common-64.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Scleromyxedema,0.5,,,['Scleromyxedema']
+54,public/corns-26.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis']"
+55,"note/Diane Jackson-Richards, Amit G. Pandya (eds.) - Dermatology Atlas for Skin of Color-Springer-Verlag Berlin Heidelberg (2014)_00020_00168_0.png",vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+56,youtube/ughfUshyayw_frame_4579_0_0.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+57,youtube/dmTY89DBhAg_frame_41032_0.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+58,note/疑难皮肤病彩色图谱OCR_00257_14590_0.png,vitiligo,"reaction patterns and descriptive terms, vitiligo",Neurofibromatosis,0.5,,,['Neurofibromatosis']
+59,pubmed/9f_db_PMC6927254_CCID-12-911-g0002_1.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo","lichen sclerosis et atrophicus, Lichen sclerosus et atrophicus",0.5,,,"['lichen sclerosis et atrophicus, Lichen sclerosus et atrophicus']"
+60,public/sebaceous-hyperplasia-71.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Basal cell carcinoma,0.5,,,['Basal cell carcinoma']
+61,public/seborrheic-keratosis-irritated-33.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+62,public/porokeratosis-31.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Eczema', 'Contact dermatitis']"
+63,public/dermatofibroma-123.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Dermatofibroma,0.5,,,['Dermatofibroma']
+64,public/epidermal-cyst-108.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Compound nevus,0.5,,,"['Compound nevus', 'Seborrheic keratosis']"
+65,public/Lichen-Sclerosus-Penis-4.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+66,public/Psoriasis-Chronic-Plaque-170.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",Psoriasis,0.5,,,"['Psoriasis', 'Eczema', 'Lichen simplex chronicus, ']"
+67,public/Lichen-Sclerosis-Vulva-22.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+68,public/Psoriasis-Guttate-75.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",Viral exanthem,0.5,,,"['Viral exanthem', 'Viral exanthems: roseola, Sixth disease', 'Unilateral laterothoracic exanthem']"
+69,public/psoriasis-scalp-78.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis","Chronic dermatitis, NOS",0.5,,,"['Chronic dermatitis, NOS', 'Seborrheic dermatitis', 'Psoriasis']"
+70,IIYI/22269_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+71,IIYI/24063_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis']"
+72,IIYI/830_3.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Varicella,0.5,,,['Varicella']
+73,IIYI/25663_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+74,public/3730702458099585701.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Psoriasis,0.5,,,"['Psoriasis', 'Lichen planus', 'Nummular eczema']"
+75,edu/(Eğitim Tanrısı) George Laskaris - Color Atlas of Oral Diseases- Diagnosis and Treatment-Thieme (2017)_00221_00884.png,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",Behcets disease,0.5,,,['Behcets disease']
+76,pubmed/a5_e7_PMC5004559_CCD-7-401-g002_1.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",Local infection of wound,0.5,,,['Local infection of wound']
+77,pubmed/13_ca_PMC6106674_abd-93-05-0726-g01_3.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+78,pubmed/e3_11_PMC4147289_GRP2014_934159.003.png,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",Contact purpura,0.5,,,"['Contact purpura', 'Irritant contact dermatitis']"
+79,youtube/UsoXCLoC0bQ_frame_23401_2.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, ulcer, erosion of skin",Foreign body reaction of the skin,0.5,,,"['Foreign body reaction of the skin', 'Traumatic ulcer']"
+80,youtube/IXZC_NOKpq0_frame_38432_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+81,youtube/XYW6aQervTY_frame_50_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",Actinic solar damage(pigmentation),0.5,,,['Actinic solar damage(pigmentation)']
+82,youtube/y1SpcTyifcU_frame_64505_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+83,youtube/CKj3GPY9dvc_frame_480_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",Candidiasis,0.5,,,"['Candidiasis', 'Candida intertrigo', 'Intertrigo']"
+84,youtube/WSjmXzl22Pk_frame_8766_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+85,public/tinea-incognito-51.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Tinea corporis,0.5,,,"['Tinea corporis', 'Psoriasis', 'Contact dermatitis']"
+86,public/tinea-versicolor-162.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea","Melasma, Lentigo",0.5,,,"['Melasma, Lentigo']"
+87,public/tinea-foot-webs-11.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+88,public/tinea-groin-120.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Tinea cruris,0.5,,,"['Tinea cruris', 'Intertrigo', 'Inverse psoriasis', 'Candidiasis']"
+89,public/tinea-foot-dorsum-4.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Allergic contact dermatitis', 'Irritant contact dermatitis']"
+90,youtube/iZrp1daJWk0_frame_15452_0.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",no definitive diagnosis,0.5,,,['no definitive diagnosis']
+91,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00166_10141.png,tinea,"inflammatory, infectious, fungal, tinea",Tinea capitis,0.5,,,"['Tinea capitis', 'Seborrheic dermatitis', 'Folliculitis']"
+92,youtube/1rQ9PmDOrSs_frame_11842_2.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",Tinea corporis,0.5,,,"['Tinea corporis', 'Nummular eczema', 'Psoriasis']"
+93,youtube/609D9bQFAtc_frame_56165_0.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea","Lichen simplex chronicus, ",0.5,,,"['Lichen simplex chronicus, ']"
+94,public/-5081790413284637815.png,tinea,"inflammatory, infectious, fungal, tinea",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis']"
+95,youtube/zzxJOYcnQ6g_frame_1727_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Contact dermatitis']"
+96,youtube/EU7EEKXaFcg_frame_42145_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Acute vesicular dermatitis,0.5,,,"['Acute vesicular dermatitis', 'Impetigo', 'Contact dermatitis']"
+97,youtube/zHIWVerNenY_frame_735_0_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Psoriasis,0.5,,,"['Psoriasis', 'Seborrheic dermatitis', 'Lichen planus']"
+98,youtube/QjNDAQVm9Ys_frame_9240_0_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Acute vesicular dermatitis,0.5,,,['Acute vesicular dermatitis']
+99,IIYI/10883_2.png,scabies,"inflammatory, infectious, parasitic, scabies",no definitive diagnosis,0.5,,,['no definitive diagnosis']

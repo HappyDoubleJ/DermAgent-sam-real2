@@ -18,51 +18,28 @@ SCRIPT_DIR = Path(__file__).parent.parent
 sys.path.insert(0, str(SCRIPT_DIR / "agent"))
 sys.path.insert(0, str(SCRIPT_DIR / "eval"))
 
-from DermAgent.derm1m_exp.DermAgent.agent.derm_agent import DermatologyAgent, DiagnosisState
+from dermatology_agent import DermatologyAgent, DiagnosisState
 from ontology_utils import OntologyTree
 from evaluation_metrics import HierarchicalEvaluator
+from pipeline import GPT4oVLM, QwenVLM, InternVLM
 
 
-class MockVLM:
-    """테스트용 Mock VLM"""
-    
-    def __init__(self):
-        self.responses = {
-            "initial": {
-                "morphology": ["papule", "plaque", "scaly"],
-                "color": ["red", "erythematous"],
-                "distribution": ["localized"],
-                "surface": ["scaly"],
-                "location": "trunk",
-                "additional_notes": "well-demarcated border"
-            },
-            "category": {
-                "selected_category": "inflammatory",
-                "confidence": 0.85,
-                "reasoning": "Inflammatory features observed"
-            },
-            "subcategory": {
-                "selected_subcategory": "infectious",
-                "confidence": 0.7,
-                "reasoning": "Pattern suggests infection"
-            }
-        }
-    
-    def chat_img(self, prompt: str, image_paths: List[str], max_tokens: int = 512) -> str:
-        """Mock 응답 생성"""
-        if "initial" in prompt.lower() or "morphology" in prompt.lower():
-            return json.dumps(self.responses["initial"])
-        elif "major categories" in prompt.lower() or "category" in prompt.lower():
-            return json.dumps(self.responses["category"])
-        elif "subcategor" in prompt.lower():
-            return json.dumps(self.responses["subcategory"])
-        else:
-            return json.dumps({
-                "primary_diagnosis": "Tinea corporis",
-                "confidence": 0.7,
-                "differential_diagnoses": ["Psoriasis", "Eczema"],
-                "reasoning": "Clinical features consistent"
-            })
+def create_vlm(model_type: str, api_key: str = None, model_path: str = None):
+    """VLM 인스턴스 생성"""
+    if model_type == "gpt":
+        key = api_key or os.getenv("OPENAI_API_KEY")
+        if not key:
+            raise ValueError("GPT 모델 사용 시 --api_key 또는 OPENAI_API_KEY 환경 변수가 필요합니다.")
+        return GPT4oVLM(api_key=key)
+    if model_type == "qwen":
+        if not model_path:
+            raise ValueError("Qwen 모델 사용 시 --model_path를 지정해야 합니다.")
+        return QwenVLM(model_path=model_path)
+    if model_type == "internvl":
+        if not model_path:
+            raise ValueError("InternVL 모델 사용 시 --model_path를 지정해야 합니다.")
+        return InternVLM(model_path=model_path)
+    raise ValueError(f"지원하지 않는 모델 타입입니다: {model_type}")
 
 
 def run_agent_diagnosis(
@@ -146,8 +123,8 @@ def main():
                         help='Base directory for images')
     parser.add_argument('--output', type=str, default='agent_results.json',
                         help='Output JSON file path')
-    parser.add_argument('--model', type=str, choices=['mock', 'gpt', 'qwen', 'internvl'],
-                        default='mock', help='VLM model to use')
+    parser.add_argument('--model', type=str, choices=['gpt', 'qwen', 'internvl'],
+                        default='gpt', help='VLM model to use')
     parser.add_argument('--model_path', type=str, default=None,
                         help='Path to model (for qwen/internvl)')
     parser.add_argument('--api_key', type=str, default=None,
@@ -156,66 +133,15 @@ def main():
                         help='Maximum ontology traversal depth')
     parser.add_argument('--verbose', action='store_true',
                         help='Enable verbose output')
-    parser.add_argument('--demo', action='store_true',
-                        help='Run demo mode')
     
     args = parser.parse_args()
     
-    # Demo 모드
-    if args.demo:
-        print("=== Demo Mode ===\n")
-
-        try:
-            agent = DermatologyAgent(
-                ontology_path=args.ontology,
-                vlm_model=MockVLM(),
-                verbose=True
-            )
-            if args.ontology is None:
-                print(f"✓ Ontology auto-detected\n")
-        except FileNotFoundError as e:
-            print(f"Error: {e}")
-            print("\n사용법:")
-            print("  python run_agent.py --demo")
-            print("  (ontology.json을 자동으로 찾습니다)")
-            return
-
-        # 가상의 이미지로 테스트
-        result = agent.diagnose("/fake/image.jpg", max_depth=args.max_depth)
-
-        print("\n=== Diagnosis Result ===")
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-        return
-    
     # VLM 모델 초기화
-    vlm = None
-    if args.model == 'mock':
-        vlm = MockVLM()
-    elif args.model == 'gpt':
-        if not args.api_key:
-            print("Error: --api_key required for GPT model")
-            return
-        # GPT4o import (실제 사용 시)
-        # from model import GPT4o
-        # vlm = GPT4o(api_key=args.api_key)
-        print("GPT model selected - implement actual import")
-        vlm = MockVLM()  # 임시
-    elif args.model == 'qwen':
-        if not args.model_path:
-            print("Error: --model_path required for Qwen model")
-            return
-        # from model import QwenVL
-        # vlm = QwenVL(model_path=args.model_path)
-        print("Qwen model selected - implement actual import")
-        vlm = MockVLM()  # 임시
-    elif args.model == 'internvl':
-        if not args.model_path:
-            print("Error: --model_path required for InternVL model")
-            return
-        # from model import InternVL
-        # vlm = InternVL(model_path=args.model_path)
-        print("InternVL model selected - implement actual import")
-        vlm = MockVLM()  # 임시
+    try:
+        vlm = create_vlm(args.model, api_key=args.api_key, model_path=args.model_path)
+    except ValueError as e:
+        print(f"Error initializing VLM: {e}")
+        return
     
     # 에이전트 생성
     try:
@@ -229,8 +155,8 @@ def main():
     except FileNotFoundError as e:
         print(f"Error: {e}")
         print("\n해결 방법:")
-        print("  1. 자동 경로: python run_agent.py --demo")
-        print("  2. 수동 경로: python run_agent.py --ontology /path/to/ontology.json --demo")
+        print("  1. 프로젝트 루트에 ontology.json이 존재하는지 확인하세요.")
+        print("  2. 수동 경로 지정: python run_agent.py --ontology /path/to/ontology.json ...")
         return
     
     # 데이터 로드
@@ -256,7 +182,7 @@ def main():
             print("\n=== Evaluation ===")
             evaluate_results(results, ground_truths, args.ontology)
     else:
-        print("No input CSV provided. Use --demo for demo mode or --input_csv for batch processing.")
+        print("No input CSV provided. Specify --input_csv for batch processing.")
 
 
 if __name__ == "__main__":
@@ -265,17 +191,6 @@ if __name__ == "__main__":
 
 """
 Usage Examples:
-
-# Demo mode (Mock VLM으로 구조 테스트, 자동 경로)
-python run_agent.py --demo --verbose
-
-# CSV 데이터로 실행 (Mock VLM)
-python run_agent.py \
-    --input_csv /path/to/sampled_data.csv \
-    --image_dir /path/to/images \
-    --output results.json \
-    --model mock \
-    --verbose
 
 # GPT-4o로 실행
 python run_agent.py \
@@ -293,4 +208,12 @@ CUDA_VISIBLE_DEVICES=0,1 python run_agent.py \
     --output qwen_results.json \
     --model qwen \
     --model_path Qwen/Qwen2-VL-7B-Instruct
+
+# InternVL로 실행
+python run_agent.py \
+    --input_csv /path/to/sampled_data.csv \
+    --image_dir /path/to/images \
+    --output internvl_results.json \
+    --model internvl \
+    --model_path OpenGVLab/InternVL2-8B
 """

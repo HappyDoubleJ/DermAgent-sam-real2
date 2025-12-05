@@ -1,0 +1,51 @@
+{
+  "all_correct_count": 8,
+  "all_wrong_count": 88,
+  "different_count": 4,
+  "different_samples": [
+    {
+      "sample_id": 3,
+      "ground_truth": "no definitive diagnosis",
+      "predictions": {
+        "sam_baseline": "no definitive diagnosis",
+        "sam_llm_guided": "photoallergic dermatitis"
+      },
+      "correct_methods": [
+        "sam_baseline"
+      ]
+    },
+    {
+      "sample_id": 29,
+      "ground_truth": "basal cell carcinoma",
+      "predictions": {
+        "sam_baseline": "basal cell carcinoma",
+        "sam_llm_guided": "no definitive diagnosis"
+      },
+      "correct_methods": [
+        "sam_baseline"
+      ]
+    },
+    {
+      "sample_id": 45,
+      "ground_truth": "lichen planus",
+      "predictions": {
+        "sam_baseline": "dyshidrotic eczema",
+        "sam_llm_guided": "lichen planus"
+      },
+      "correct_methods": [
+        "sam_llm_guided"
+      ]
+    },
+    {
+      "sample_id": 49,
+      "ground_truth": "lichen planus",
+      "predictions": {
+        "sam_baseline": "lichen planus",
+        "sam_llm_guided": "lichen simplex chronicus"
+      },
+      "correct_methods": [
+        "sam_baseline"
+      ]
+    }
+  ]
+}

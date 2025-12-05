@@ -23,23 +23,30 @@ class BaselineModel:
 
 
 class QwenVL(BaselineModel):
-    def __init__(self, model_path):
-        # Load disease labels - use relative path from script location
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        disease_labels_path = os.path.join(script_dir, "extracted_node_names.txt")
-        with open(disease_labels_path, "r") as f:
-            disease_labels = [line.strip().split("→")[1] if "→" in line else line.strip() for line in f.readlines() if line.strip()]
-        disease_labels_str = ", ".join(disease_labels)
+    def __init__(self, model_path, use_labels_prompt: bool = True):
+        # Load disease labels only when the label-guided prompt is desired
+        if use_labels_prompt:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            disease_labels_path = os.path.join(script_dir, "extracted_node_names.txt")
+            with open(disease_labels_path, "r") as f:
+                disease_labels = [line.strip().split("→")[1] if "→" in line else line.strip() for line in f.readlines() if line.strip()]
+            disease_labels_str = ", ".join(disease_labels)
+            self.instruction = f"""
+            You are a dermatology expert. You are provided with a skin image and a question about it.
+            Please analyze the image carefully and provide a detailed diagnosis or answer based on your expertise.
+            Focus on identifying skin conditions, lesions, or abnormalities visible in the image.
 
-        self.instruction = f"""
-        You are a dermatology expert. You are provided with a skin image and a question about it.
-        Please analyze the image carefully and provide a detailed diagnosis or answer based on your expertise.
-        Focus on identifying skin conditions, lesions, or abnormalities visible in the image.
+            When identifying skin conditions, the disease_label should be one of the following: {disease_labels_str}
 
-        When identifying skin conditions, the disease_label should be one of the following: {disease_labels_str}
-
-        Provide a clear and professional response.
-        """
+            Provide a clear and professional response.
+            """
+        else:
+            # Label-agnostic instruction
+            self.instruction = """
+            You are a dermatology expert. You are provided with a skin image and a question about it.
+            Analyze the image carefully and provide a detailed, professional answer about visible skin findings.
+            Do NOT assume or reference any predefined disease label list. If uncertain, state the likely differentials.
+            """
 
         # Try to use flash attention if available, otherwise fall back to eager attention
         load_kwargs = dict(
@@ -464,25 +471,33 @@ class InternVL(BaselineModel):
 
 
 class GPT4o(BaselineModel):
-    def __init__(self, api_key):
+    def __init__(self, api_key, use_labels_prompt: bool = True):
         self.client = OpenAI(api_key=api_key)
 
-        # Load disease labels - use relative path from script location
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        disease_labels_path = os.path.join(script_dir, "extracted_node_names.txt")
-        with open(disease_labels_path, "r") as f:
-            disease_labels = [line.strip().split("→")[1] if "→" in line else line.strip() for line in f.readlines() if line.strip()]
-        disease_labels_str = ", ".join(disease_labels)
+        if use_labels_prompt:
+            # Load disease labels - use relative path from script location
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            disease_labels_path = os.path.join(script_dir, "extracted_node_names.txt")
+            with open(disease_labels_path, "r") as f:
+                disease_labels = [line.strip().split("→")[1] if "→" in line else line.strip() for line in f.readlines() if line.strip()]
+            disease_labels_str = ", ".join(disease_labels)
 
-        self.instruction = f"""
-        You are a dermatology expert. You are provided with a skin image and a question about it.
-        Please analyze the image carefully and provide a detailed diagnosis or answer based on your expertise.
-        Focus on identifying skin conditions, lesions, or abnormalities visible in the image.
+            self.instruction = f"""
+            You are a dermatology expert. You are provided with a skin image and a question about it.
+            Please analyze the image carefully and provide a detailed diagnosis or answer based on your expertise.
+            Focus on identifying skin conditions, lesions, or abnormalities visible in the image.
 
-        When identifying skin conditions, the disease_label should be one of the following: {disease_labels_str}
+            When identifying skin conditions, the disease_label should be one of the following: {disease_labels_str}
 
-        Provide a clear and professional response.
-        """
+            Provide a clear and professional response.
+            """
+        else:
+            # Label-agnostic instruction
+            self.instruction = """
+            You are a dermatology expert. You are provided with a skin image and a question about it.
+            Analyze the image carefully and provide a detailed, professional answer about visible skin findings.
+            Do NOT assume or reference any predefined disease label list. If uncertain, state the likely differentials.
+            """
         self.model = "gpt-4o"
 
     def chat_img(self, input_text, image_path, max_tokens=512):

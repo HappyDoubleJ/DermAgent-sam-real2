@@ -1,0 +1,18 @@
+# 5가지 피부과 진단 방법 비교 실험 의존성
+
+# API
+openai>=1.0.0
+
+# Data
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Progress bar
+tqdm>=4.65.0
+
+# Image processing
+Pillow>=9.0.0
+
+# (선택) DermatologyAgent/ReActAgent 사용 시
+# torch>=2.0.0
+# transformers>=4.40.0

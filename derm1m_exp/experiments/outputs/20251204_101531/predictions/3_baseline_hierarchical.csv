@@ -1,0 +1,897 @@
+﻿sample_id,filename,ground_truth,hierarchical_gt,prediction,confidence,reasoning,raw_response,all_predictions
+0,pubmed/fa_03_PMC6872615_JVIM-33-2770-g004_5.jpg,no definitive diagnosis,nan,no definitive diagnosis,0.0,The image does not show identifiable human skin or a condition from the provided ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""N/A"",
+    ""reasoning"": ""The image does not show identifiable human skin or a condition from the provided ontology tree.""
+}
+```",[]
+1,youtube/IXZC_NOKpq0_frame_20623_0_0.jpg,no definitive diagnosis,no definitive diagnosis,no definitive diagnosis,0.0,"The image shows what appears to be a cosmetic procedure being performed on the neck and upper chest area. There is redness consistent with recent treatment, but no clear dermatological lesion is identifiable.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""neck and upper chest"",
+    ""reasoning"": ""The image shows what appears to be a cosmetic procedure being performed on the neck and upper chest area. There is redness consistent with recent treatment, but no clear dermatological lesion is identifiable.""
+}
+```",[]
+2,pubmed/5e_ea_PMC7007033_abd-94-04-0491-g03_1.jpg,no definitive diagnosis,nan,Beau's lines,0.9,"The image shows transverse grooves across the fingernail, which are characteristic of Beau's lines. These lines indicate a temporary interruption in nail growth, likely associated with systemic illness or trauma.","```json
+{
+    ""disease_label"": ""Beau's lines"",
+    ""ontology_path"": [""Nail diseases, nail disease"", ""Beau's lines""],
+    ""confidence"": 0.9,
+    ""body_location"": ""fingernail"",
+    ""reasoning"": ""The image shows transverse grooves across the fingernail, which are characteristic of Beau's lines. These lines indicate a temporary interruption in nail growth, likely associated with systemic illness or trauma.""
+}
+```",[]
+3,pubmed/42_f3_PMC8202470_IDOJ_12_454_g001_0.png,no definitive diagnosis,nan,Contact dermatitis,0.8,"The image shows erythematous patches with a sharp demarcation line on the cheek and jawline, which is suggestive of contact dermatitis, likely caused by an external irritant or allergen in contact with the skin.","```json
+{
+    ""disease_label"": ""Contact dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema"", ""Contact dermatitis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""cheek and jawline"",
+    ""reasoning"": ""The image shows erythematous patches with a sharp demarcation line on the cheek and jawline, which is suggestive of contact dermatitis, likely caused by an external irritant or allergen in contact with the skin.""
+}
+```",[]
+4,youtube/0JGlIffYRuM_frame_4049_0.jpg,no definitive diagnosis,no definitive diagnosis,Basal cell carcinoma,0.9,"The image shows a pearly, erythematous lesion with telangiectasia, common features of basal cell carcinoma on the scalp.","```json
+{
+    ""disease_label"": ""Basal cell carcinoma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Basal cell carcinoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""scalp"",
+    ""reasoning"": ""The image shows a pearly, erythematous lesion with telangiectasia, common features of basal cell carcinoma on the scalp.""
+}
+```",[]
+5,youtube/TyY1qef8dIM_frame_562_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Pustular psoriasis,0.9,"The image shows red patches with pustules, which is characteristic of pustular psoriasis. The distribution and appearance align with this diagnosis.","```json
+{
+    ""disease_label"": ""Pustular psoriasis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Pustular psoriasis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""arm"",
+    ""reasoning"": ""The image shows red patches with pustules, which is characteristic of pustular psoriasis. The distribution and appearance align with this diagnosis.""
+}
+```",[]
+6,youtube/y06F3fLlDzM_frame_2891_0_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Keratosis pilaris,0.9,"The image shows small, rough bumps consistent with keratosis pilaris, typically found on the upper arms.","```json
+{
+    ""disease_label"": ""Keratosis pilaris"",
+    ""ontology_path"": [""hereditary"", ""Keratosis pilaris""],
+    ""confidence"": 0.9,
+    ""body_location"": ""upper arm"",
+    ""reasoning"": ""The image shows small, rough bumps consistent with keratosis pilaris, typically found on the upper arms.""
+}
+```",[]
+7,youtube/TL_AhJVL7Xg_frame_3317_1.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Onychomycosis,0.8,"The image shows discoloration and thickening of the toenails, which is characteristic of onychomycosis. The surrounding skin also appears slightly inflamed, which can accompany fungal nail infections.","```json
+{
+    ""disease_label"": ""Onychomycosis"",
+    ""ontology_path"": [""Nail diseases, nail disease"", ""Onychomycosis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""toenails"",
+    ""reasoning"": ""The image shows discoloration and thickening of the toenails, which is characteristic of onychomycosis. The surrounding skin also appears slightly inflamed, which can accompany fungal nail infections.""
+}
+```",[]
+8,youtube/TlLO0Ujv_wg_frame_29136_0_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Psoriasis,0.8,"The image shows widespread thick scaling plaques characteristic of psoriasis, covering the torso and arms. This pattern and appearance are consistent with plaque psoriasis.","```json
+{
+    ""disease_label"": ""Psoriasis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""upper body, arms"",
+    ""reasoning"": ""The image shows widespread thick scaling plaques characteristic of psoriasis, covering the torso and arms. This pattern and appearance are consistent with plaque psoriasis.""
+}
+```",[]
+9,youtube/RBEULrR75Ic_frame_51337_1.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",Burn of skin,0.8,"The image shows an erythematous area on the face which suggests a thermal injury, consistent with a burn. The redness and location are typical of superficial burns.","```json
+{
+    ""disease_label"": ""Burn of skin"",
+    ""ontology_path"": [""exogenous"", ""physical"", ""Burn of skin""],
+    ""confidence"": 0.8,
+    ""body_location"": ""face"",
+    ""reasoning"": ""The image shows an erythematous area on the face which suggests a thermal injury, consistent with a burn. The redness and location are typical of superficial burns.""
+}
+```",[]
+10,youtube/ES7RUPzSx3U_frame_1830_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",Seborrheic keratosis,0.9,"The lesions appear as well-circumscribed, waxy and slightly elevated plaques, which are typical characteristics of seborrheic keratosis.","```json
+{
+    ""disease_label"": ""Seborrheic keratosis"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Seborrheic keratosis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""trunk"",
+    ""reasoning"": ""The lesions appear as well-circumscribed, waxy and slightly elevated plaques, which are typical characteristics of seborrheic keratosis.""
+}
+```",[]
+11,youtube/KC3Yyxprz20_frame_10935_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",Spider veins,0.9,"The image shows prominent superficial veins consistent with telangiectasia, commonly referred to as spider veins. This is a reaction pattern rather than a specific dermatological disease and is typically seen on the legs.","```json
+{
+    ""disease_label"": ""Spider veins"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Spider veins""],
+    ""confidence"": 0.9,
+    ""body_location"": ""legs"",
+    ""reasoning"": ""The image shows prominent superficial veins consistent with telangiectasia, commonly referred to as spider veins. This is a reaction pattern rather than a specific dermatological disease and is typically seen on the legs.""
+}
+```",[]
+12,youtube/s0YmSISoUug_frame_3817_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.0,The image does not display any clear dermatological lesions or conditions that can be identified from the provided ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""eye/eyelid"",
+    ""reasoning"": ""The image does not display any clear dermatological lesions or conditions that can be identified from the provided ontology tree.""
+}
+```",[]
+13,youtube/v3Hn2eplsiw_frame_67623_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.5,"The image shows diffuse erythematous papules and pustules on the facial skin, possibly indicating an inflammatory or infectious condition. Due to image quality and lack of distinguishing features, a specific diagnosis cannot be confidently made.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.5,
+    ""body_location"": ""face"",
+    ""reasoning"": ""The image shows diffuse erythematous papules and pustules on the facial skin, possibly indicating an inflammatory or infectious condition. Due to image quality and lack of distinguishing features, a specific diagnosis cannot be confidently made.""
+}
+```",[]
+14,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part8_00290_03575_0.png,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",Basal cell carcinoma,0.9,"The image shows a large ulcerated lesion on the forehead, which is characteristic of basal cell carcinoma, commonly found on sun-exposed areas of elderly patients.","```json
+{
+    ""disease_label"": ""Basal cell carcinoma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Basal cell carcinoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""forehead"",
+    ""reasoning"": ""The image shows a large ulcerated lesion on the forehead, which is characteristic of basal cell carcinoma, commonly found on sun-exposed areas of elderly patients.""
+}
+```",[]
+15,IIYI/66_1.png,psoriasis,"inflammatory, non-infectious, psoriasis",Psoriasis (plaque),0.9,"The image shows well-demarcated, scaly plaques on the dorsal surfaces of the hands, which are characteristic of plaque psoriasis. The chronicity, location, and appearance of the lesions support this diagnosis.","```json
+{
+    ""disease_label"": ""Psoriasis (plaque)"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Psoriasis (plaque)""],
+    ""confidence"": 0.9,
+    ""body_location"": ""dorsal surfaces of the hands"",
+    ""reasoning"": ""The image shows well-demarcated, scaly plaques on the dorsal surfaces of the hands, which are characteristic of plaque psoriasis. The chronicity, location, and appearance of the lesions support this diagnosis.""
+}
+```",[]
+16,youtube/o1YUsJxsHdU_frame_138268_1.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",Stasis dermatitis,0.8,"The image shows erythematous patches and lesions on the lower leg, consistent with stasis dermatitis due to venous insufficiency. The location and appearance suggest a chronic inflammatory condition often seen in elderly individuals with circulation issues.","```json
+{
+    ""disease_label"": ""Stasis dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Stasis dermatitis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""lower leg"",
+    ""reasoning"": ""The image shows erythematous patches and lesions on the lower leg, consistent with stasis dermatitis due to venous insufficiency. The location and appearance suggest a chronic inflammatory condition often seen in elderly individuals with circulation issues.""
+}
+```",[]
+17,youtube/7yKeNoCB8_E_frame_33920_1.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.0,The image is not clear and does not allow for identification of any specific dermatological condition.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""undetermined"",
+    ""reasoning"": ""The image is not clear and does not allow for identification of any specific dermatological condition.""
+}
+```",[]
+18,youtube/iIhr9-LwS5Q_frame_11211_9.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.0,"The image does not show any specific or identifiable skin lesion. Without clear diagnostic features, it is not possible to assign a specific diagnosis from the provided ontology tree.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not show any specific or identifiable skin lesion. Without clear diagnostic features, it is not possible to assign a specific diagnosis from the provided ontology tree.""
+}
+```",[]
+19,youtube/Xl3sMLqhK30_frame_29964_5.jpg,psoriasis,"inflammatory, non-infectious, psoriasis","Angioma, Hemangioma",0.8,"The image shows a purplish, vascular lesion which is consistent with a hemangioma or angioma. The color and appearance suggest a benign vascular proliferation.","```json
+{
+    ""disease_label"": ""Angioma, Hemangioma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Angioma, Hemangioma""],
+    ""confidence"": 0.8,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image shows a purplish, vascular lesion which is consistent with a hemangioma or angioma. The color and appearance suggest a benign vascular proliferation.""
+}
+```",[]
+20,public/5453977556464879778.png,eczema,"inflammatory, non-infectious, eczema",Insect bite,0.8,"The image shows a red, inflamed area with small punctate marks that are characteristic of an insect bite. The location and appearance suggest a localized reaction to an insect sting or bite without secondary infection.","```json
+{
+    ""disease_label"": ""Insect bite"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""parasitic"", ""Insect bite""],
+    ""confidence"": 0.8,
+    ""body_location"": ""ankle"",
+    ""reasoning"": ""The image shows a red, inflamed area with small punctate marks that are characteristic of an insect bite. The location and appearance suggest a localized reaction to an insect sting or bite without secondary infection.""
+}
+```",[]
+21,youtube/Z3Oa5mxfCOw_frame_15078_0_0.jpg,eczema,"inflammatory, non-infectious, eczema",no definitive diagnosis,0.0,The image does not show any clear or identifiable skin lesion.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not show any clear or identifiable skin lesion.""
+}
+```",[]
+22,IIYI/1587_2.png,eczema,"inflammatory, non-infectious, eczema",Scalp psoriasis,0.8,"The image shows thick, scaly patches on the scalp, which are consistent with scalp psoriasis. The distribution and nature of the scales are indicative of this diagnosis.","```json
+{
+    ""disease_label"": ""Scalp psoriasis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Scalp psoriasis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""scalp"",
+    ""reasoning"": ""The image shows thick, scaly patches on the scalp, which are consistent with scalp psoriasis. The distribution and nature of the scales are indicative of this diagnosis.""
+}
+```",[]
+23,public/stasis-dermatitis-20.jpg,eczema,"inflammatory, non-infectious, eczema",Stasis dermatitis,0.9,"The image shows erythematous, scaly plaques located on the lower leg, consistent with stasis dermatitis often seen in areas of compromised venous circulation.","```json
+{
+    ""disease_label"": ""Stasis dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Stasis dermatitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""lower leg"",
+    ""reasoning"": ""The image shows erythematous, scaly plaques located on the lower leg, consistent with stasis dermatitis often seen in areas of compromised venous circulation.""
+}
+```",[]
+24,youtube/uzcGVrNYLaI_frame_343_0_0.jpg,eczema,"inflammatory, non-infectious, eczema",Psoriasis (plaque),0.9,"The image shows red, scaly plaques on the elbow, which are characteristic of plaque psoriasis. These lesions are typically well-demarcated and covered with silvery scales.","```json
+{
+    ""disease_label"": ""Psoriasis (plaque)"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Psoriasis (plaque)""],
+    ""confidence"": 0.9,
+    ""body_location"": ""elbow"",
+    ""reasoning"": ""The image shows red, scaly plaques on the elbow, which are characteristic of plaque psoriasis. These lesions are typically well-demarcated and covered with silvery scales.""
+}
+```",[]
+25,public/ISIC_1842966.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.3,"The image lacks clear defining characteristics to confidently identify a specific condition from the ontology tree. It appears to be a close-up view of the skin with some erythema and scaling, but without more distinguishing features, a definitive diagnosis cannot be made.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.3,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image lacks clear defining characteristics to confidently identify a specific condition from the ontology tree. It appears to be a close-up view of the skin with some erythema and scaling, but without more distinguishing features, a definitive diagnosis cannot be made.""
+}
+```",[]
+26,public/ISIC_0022074.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.0,The image does not show a clear or definitive skin lesion that can be confidently diagnosed within the provided Disease Ontology Tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not show a clear or definitive skin lesion that can be confidently diagnosed within the provided Disease Ontology Tree.""
+}
+```",[]
+27,youtube/ibybqKzOz54_frame_5920_1.jpg,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Basal cell carcinoma,0.8,"The image shows a lesion with visible blood vessels and a pearly appearance, which is suggestive of basal cell carcinoma, a common type of skin cancer.","```json
+{
+    ""disease_label"": ""Basal cell carcinoma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Basal cell carcinoma""],
+    ""confidence"": 0.8,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image shows a lesion with visible blood vessels and a pearly appearance, which is suggestive of basal cell carcinoma, a common type of skin cancer.""
+}
+```",[]
+28,public/ISIC_0022408.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.0,The image does not provide enough distinct features to confidently identify a specific dermatological condition from the provided ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not provide enough distinct features to confidently identify a specific dermatological condition from the provided ontology tree.""
+}
+```",[]
+29,youtube/jt3qSMam07o_frame_4640_1.jpg,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",Basal cell carcinoma,0.9,"The image shows a pearly, raised, and translucent nodule with possible central depression, typical for basal cell carcinoma.","```json
+{
+    ""disease_label"": ""Basal cell carcinoma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Basal cell carcinoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""skin (likely trunk or extremities)"",
+    ""reasoning"": ""The image shows a pearly, raised, and translucent nodule with possible central depression, typical for basal cell carcinoma.""
+}
+```",[]
+30,youtube/ZkntcZt0aho_frame_58923_1.jpg,proliferations,proliferations,Irritant contact dermatitis,0.9,"The image shows a well-demarcated, erythematous patch consistent with irritant contact dermatitis, often characterized by redness and inflammation in a distinct area following exposure to an irritating substance. The location on the forearm suggests possible exposure to an external irritant.","```json
+{
+    ""disease_label"": ""Irritant contact dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema"", ""Irritant contact dermatitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""forearm"",
+    ""reasoning"": ""The image shows a well-demarcated, erythematous patch consistent with irritant contact dermatitis, often characterized by redness and inflammation in a distinct area following exposure to an irritating substance. The location on the forearm suggests possible exposure to an external irritant.""
+}
+```",[]
+31,youtube/ue12XjkOV_E_frame_48562_0_0.jpg,proliferations,proliferations,Eczema,0.8,"The image shows erythematous patches with scaling, which are characteristic of eczema. The rough, cracked skin appearance suggests a chronic inflammatory process such as eczema.","{
+    ""disease_label"": ""Eczema"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema""],
+    ""confidence"": 0.8,
+    ""body_location"": ""leg"",
+    ""reasoning"": ""The image shows erythematous patches with scaling, which are characteristic of eczema. The rough, cracked skin appearance suggests a chronic inflammatory process such as eczema.""
+}",[]
+32,youtube/BZ21v4OaWpM_frame_21990_2.jpg,proliferations,proliferations,Angioedema,0.9,"The image shows significant swelling of the lips, suggesting angioedema. The localized nature and appearance align with this diagnosis.","```json
+{
+    ""disease_label"": ""Angioedema"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious""],
+    ""confidence"": 0.9,
+    ""body_location"": ""lips"",
+    ""reasoning"": ""The image shows significant swelling of the lips, suggesting angioedema. The localized nature and appearance align with this diagnosis.""
+}
+```",[]
+33,youtube/4DN_SfwZZXU_frame_19788_0_0.jpg,proliferations,proliferations,no definitive diagnosis,0.0,The image does not provide enough visual information to make a confident diagnosis. The anatomical location and specific skin lesions are not clearly identifiable.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""not clearly identifiable"",
+    ""reasoning"": ""The image does not provide enough visual information to make a confident diagnosis. The anatomical location and specific skin lesions are not clearly identifiable.""
+}
+```",[]
+34,youtube/oa3o-pGMz-U_frame_0_0.jpg,proliferations,proliferations,Eczema,0.8,"The image shows erythematous, scaly patches on what appears to be a child's arm, which is consistent with eczema. The distribution and appearance are typical of infantile eczema.","```json
+{
+    ""disease_label"": ""Eczema"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema""],
+    ""confidence"": 0.8,
+    ""body_location"": ""upper arm"",
+    ""reasoning"": ""The image shows erythematous, scaly patches on what appears to be a child's arm, which is consistent with eczema. The distribution and appearance are typical of infantile eczema.""
+}
+```",[]
+35,"edu/Argenziano, Giuseppe- Giacomel, Jason- Zalaudek, Iris - Dermatoscopy of Non-Pigmented Skin Tumors - Pink - Think - Blink.-CRC Press (2015)_00030_07186_1.jpg",squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.3,The image does not clearly display a recognizable dermatological condition that aligns with any specific diagnosis from the provided ontology tree. The features are not distinct enough for a confident diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [""no definitive diagnosis""],
+    ""confidence"": 0.3,
+    ""body_location"": ""not specified"",
+    ""reasoning"": ""The image does not clearly display a recognizable dermatological condition that aligns with any specific diagnosis from the provided ontology tree. The features are not distinct enough for a confident diagnosis.""
+}
+```",[]
+36,youtube/1O4E-aTIIiY_frame_8598_0.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Ulcer,0.7,"The image shows an eroded skin surface with areas of redness and tissue breakdown, consistent with an ulcer. The presence of these features aligns with typical ulcer characteristics.","```json
+{
+    ""disease_label"": ""Ulcer"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Ulcers, Erosion of skin"", ""Ulcer""],
+    ""confidence"": 0.7,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image shows an eroded skin surface with areas of redness and tissue breakdown, consistent with an ulcer. The presence of these features aligns with typical ulcer characteristics.""
+}
+```",[]
+37,youtube/ydZgOLJuf6U_frame_43277_1.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Central centrifugal cicatricial alopecia,0.9,"The image shows scarring in the central area of the scalp along with hair loss patterns typical of central centrifugal cicatricial alopecia, which often affects the vertex scalp and progresses centrifugally.","```json
+{
+    ""disease_label"": ""Central centrifugal cicatricial alopecia"",
+    ""ontology_path"": [""Hair diseases"", ""Central centrifugal cicatricial alopecia""],
+    ""confidence"": 0.9,
+    ""body_location"": ""scalp"",
+    ""reasoning"": ""The image shows scarring in the central area of the scalp along with hair loss patterns typical of central centrifugal cicatricial alopecia, which often affects the vertex scalp and progresses centrifugally.""
+}
+```",[]
+38,youtube/EScWfQK7pvA_frame_36436_0.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",Alopecia areata,0.8,"The image shows a patch of hair loss on the scalp, characteristic of alopecia areata, which presents as smooth, round patches of hair loss.","```json
+{
+    ""disease_label"": ""Alopecia areata"",
+    ""ontology_path"": [""Hair diseases"", ""Alopecia areata""],
+    ""confidence"": 0.8,
+    ""body_location"": ""scalp"",
+    ""reasoning"": ""The image shows a patch of hair loss on the scalp, characteristic of alopecia areata, which presents as smooth, round patches of hair loss.""
+}
+```",[]
+39,public/ISIC_0021072.JPG,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.0,The image shows diffuse erythema with no specific features allowing for a definitive diagnosis from the provided ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image shows diffuse erythema with no specific features allowing for a definitive diagnosis from the provided ontology tree.""
+}
+```",[]
+40,IIYI/20486_2.png,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",Pityriasis rosea,0.8,"The image shows multiple erythematous, oval-shaped patches with a fine scale, typically seen in pityriasis rosea.","```json
+{
+    ""disease_label"": ""Pityriasis rosea"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Pityriasis rosea""],
+    ""confidence"": 0.8,
+    ""body_location"": ""upper arm"",
+    ""reasoning"": ""The image shows multiple erythematous, oval-shaped patches with a fine scale, typically seen in pityriasis rosea.""
+}
+```",[]
+41,public/-1542787778564695920.png,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.0,The image does not provide enough clear clinical features for a definitive diagnosis from the ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not provide enough clear clinical features for a definitive diagnosis from the ontology tree.""
+}
+```",[]
+42,youtube/EHC3ejfvcrY_frame_3125_0_0.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",Rosacea,0.9,"The image shows erythema with papules on the cheek and nose, characteristic of rosacea.","```json
+{
+    ""disease_label"": ""Rosacea"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Rosacea""],
+    ""confidence"": 0.9,
+    ""body_location"": ""cheek and nose"",
+    ""reasoning"": ""The image shows erythema with papules on the cheek and nose, characteristic of rosacea.""
+}
+```",[]
+43,youtube/sdvE0xFsk7U_frame_896_0_0.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",Pityriasis rosea,0.8,"The image shows multiple round to oval, slightly scaly patches with a central clearing on the forearm, which are characteristic of pityriasis rosea.","```json
+{
+    ""disease_label"": ""Pityriasis rosea"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Pityriasis rosea""],
+    ""confidence"": 0.8,
+    ""body_location"": ""forearm"",
+    ""reasoning"": ""The image shows multiple round to oval, slightly scaly patches with a central clearing on the forearm, which are characteristic of pityriasis rosea.""
+}
+```",[]
+44,youtube/eH4cE2rg_ak_frame_29458_1.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.0,The image does not clearly show identifiable lesions or a specific skin condition that matches a category from the ontology tree. The appearance is not definitive for a particular diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""legs"",
+    ""reasoning"": ""The image does not clearly show identifiable lesions or a specific skin condition that matches a category from the ontology tree. The appearance is not definitive for a particular diagnosis.""
+}
+```",[]
+45,youtube/d-nF_cZBgBY_frame_31402_0_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",Psoriasis,0.8,"The image shows thickened, pink plaques with scaling, which are consistent with psoriasis. The presentation on the feet further supports this diagnosis.","{
+    ""disease_label"": ""Psoriasis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""feet"",
+    ""reasoning"": ""The image shows thickened, pink plaques with scaling, which are consistent with psoriasis. The presentation on the feet further supports this diagnosis.""
+}",[]
+46,youtube/tMQAGKMxUEw_frame_73886_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.0,The image is too unclear for a definitive diagnosis. Key features necessary for differentiation are indistinguishable.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image is too unclear for a definitive diagnosis. Key features necessary for differentiation are indistinguishable.""
+}
+```",[]
+47,pubmed/a4_f4_PMC8859620_JOMFP_25_383_g004.png,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.0,The image shows oral tissues without a clear dermatological lesion that can be identified from the ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""oral cavity"",
+    ""reasoning"": ""The image shows oral tissues without a clear dermatological lesion that can be identified from the ontology tree.""
+}
+```",[]
+48,youtube/jDTD1kfijoY_frame_17131_0_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",Xerosis,0.9,"The image shows dry, scaling skin with uniform flaking, which is indicative of xerosis, commonly referred to as dry skin.","```json
+{
+    ""disease_label"": ""Xerosis"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Xerosis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""generalized skin surface"",
+    ""reasoning"": ""The image shows dry, scaling skin with uniform flaking, which is indicative of xerosis, commonly referred to as dry skin.""
+}
+```",[]
+49,IIYI/10730_4.png,lichen planus,"inflammatory, non-infectious, lichen planus","Lichen simplex chronicus, ",0.9,"The image shows thickened, lichenified plaques with scaling, which are characteristic features of lichen simplex chronicus, a form of eczema.","```json
+{
+    ""disease_label"": ""Lichen simplex chronicus"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema"", ""Lichen simplex chronicus""],
+    ""confidence"": 0.9,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image shows thickened, lichenified plaques with scaling, which are characteristic features of lichen simplex chronicus, a form of eczema.""
+}
+```",[]
+50,public/warts-common-39.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Skin tag,0.9,"The image shows a pedunculated lesion consistent with a skin tag, which is a benign growth commonly found in areas where the skin folds.","```json
+{
+    ""disease_label"": ""Skin tag"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Skin tag""],
+    ""confidence"": 0.9,
+    ""body_location"": ""eyelid"",
+    ""reasoning"": ""The image shows a pedunculated lesion consistent with a skin tag, which is a benign growth commonly found in areas where the skin folds.""
+}
+```",[]
+51,IIYI/29217_1.png,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Cutaneous larva migrans,0.9,"The image shows serpiginous, elevated, erythematous lesions typical of cutaneous larva migrans, often resulting from a hookworm infection.","```json
+{
+    ""disease_label"": ""Cutaneous larva migrans"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""parasitic"", ""Cutaneous larva migrans""],
+    ""confidence"": 0.9,
+    ""body_location"": ""neck"",
+    ""reasoning"": ""The image shows serpiginous, elevated, erythematous lesions typical of cutaneous larva migrans, often resulting from a hookworm infection.""
+}
+```",[]
+52,public/herpes-type-1-recurrent-94.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Herpes simplex virus,0.9,"The image shows grouped vesicular lesions with crusting, typical for herpes simplex virus infection, commonly occurring around the lips.","```json
+{
+    ""disease_label"": ""Herpes simplex virus"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""viral"", ""Herpes simplex virus""],
+    ""confidence"": 0.9,
+    ""body_location"": ""lips and perioral area"",
+    ""reasoning"": ""The image shows grouped vesicular lesions with crusting, typical for herpes simplex virus infection, commonly occurring around the lips.""
+}
+```",[]
+53,public/warts-common-64.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Kaposi sarcoma,0.9,"The image shows dark, violaceous nodules and plaques on the hand and fingers, which are characteristic of Kaposi sarcoma. The lesions vary in size and are consistent with the angioproliferative nature of this disease.","```json
+{
+    ""disease_label"": ""Kaposi sarcoma"",
+    ""ontology_path"": [""proliferations"", ""malignant"", ""non-melanocytic"", ""Kaposi sarcoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""hand and fingers"",
+    ""reasoning"": ""The image shows dark, violaceous nodules and plaques on the hand and fingers, which are characteristic of Kaposi sarcoma. The lesions vary in size and are consistent with the angioproliferative nature of this disease.""
+}
+```",[]
+54,public/corns-26.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Tinea pedis,0.9,"The image shows scaling and redness on the plantar aspect of the foot, typical of Tinea pedis, commonly known as athlete's foot.","```json
+{
+    ""disease_label"": ""Tinea pedis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea"", ""Tinea pedis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""foot"",
+    ""reasoning"": ""The image shows scaling and redness on the plantar aspect of the foot, typical of Tinea pedis, commonly known as athlete's foot.""
+}
+```",[]
+55,"note/Diane Jackson-Richards, Amit G. Pandya (eds.) - Dermatology Atlas for Skin of Color-Springer-Verlag Berlin Heidelberg (2014)_00020_00168_0.png",vitiligo,"reaction patterns and descriptive terms, vitiligo",Post-inflammatory hypopigmentation,0.8,"The image shows a hypopigmented patch on the forearm, consistent with post-inflammatory changes commonly seen after healing from inflammatory conditions.","```json
+{
+    ""disease_label"": ""Post-inflammatory hypopigmentation"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Hypersensitivity, allergic reaction"", ""Post-inflammatory hypopigmentation""],
+    ""confidence"": 0.8,
+    ""body_location"": ""forearm"",
+    ""reasoning"": ""The image shows a hypopigmented patch on the forearm, consistent with post-inflammatory changes commonly seen after healing from inflammatory conditions.""
+}
+```",[]
+56,youtube/ughfUshyayw_frame_4579_0_0.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.0,The image does not show a clearly identifiable skin lesion or anatomic features to aid in diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not show a clearly identifiable skin lesion or anatomic features to aid in diagnosis.""
+}
+```",[]
+57,youtube/dmTY89DBhAg_frame_41032_0.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.0,The image does not clearly display a recognizable skin condition or lesion for a confident diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image does not clearly display a recognizable skin condition or lesion for a confident diagnosis.""
+}
+```",[]
+58,note/疑难皮肤病彩色图谱OCR_00257_14590_0.png,vitiligo,"reaction patterns and descriptive terms, vitiligo",Lichen planus,0.8,"The image shows flat-topped papules, which are characteristic of lichen planus. The distribution and appearance are consistent with this diagnosis.","```json
+{
+    ""disease_label"": ""Lichen planus"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Lichen planus""],
+    ""confidence"": 0.8,
+    ""body_location"": ""torso"",
+    ""reasoning"": ""The image shows flat-topped papules, which are characteristic of lichen planus. The distribution and appearance are consistent with this diagnosis.""
+}
+```",[]
+59,pubmed/9f_db_PMC6927254_CCID-12-911-g0002_1.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",Vitiligo,0.9,"The image shows well-demarcated areas of depigmentation on the hand, consistent with the appearance of vitiligo.","```json
+{
+    ""disease_label"": ""Vitiligo"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Vitiligo""],
+    ""confidence"": 0.9,
+    ""body_location"": ""hand"",
+    ""reasoning"": ""The image shows well-demarcated areas of depigmentation on the hand, consistent with the appearance of vitiligo.""
+}
+```",[]
+60,public/sebaceous-hyperplasia-71.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Basal cell carcinoma,0.9,"The lesion appears pearly with telangiectasia, which is characteristic of basal cell carcinoma.","```json
+{
+    ""disease_label"": ""Basal cell carcinoma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Basal cell carcinoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""trunk"",
+    ""reasoning"": ""The lesion appears pearly with telangiectasia, which is characteristic of basal cell carcinoma.""
+}
+```",[]
+61,public/seborrheic-keratosis-irritated-33.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses","Malignant melanoma, melanoma",0.9,"The image shows an irregularly pigmented lesion with variegated colors including black, brown, and red, with an uneven and crusted surface. These characteristics are consistent with a diagnosis of malignant melanoma. The lesion is located on the back, which is a common location for melanoma.","```json
+{
+    ""disease_label"": ""Malignant melanoma, melanoma"",
+    ""ontology_path"": [""proliferations"", ""malignant"", ""melanocytic"", ""Malignant melanoma, melanoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""skin on the back"",
+    ""reasoning"": ""The image shows an irregularly pigmented lesion with variegated colors including black, brown, and red, with an uneven and crusted surface. These characteristics are consistent with a diagnosis of malignant melanoma. The lesion is located on the back, which is a common location for melanoma.""
+}
+```",[]
+62,public/porokeratosis-31.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Folliculitis,0.8,"The image shows multiple small, red, pustular lesions centered around hair follicles, indicative of folliculitis.","```json
+{
+    ""disease_label"": ""Folliculitis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""bacterial"", ""Folliculitis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""lower legs"",
+    ""reasoning"": ""The image shows multiple small, red, pustular lesions centered around hair follicles, indicative of folliculitis.""
+}
+```",[]
+63,public/dermatofibroma-123.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Dermatofibroma,0.9,"The image shows a firm, brownish papule with a central dimple, typical of a dermatofibroma. It is a common benign skin lesion, often found on the legs.","```json
+{
+    ""disease_label"": ""Dermatofibroma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Dermatofibroma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""skin"",
+    ""reasoning"": ""The image shows a firm, brownish papule with a central dimple, typical of a dermatofibroma. It is a common benign skin lesion, often found on the legs.""
+}
+```",[]
+64,public/epidermal-cyst-108.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",Keratoacanthoma,0.9,"The lesion appears as a dome-shaped nodule with a central keratin plug, characteristic of keratoacanthoma.","```json
+{
+    ""disease_label"": ""Keratoacanthoma"",
+    ""ontology_path"": [""proliferations"", ""benign"", ""non-melanocytic"", ""Keratoacanthoma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""skin"",
+    ""reasoning"": ""The lesion appears as a dome-shaped nodule with a central keratin plug, characteristic of keratoacanthoma.""
+}
+```",[]
+65,public/Lichen-Sclerosus-Penis-4.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",no definitive diagnosis,0.0,The image does not show a clear or specific skin lesion allowing for a confident diagnosis based on the provided ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""genital area"",
+    ""reasoning"": ""The image does not show a clear or specific skin lesion allowing for a confident diagnosis based on the provided ontology tree.""
+}
+```",[]
+66,public/Psoriasis-Chronic-Plaque-170.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",Psoriasis (plaque),0.9,"The image shows a well-demarcated, erythematous plaque with silvery scales typically seen in plaque psoriasis, commonly located on extensor surfaces like the elbow.","```json
+{
+    ""disease_label"": ""Psoriasis (plaque)"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Psoriasis (plaque)""],
+    ""confidence"": 0.9,
+    ""body_location"": ""elbow"",
+    ""reasoning"": ""The image shows a well-demarcated, erythematous plaque with silvery scales typically seen in plaque psoriasis, commonly located on extensor surfaces like the elbow.""
+}
+```",[]
+67,public/Lichen-Sclerosis-Vulva-22.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",Candida intertrigo,0.9,"The image shows erythematous and moist skin lesions in the intertriginous area, consistent with Candida intertrigo, which commonly affects warm, moist skin folds.","```json
+{
+    ""disease_label"": ""Candida intertrigo"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Candidiasis"", ""Candida intertrigo""],
+    ""confidence"": 0.9,
+    ""body_location"": ""inguinal folds"",
+    ""reasoning"": ""The image shows erythematous and moist skin lesions in the intertriginous area, consistent with Candida intertrigo, which commonly affects warm, moist skin folds.""
+}
+```",[]
+68,public/Psoriasis-Guttate-75.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",Guttate psoriasis,0.9,"The image shows multiple small, red, scaly plaques typical of guttate psoriasis. These lesions are common on the trunk and often appear suddenly.","```json
+{
+    ""disease_label"": ""Guttate psoriasis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Guttate psoriasis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""trunk"",
+    ""reasoning"": ""The image shows multiple small, red, scaly plaques typical of guttate psoriasis. These lesions are common on the trunk and often appear suddenly.""
+}
+```",[]
+69,public/psoriasis-scalp-78.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",Seborrheic dermatitis,0.9,"The image shows scaly, erythematous plaques on the scalp and neck, which are characteristic of seborrheic dermatitis, particularly in older adults.","```json
+{
+    ""disease_label"": ""Seborrheic dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema"", ""Seborrheic dermatitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""scalp and neck"",
+    ""reasoning"": ""The image shows scaly, erythematous plaques on the scalp and neck, which are characteristic of seborrheic dermatitis, particularly in older adults.""
+}
+```",[]
+70,IIYI/22269_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Herpes zoster,0.9,"The image shows clustered vesicular lesions on an erythematous base, located on the torso, which is characteristic of herpes zoster (shingles). The lesions appear to follow a dermatomal distribution.","```json
+{
+    ""disease_label"": ""Herpes zoster"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""viral"", ""Herpes zoster""],
+    ""confidence"": 0.9,
+    ""body_location"": ""torso"",
+    ""reasoning"": ""The image shows clustered vesicular lesions on an erythematous base, located on the torso, which is characteristic of herpes zoster (shingles). The lesions appear to follow a dermatomal distribution.""
+}
+```",[]
+71,IIYI/24063_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Lichen planus,0.8,"The image shows flat-topped, purplish papules which are characteristic of lichen planus. The distribution on the forearm and the appearance of the lesions support this diagnosis.","```json
+{
+    ""disease_label"": ""Lichen planus"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Lichen planus""],
+    ""confidence"": 0.8,
+    ""body_location"": ""forearm"",
+    ""reasoning"": ""The image shows flat-topped, purplish papules which are characteristic of lichen planus. The distribution on the forearm and the appearance of the lesions support this diagnosis.""
+}
+```",[]
+72,IIYI/830_3.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Folliculitis,0.8,"The image shows multiple small, red, inflammatory papules distributed over the back, which suggests inflammation of the hair follicles, consistent with folliculitis.","```json
+{
+    ""disease_label"": ""folliculitis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""bacterial"", ""folliculitis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""back"",
+    ""reasoning"": ""The image shows multiple small, red, inflammatory papules distributed over the back, which suggests inflammation of the hair follicles, consistent with folliculitis.""
+}
+```",[]
+73,IIYI/25663_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Burn of skin,0.9,"The image shows large, superficial blisters with erythema typical of a thermal injury. The appearance and distribution suggest a superficial partial-thickness burn, commonly known as a second-degree burn.","```json
+{
+    ""disease_label"": ""Burn of skin"",
+    ""ontology_path"": [""exogenous"", ""physical"", ""Burn of skin""],
+    ""confidence"": 0.9,
+    ""body_location"": ""thigh"",
+    ""reasoning"": ""The image shows large, superficial blisters with erythema typical of a thermal injury. The appearance and distribution suggest a superficial partial-thickness burn, commonly known as a second-degree burn.""
+}
+```",[]
+74,public/3730702458099585701.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Psoriasis (plaque),0.8,"The image shows well-demarcated, erythematous plaques with silvery scales on the elbow, which are characteristic of plaque psoriasis.","```json
+{
+    ""disease_label"": ""Psoriasis (plaque)"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Psoriasis"", ""Psoriasis (plaque)""],
+    ""confidence"": 0.8,
+    ""body_location"": ""elbow"",
+    ""reasoning"": ""The image shows well-demarcated, erythematous plaques with silvery scales on the elbow, which are characteristic of plaque psoriasis.""
+}
+```",[]
+75,edu/(Eğitim Tanrısı) George Laskaris - Color Atlas of Oral Diseases- Diagnosis and Treatment-Thieme (2017)_00221_00884.png,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",Ulcer,0.9,"The image shows a clear ulcerated lesion on the oral mucosa, which is characterized by a loss of epithelial layer. The appearance is consistent with an ulcer rather than other conditions such as erosive or proliferative lesions.","```json
+{
+    ""disease_label"": ""Ulcer"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Ulcers, Erosion of skin"", ""Ulcer""],
+    ""confidence"": 0.9,
+    ""body_location"": ""oral mucosa (inside the cheek)"",
+    ""reasoning"": ""The image shows a clear ulcerated lesion on the oral mucosa, which is characterized by a loss of epithelial layer. The appearance is consistent with an ulcer rather than other conditions such as erosive or proliferative lesions.""
+}
+```",[]
+76,pubmed/a5_e7_PMC5004559_CCD-7-401-g002_1.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",no definitive diagnosis,0.0,The image shows the inside of the mouth but lacks clear skin lesions that match any specific condition on the ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""oral cavity"",
+    ""reasoning"": ""The image shows the inside of the mouth but lacks clear skin lesions that match any specific condition on the ontology tree.""
+}
+```",[]
+77,pubmed/13_ca_PMC6106674_abd-93-05-0726-g01_3.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",no definitive diagnosis,0.0,"The image shows multiple lesions on the arm, but they are not distinct enough to make a specific diagnosis from the provided ontology tree with confidence.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""arm"",
+    ""reasoning"": ""The image shows multiple lesions on the arm, but they are not distinct enough to make a specific diagnosis from the provided ontology tree with confidence.""
+}
+```",[]
+78,pubmed/e3_11_PMC4147289_GRP2014_934159.003.png,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",Geographic tongue,0.9,"The image shows well-defined areas of depapillation on the dorsal surface of the tongue, a characteristic appearance of geographic tongue.","```json
+{
+    ""disease_label"": ""Geographic tongue"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Geographic tongue""],
+    ""confidence"": 0.9,
+    ""body_location"": ""tongue"",
+    ""reasoning"": ""The image shows well-defined areas of depapillation on the dorsal surface of the tongue, a characteristic appearance of geographic tongue.""
+}
+```",[]
+79,youtube/UsoXCLoC0bQ_frame_23401_2.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, ulcer, erosion of skin",Cutaneous leishmaniasis,0.8,"The image shows ulcerative lesions on the forearm which are suggestive of cutaneous leishmaniasis, characterized by sores that may start as nodules and progress to ulcers.","```json
+{
+    ""disease_label"": ""Cutaneous leishmaniasis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""parasitic"", ""Cutaneous leishmaniasis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""forearm"",
+    ""reasoning"": ""The image shows ulcerative lesions on the forearm which are suggestive of cutaneous leishmaniasis, characterized by sores that may start as nodules and progress to ulcers.""
+}
+```",[]
+80,youtube/IXZC_NOKpq0_frame_38432_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.5,The image appears to show a cosmetic or dermatological procedure being performed. There is no distinct skin lesion or identifiable dermatological condition visible.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.5,
+    ""body_location"": ""neck"",
+    ""reasoning"": ""The image appears to show a cosmetic or dermatological procedure being performed. There is no distinct skin lesion or identifiable dermatological condition visible.""
+}
+```",[]
+81,youtube/XYW6aQervTY_frame_50_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis","Actinic solar damage(actinic keratosis), Actinic keratosis",0.9,"The image shows multiple irregularly shaped, hyperpigmented lesions on the face, characteristic of actinic keratosis due to sun exposure.","```json
+{
+    ""disease_label"": ""Actinic solar damage(actinic keratosis), Actinic keratosis"",
+    ""ontology_path"": [""exogenous"", ""Actinic solar damage(actinic keratosis), Actinic keratosis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""face"",
+    ""reasoning"": ""The image shows multiple irregularly shaped, hyperpigmented lesions on the face, characteristic of actinic keratosis due to sun exposure.""
+}
+```",[]
+82,youtube/y1SpcTyifcU_frame_64505_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis","Ulcers, Erosion of skin",0.7,"The image shows a necrotic area on the nose, suggesting a severe ulceration or erosion. Due to the context, this might suggest a possible necrotizing infection or another systemic condition leading to tissue necrosis.","```json
+{
+    ""disease_label"": ""Ulcers, Erosion of skin"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Ulcers, Erosion of skin""],
+    ""confidence"": 0.7,
+    ""body_location"": ""nose"",
+    ""reasoning"": ""The image shows a necrotic area on the nose, suggesting a severe ulceration or erosion. Due to the context, this might suggest a possible necrotizing infection or another systemic condition leading to tissue necrosis.""
+}
+```",[]
+83,youtube/CKj3GPY9dvc_frame_480_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.0,"The image shows the oral cavity, which is not part of the dermis or cutaneous surface. It does not fit within the scope of the dermatological disease ontology provided, as it appears to be more related to oral or ENT (Ear, Nose, Throat) conditions.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""oral cavity"",
+    ""reasoning"": ""The image shows the oral cavity, which is not part of the dermis or cutaneous surface. It does not fit within the scope of the dermatological disease ontology provided, as it appears to be more related to oral or ENT (Ear, Nose, Throat) conditions.""
+}
+```",[]
+84,youtube/WSjmXzl22Pk_frame_8766_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.0,The image appears to show a surgical procedure rather than a specific identifiable skin condition from the ontology tree.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.0,
+    ""body_location"": ""unknown"",
+    ""reasoning"": ""The image appears to show a surgical procedure rather than a specific identifiable skin condition from the ontology tree.""
+}
+```",[]
+85,public/tinea-incognito-51.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Tinea cruris,0.9,"The image shows red, scaling patches with a clear border in the inguinal region, characteristic of Tinea cruris (commonly known as jock itch), which is a fungal infection.","```json
+{
+    ""disease_label"": ""Tinea cruris"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea cruris""],
+    ""confidence"": 0.9,
+    ""body_location"": ""inguinal region"",
+    ""reasoning"": ""The image shows red, scaling patches with a clear border in the inguinal region, characteristic of Tinea cruris (commonly known as jock itch), which is a fungal infection.""
+}
+```",[]
+86,public/tinea-versicolor-162.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Tinea versicolor,0.9,"The image shows hypopigmented macules and patches with fine scales on the back, which are characteristic of Tinea versicolor caused by Malassezia yeast.","```json
+{
+    ""disease_label"": ""Tinea versicolor"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea versicolor""],
+    ""confidence"": 0.9,
+    ""body_location"": ""back"",
+    ""reasoning"": ""The image shows hypopigmented macules and patches with fine scales on the back, which are characteristic of Tinea versicolor caused by Malassezia yeast.""
+}
+```",[]
+87,public/tinea-foot-webs-11.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",keratolysis exfoliativa of wende,0.8,"The image shows peeling of the skin on the foot with underlying white macerated skin, which is consistent with keratolysis exfoliativa of wende, a form of eczema.","```json
+{
+    ""disease_label"": ""Keratolysis exfoliativa of wende"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema"", ""keratolysis exfoliativa of wende""],
+    ""confidence"": 0.8,
+    ""body_location"": ""foot"",
+    ""reasoning"": ""The image shows peeling of the skin on the foot with underlying white macerated skin, which is consistent with keratolysis exfoliativa of wende, a form of eczema.""
+}
+```",[]
+88,public/tinea-groin-120.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Tinea cruris,0.9,"The image shows a well-demarcated, erythematous, scaly plaque located in the groin area, consistent with the presentation of tinea cruris caused by dermatophyte infection.","```json
+{
+    ""disease_label"": ""Tinea cruris"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea cruris""],
+    ""confidence"": 0.9,
+    ""body_location"": ""inguinal region"",
+    ""reasoning"": ""The image shows a well-demarcated, erythematous, scaly plaque located in the groin area, consistent with the presentation of tinea cruris caused by dermatophyte infection.""
+}
+```",[]
+89,public/tinea-foot-dorsum-4.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",Atopic dermatitis,0.9,"The image shows erythematous, scaly patches on the ankle, which are indicative of atopic dermatitis, commonly presenting with skin irritation in flexural areas.","```json
+{
+    ""disease_label"": ""Atopic dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Atopic dermatitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""ankle"",
+    ""reasoning"": ""The image shows erythematous, scaly patches on the ankle, which are indicative of atopic dermatitis, commonly presenting with skin irritation in flexural areas.""
+}
+```",[]
+90,youtube/iZrp1daJWk0_frame_15452_0.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",Tinea capitis,0.9,"The image shows a scalp with extensive scaly crusts and areas of hair loss, consistent with tinea capitis. The crusting and inflammation suggest a fungal infection typical of this condition.","```json
+{
+    ""disease_label"": ""Tinea capitis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea capitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""scalp"",
+    ""reasoning"": ""The image shows a scalp with extensive scaly crusts and areas of hair loss, consistent with tinea capitis. The crusting and inflammation suggest a fungal infection typical of this condition.""
+}
+```",[]
+91,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00166_10141.png,tinea,"inflammatory, infectious, fungal, tinea",Folliculitis,0.9,"The image shows multiple inflamed papules and pustules along the hairline and neck area, which is characteristic of folliculitis, an inflammation of hair follicles commonly caused by bacterial infection.","```json
+{
+    ""disease_label"": ""folliculitis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""bacterial"", ""folliculitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""neck and hairline"",
+    ""reasoning"": ""The image shows multiple inflamed papules and pustules along the hairline and neck area, which is characteristic of folliculitis, an inflammation of hair follicles commonly caused by bacterial infection.""
+}
+```",[]
+92,youtube/1rQ9PmDOrSs_frame_11842_2.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",Tinea corporis,0.9,"The image shows annular, erythematous plaques with central clearing and a scaly border, which are characteristic of Tinea corporis, commonly known as ringworm.","```json
+{
+    ""disease_label"": ""Tinea corporis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea"", ""Tinea corporis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""skin of the trunk"",
+    ""reasoning"": ""The image shows annular, erythematous plaques with central clearing and a scaly border, which are characteristic of Tinea corporis, commonly known as ringworm.""
+}
+```",[]
+93,youtube/609D9bQFAtc_frame_56165_0.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",Chilblain,0.9,"The image shows redness and swelling at the toes, which is indicative of chilblains. These lesions typically occur on extremities exposed to cold weather, matching the presentation seen here.","```json
+{
+    ""disease_label"": ""Chilblain"",
+    ""ontology_path"": [""exogenous"", ""physical"", ""Chilblain""],
+    ""confidence"": 0.9,
+    ""body_location"": ""toes"",
+    ""reasoning"": ""The image shows redness and swelling at the toes, which is indicative of chilblains. These lesions typically occur on extremities exposed to cold weather, matching the presentation seen here.""
+}
+```",[]
+94,public/-5081790413284637815.png,tinea,"inflammatory, infectious, fungal, tinea",Tinea corporis,0.8,"The image shows an erythematous, slightly scaly, round lesion with central clearing, commonly associated with Tinea corporis, a superficial fungal infection of the skin.","```json
+{
+    ""disease_label"": ""Tinea corporis"",
+    ""ontology_path"": [""inflammatory"", ""infectious"", ""fungal"", ""Tinea corporis""],
+    ""confidence"": 0.8,
+    ""body_location"": ""trunk"",
+    ""reasoning"": ""The image shows an erythematous, slightly scaly, round lesion with central clearing, commonly associated with Tinea corporis, a superficial fungal infection of the skin.""
+}
+```",[]
+95,youtube/zzxJOYcnQ6g_frame_1727_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Lichen planus,0.8,"The image shows small, flat-topped, polygonal papules with violaceous coloration, which are characteristic of lichen planus. The distribution on the wrist, along with the clinical appearance, further supports this diagnosis.","```json
+{
+    ""disease_label"": ""lichen planus"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""lichen planus""],
+    ""confidence"": 0.8,
+    ""body_location"": ""wrist"",
+    ""reasoning"": ""The image shows small, flat-topped, polygonal papules with violaceous coloration, which are characteristic of lichen planus. The distribution on the wrist, along with the clinical appearance, further supports this diagnosis.""
+}
+```",[]
+96,youtube/EU7EEKXaFcg_frame_42145_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Eczema,0.9,"The image shows erythematous, scaly patches on the child's face, which are characteristic of eczema.","```json
+{
+    ""disease_label"": ""Eczema"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema""],
+    ""confidence"": 0.9,
+    ""body_location"": ""face"",
+    ""reasoning"": ""The image shows erythematous, scaly patches on the child's face, which are characteristic of eczema.""
+}
+```",[]
+97,youtube/zHIWVerNenY_frame_735_0_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Erythroderma,0.9,"The image shows widespread skin redness and scaling, indicative of exfoliative erythroderma. The desquamation and erythematous background involving a large body surface area are characteristic.","```json
+{
+    ""disease_label"": ""Erythroderma"",
+    ""ontology_path"": [""reaction patterns and descriptive terms"", ""Exfoliative erythroderma""],
+    ""confidence"": 0.9,
+    ""body_location"": ""neck and upper back"",
+    ""reasoning"": ""The image shows widespread skin redness and scaling, indicative of exfoliative erythroderma. The desquamation and erythematous background involving a large body surface area are characteristic.""
+}
+```",[]
+98,youtube/QjNDAQVm9Ys_frame_9240_0_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",Infantile atopic dermatitis,0.9,"The image shows an infant with erythematous and scaly lesions on the feet, consistent with infantile atopic dermatitis, commonly seen in infants with atopic eczema.","```json
+{
+    ""disease_label"": ""Infantile atopic dermatitis"",
+    ""ontology_path"": [""inflammatory"", ""non-infectious"", ""Eczema"", ""Infantile atopic dermatitis""],
+    ""confidence"": 0.9,
+    ""body_location"": ""feet"",
+    ""reasoning"": ""The image shows an infant with erythematous and scaly lesions on the feet, consistent with infantile atopic dermatitis, commonly seen in infants with atopic eczema.""
+}
+```",[]
+99,IIYI/10883_2.png,scabies,"inflammatory, infectious, parasitic, scabies",no definitive diagnosis,0.2,"The image shows a subtle rash or skin changes, but it lacks distinct characteristics that allow for a confident diagnosis using the provided ontology tree.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""ontology_path"": [],
+    ""confidence"": 0.2,
+    ""body_location"": ""forearm"",
+    ""reasoning"": ""The image shows a subtle rash or skin changes, but it lacks distinct characteristics that allow for a confident diagnosis using the provided ontology tree.""
+}
+```",[]

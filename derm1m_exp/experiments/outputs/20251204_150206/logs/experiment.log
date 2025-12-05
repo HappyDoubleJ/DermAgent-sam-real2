@@ -1,0 +1,43 @@
+2025-12-04 15:02:06 [INFO] ============================================================
+2025-12-04 15:02:06 [INFO] 5가지 피부과 진단 방법 비교 실험
+2025-12-04 15:02:06 [INFO] ============================================================
+2025-12-04 15:02:06 [INFO] 입력 CSV: /home/heodnjswns/DermAgent/dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv
+2025-12-04 15:02:06 [INFO] 출력 디렉터리: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206
+2025-12-04 15:02:06 [INFO] 모델: gpt-4o
+2025-12-04 15:02:06 [INFO] 테스트 모드: False
+2025-12-04 15:02:06 [INFO] 로드된 샘플 수: 100
+2025-12-04 15:02:06 [INFO] 이미지 기본 디렉터리: /home/heodnjswns/DermAgent/dataset/Derm1M
+2025-12-04 15:02:06 [INFO] 실행할 방법: ['sam_baseline', 'sam_llm_guided']
+2025-12-04 15:02:06 [INFO] VLM 모델 초기화 중...
+2025-12-04 15:02:06 [INFO] VLM 모델 초기화 완료
+2025-12-04 15:02:06 [INFO] 
+[1/2] sam_baseline 실행 중...
+2025-12-04 15:02:06 [INFO] ============================================================
+2025-12-04 15:02:06 [INFO] 방법 6: SAM Baseline (SAM + center) 실행 시작
+2025-12-04 15:02:06 [INFO] ============================================================
+2025-12-04 15:08:36 [INFO] 방법 6 완료: 100개 샘플 처리
+2025-12-04 15:08:36 [INFO] 예측 결과 저장: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206/predictions/1_sam_baseline.csv
+2025-12-04 15:08:36 [INFO]   Exact Match: 0.1200
+2025-12-04 15:08:36 [INFO]   Hierarchical F1: 0.1737
+2025-12-04 15:08:36 [INFO] 
+[2/2] sam_llm_guided 실행 중...
+2025-12-04 15:08:36 [INFO] ============================================================
+2025-12-04 15:08:36 [INFO] 방법 6: SAM Baseline (SAM + llm_guided) 실행 시작
+2025-12-04 15:08:36 [INFO] ============================================================
+2025-12-04 15:15:25 [INFO] 방법 6 완료: 100개 샘플 처리
+2025-12-04 15:15:25 [INFO] 예측 결과 저장: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206/predictions/2_sam_llm_guided.csv
+2025-12-04 15:15:25 [INFO]   Exact Match: 0.1000
+2025-12-04 15:15:25 [INFO]   Hierarchical F1: 0.1856
+2025-12-04 15:15:25 [INFO] 
+============================================================
+2025-12-04 15:15:25 [INFO] 결과 저장 중...
+2025-12-04 15:15:25 [INFO] ============================================================
+2025-12-04 15:15:25 [INFO] 메트릭 요약 저장: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206/evaluation/metrics_summary.csv
+2025-12-04 15:15:25 [INFO] 샘플별 비교 저장: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206/evaluation/per_sample_comparison.csv
+2025-12-04 15:15:25 [INFO] 상세 분석 저장: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206/evaluation/detailed_analysis.csv
+2025-12-04 15:15:25 [INFO] 방법 간 차이 분석 저장: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206/evaluation/method_differences.json
+2025-12-04 15:15:25 [INFO] 
+============================================================
+2025-12-04 15:15:25 [INFO] 실험 완료!
+2025-12-04 15:15:25 [INFO] 결과 저장 위치: /home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206
+2025-12-04 15:15:25 [INFO] ============================================================

@@ -1,0 +1,999 @@
+﻿sample_id,filename,ground_truth,hierarchical_gt,prediction,confidence,reasoning,raw_response,all_predictions
+0,pubmed/fa_03_PMC6872615_JVIM-33-2770-g004_5.jpg,no definitive diagnosis,nan,no definitive diagnosis,0.0,"The image shows the rear of an animal, possibly a horse, including the tail and surrounding body area. No specific human skin findings are present.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""not applicable"",
+    ""caption"": ""The image shows the rear of an animal, possibly a horse, including the tail and surrounding body area. No specific human skin findings are present."",
+    ""confidence"": 0.0,
+    ""differential_diagnoses"": []
+}
+```",[]
+1,youtube/IXZC_NOKpq0_frame_20623_0_0.jpg,no definitive diagnosis,no definitive diagnosis,no definitive diagnosis,0.7,"The image depicts a person with a device applied to the neck region. The skin appears erythematous and moist, typical of a cosmetic or medical treatment being applied. Protective eyewear indicates a procedure involving light or laser therapy.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""neck and chest"",
+    ""caption"": ""The image depicts a person with a device applied to the neck region. The skin appears erythematous and moist, typical of a cosmetic or medical treatment being applied. Protective eyewear indicates a procedure involving light or laser therapy."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""reaction to laser treatment"", ""temporary erythema due to thermal procedure""]
+}
+```",[]
+2,pubmed/5e_ea_PMC7007033_abd-94-04-0491-g03_1.jpg,no definitive diagnosis,nan,Melanonychia,0.8,There is a pigmented line running vertically from the cuticle to the tip of the nail. The line is dark and well circumscribed.,"```json
+{
+    ""disease_label"": ""Melanonychia"",
+    ""body_location"": ""nail of the finger"",
+    ""caption"": ""There is a pigmented line running vertically from the cuticle to the tip of the nail. The line is dark and well circumscribed."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [
+        ""subungual hemorrhage"",
+        ""melanoma"",
+        ""nevus"",
+        ""onychomycosis""
+    ]
+}
+```",[]
+3,pubmed/42_f3_PMC8202470_IDOJ_12_454_g001_0.png,no definitive diagnosis,nan,no definitive diagnosis,0.6,Erythematous area on the left cheek and jawline with sharply demarcated borders. The skin appears slightly scaly with some superficial dryness.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""left cheek and jawline"",
+    ""caption"": ""Erythematous area on the left cheek and jawline with sharply demarcated borders. The skin appears slightly scaly with some superficial dryness."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""contact dermatitis"",
+        ""eczema"",
+        ""facial erythema""
+    ]
+}
+```",[]
+4,youtube/0JGlIffYRuM_frame_4049_0.jpg,no definitive diagnosis,no definitive diagnosis,Basal Cell Carcinoma,0.9,"The image shows a nodular lesion with a pearly appearance and telangiectasia on the surface. The lesion is pink and appears ulcerated at the center, which is characteristic of a basal cell carcinoma.","```json
+{
+    ""disease_label"": ""Basal Cell Carcinoma"",
+    ""body_location"": ""facial region"",
+    ""caption"": ""The image shows a nodular lesion with a pearly appearance and telangiectasia on the surface. The lesion is pink and appears ulcerated at the center, which is characteristic of a basal cell carcinoma."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""Actinic Keratosis"", ""Squamous Cell Carcinoma""]
+}
+```",[]
+5,youtube/TyY1qef8dIM_frame_562_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",no definitive diagnosis,0.6,The image shows multiple erythematous plaques with some vesicular and pustular lesions distributed on the skin of the upper limb.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""upper limb"",
+    ""caption"": ""The image shows multiple erythematous plaques with some vesicular and pustular lesions distributed on the skin of the upper limb."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""pustular psoriasis"",
+        ""bullous drug eruption"",
+        ""acute generalized exanthematous pustulosis (AGEP)"",
+        ""contact dermatitis""
+    ]
+}
+```",[]
+6,youtube/y06F3fLlDzM_frame_2891_0_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",no definitive diagnosis,0.5,"The skin on the upper arm appears slightly rough and shows multiple small, discrete papules and mild erythema. Overall texture seems normal, with no significant lesions observed.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""upper arm"",
+    ""caption"": ""The skin on the upper arm appears slightly rough and shows multiple small, discrete papules and mild erythema. Overall texture seems normal, with no significant lesions observed."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""keratosis pilaris"", ""folliculitis"", ""eczema""]
+}
+```",[]
+7,youtube/TL_AhJVL7Xg_frame_3317_1.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",no definitive diagnosis,0.6,"The image shows the toes with dry, thickened skin and some discoloration under the toenails. There is scaling and possibly some swelling around the digits.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""foot (toes)"",
+    ""caption"": ""The image shows the toes with dry, thickened skin and some discoloration under the toenails. There is scaling and possibly some swelling around the digits."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""tinea pedis"", ""onychomycosis"", ""eczema"", ""psoriasis""]
+}
+```",[]
+8,youtube/TlLO0Ujv_wg_frame_29136_0_0.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",no definitive diagnosis,0.7,"The image shows extensive, thickened, scaly plaques over the chest and upper arms. The skin appears dry and heavily desquamated. The affected areas are widespread and there is evidence of inflammation.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""chest and upper arms"",
+    ""caption"": ""The image shows extensive, thickened, scaly plaques over the chest and upper arms. The skin appears dry and heavily desquamated. The affected areas are widespread and there is evidence of inflammation."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""psoriasis"", ""ichthyosis"", ""atopic dermatitis"", ""contact dermatitis""]
+}
+```",[]
+9,youtube/RBEULrR75Ic_frame_51337_1.jpg,allergic contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis, allergic contact dermatitis",no definitive diagnosis,0.4,"The image shows a reddish discoloration on the side of the face. The exact nature of the skin change is unclear, and no specific lesions or distinct features are discernible.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""head/face"",
+    ""caption"": ""The image shows a reddish discoloration on the side of the face. The exact nature of the skin change is unclear, and no specific lesions or distinct features are discernible."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""irritant contact dermatitis"", ""second-degree burn"", ""acute skin inflammation""]
+}
+```",[]
+10,youtube/ES7RUPzSx3U_frame_1830_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",seborrheic keratosis,0.8,"The image shows two well-defined, pigmented lesions that appear wart-like and have a stuck-on appearance. They vary slightly in color but are generally light to dark brown.","```json
+{
+    ""disease_label"": ""seborrheic keratosis"",
+    ""body_location"": ""torso"",
+    ""caption"": ""The image shows two well-defined, pigmented lesions that appear wart-like and have a stuck-on appearance. They vary slightly in color but are generally light to dark brown."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""verruca vulgaris"", ""solar lentigo"", ""melanocytic nevus""]
+}
+```",[]
+11,youtube/KC3Yyxprz20_frame_10935_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",telangiectasia,0.9,"The image shows multiple dilated small blood vessels, likely telangiectasia, on the skin of the lower limbs. A healthcare provider is administering a treatment, possibly sclerotherapy, using a syringe.","```json
+{
+    ""disease_label"": ""telangiectasia"",
+    ""body_location"": ""lower limbs"",
+    ""caption"": ""The image shows multiple dilated small blood vessels, likely telangiectasia, on the skin of the lower limbs. A healthcare provider is administering a treatment, possibly sclerotherapy, using a syringe."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""varicose veins"", ""spider veins"", ""chronic venous insufficiency""]
+}
+```",[]
+12,youtube/s0YmSISoUug_frame_3817_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.5,The image shows the rim of an eyelid with eyelashes. No obvious skin lesions or abnormalities are noticeable.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""eyelid"",
+    ""caption"": ""The image shows the rim of an eyelid with eyelashes. No obvious skin lesions or abnormalities are noticeable."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""blepharitis"", ""dermatitis"", ""normal variation""]
+}
+```",[]
+13,youtube/v3Hn2eplsiw_frame_67623_0_0.jpg,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.5,The image shows multiple erythematous macules and papules on the skin. Some areas appear to be shiny or moist. The exact diagnosis is unclear based on the image.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows multiple erythematous macules and papules on the skin. Some areas appear to be shiny or moist. The exact diagnosis is unclear based on the image."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""acne"", ""rosacea"", ""seborrheic dermatitis"", ""contact dermatitis""]
+}
+```",[]
+14,note/Sewon-Kang-Fitzpatrick’s-Dermatology[2-Volume Set]-McGraw-Hil-Education(2019)-part8_00290_03575_0.png,"irritated seborrheic keratosis (from ""sk/isk"")","proliferations, benign, non-melanocytic, seborrheic keratosis, irritated seborrheic keratosis (from ""sk/isk"")",no definitive diagnosis,0.7,"The image shows a lesion on the forehead, characterized by an ulcerated and erythematous surface. Surrounding skin appears sun-damaged with potential actinic keratosis changes. The lesion's appearance is concerning for a possible skin cancer, but further examination and biopsy are necessary for definitive diagnosis.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""forehead"",
+    ""caption"": ""The image shows a lesion on the forehead, characterized by an ulcerated and erythematous surface. Surrounding skin appears sun-damaged with potential actinic keratosis changes. The lesion's appearance is concerning for a possible skin cancer, but further examination and biopsy are necessary for definitive diagnosis."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""basal cell carcinoma"", ""squamous cell carcinoma"", ""actinic keratosis""]
+}
+```",[]
+15,IIYI/66_1.png,psoriasis,"inflammatory, non-infectious, psoriasis",eczema,0.8,"The image shows scaling, erythematous patches with some areas of lichenification and excoriation on both dorsal hands, suggesting chronic inflammation.","```json
+{
+    ""disease_label"": ""eczema"",
+    ""body_location"": ""dorsal hands"",
+    ""caption"": ""The image shows scaling, erythematous patches with some areas of lichenification and excoriation on both dorsal hands, suggesting chronic inflammation."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""psoriasis"", ""contact dermatitis"", ""lichen simplex chronicus""]
+}
+```",[]
+16,youtube/o1YUsJxsHdU_frame_138268_1.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.6,"The image shows multiple erythematous papules, some of which appear excoriated. There is also evidence of some hyperpigmentation, likely post-inflammatory. These findings are located on the lower leg and ankle.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""lower leg"",
+    ""caption"": ""The image shows multiple erythematous papules, some of which appear excoriated. There is also evidence of some hyperpigmentation, likely post-inflammatory. These findings are located on the lower leg and ankle."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""prurigo nodularis"",
+        ""insect bites"",
+        ""folliculitis""
+    ]
+}
+```",[]
+17,youtube/7yKeNoCB8_E_frame_33920_1.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.0,The image is unclear and does not provide sufficient detail for a diagnosis. The boundaries and characteristics of any potential skin lesion are not distinct.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image is unclear and does not provide sufficient detail for a diagnosis. The boundaries and characteristics of any potential skin lesion are not distinct."",
+    ""confidence"": 0.0,
+    ""differential_diagnoses"": []
+}
+```",[]
+18,youtube/iIhr9-LwS5Q_frame_11211_9.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.3,"The image shows a generalized pinkish hue with some blotchy patterns, but no specific lesions or identifiable features are visible.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a generalized pinkish hue with some blotchy patterns, but no specific lesions or identifiable features are visible."",
+    ""confidence"": 0.3,
+    ""differential_diagnoses"": [""irritation"", ""allergic reaction"", ""early rash""]
+}
+```",[]
+19,youtube/Xl3sMLqhK30_frame_29964_5.jpg,psoriasis,"inflammatory, non-infectious, psoriasis",no definitive diagnosis,0.5,"The image shows a small, purple lesion on the skin with no additional details that allow for a confident diagnosis.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""uncertain"",
+    ""caption"": ""The image shows a small, purple lesion on the skin with no additional details that allow for a confident diagnosis."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""angioma"", ""hematoma"", ""purple nevus""]
+}
+```",[]
+20,public/5453977556464879778.png,eczema,"inflammatory, non-infectious, eczema",no definitive diagnosis,0.6,"There is a small erythematous patch on the lateral aspect of the ankle with multiple small excoriations or papules. The area appears slightly inflamed, but without clear signs of infection or a specific pattern to suggest a definitive diagnosis.","{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""ankle"",
+    ""caption"": ""There is a small erythematous patch on the lateral aspect of the ankle with multiple small excoriations or papules. The area appears slightly inflamed, but without clear signs of infection or a specific pattern to suggest a definitive diagnosis."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""contact dermatitis"", ""insect bites"", ""allergic reaction"", ""eczema""]
+}",[]
+21,youtube/Z3Oa5mxfCOw_frame_15078_0_0.jpg,eczema,"inflammatory, non-infectious, eczema",no definitive diagnosis,0.0,The image does not provide a clear view of human skin or identifiable lesions. It's unclear what is being depicted.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image does not provide a clear view of human skin or identifiable lesions. It's unclear what is being depicted."",
+    ""confidence"": 0.0,
+    ""differential_diagnoses"": []
+}
+```",[]
+22,IIYI/1587_2.png,eczema,"inflammatory, non-infectious, eczema",no definitive diagnosis,0.6,The image shows a scalp with areas of scaling and redness. There are both lighter and darker patches distributed across the scalp. The hair appears sparse in some regions.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""scalp"",
+    ""caption"": ""The image shows a scalp with areas of scaling and redness. There are both lighter and darker patches distributed across the scalp. The hair appears sparse in some regions."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""seborrheic dermatitis"",
+        ""psoriasis"",
+        ""tinea capitis"",
+        ""contact dermatitis""
+    ]
+}
+```",[]
+23,public/stasis-dermatitis-20.jpg,eczema,"inflammatory, non-infectious, eczema",eczema (with possible lichenification),0.8,"The image shows erythematous, scaly, and crusted plaques on the lower leg and foot. The skin appears thickened, suggesting chronicity, likely due to repeated scratching. There is significant scaling and redness around the area, with some areas showing potential hyperpigmentation.","```json
+{
+    ""disease_label"": ""eczema (with possible lichenification)"",
+    ""body_location"": ""lower leg and foot"",
+    ""caption"": ""The image shows erythematous, scaly, and crusted plaques on the lower leg and foot. The skin appears thickened, suggesting chronicity, likely due to repeated scratching. There is significant scaling and redness around the area, with some areas showing potential hyperpigmentation."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [
+        ""psoriasis"",
+        ""contact dermatitis"",
+        ""stasis dermatitis"",
+        ""lichen simplex chronicus""
+    ]
+}
+```",[]
+24,youtube/uzcGVrNYLaI_frame_343_0_0.jpg,eczema,"inflammatory, non-infectious, eczema",psoriasis,0.9,"The image shows red, scaly, and well-demarcated plaques on the skin of the elbow.","```json
+{
+    ""disease_label"": ""psoriasis"",
+    ""body_location"": ""elbow"",
+    ""caption"": ""The image shows red, scaly, and well-demarcated plaques on the skin of the elbow."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""eczema"", ""lichen planus"", ""contact dermatitis""]
+}
+```",[]
+25,public/ISIC_1842966.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.6,"An erythematous, scaly plaque with some hair follicles visible. Lesion appears somewhat shiny with uneven surface texture.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""scalp"",
+    ""caption"": ""An erythematous, scaly plaque with some hair follicles visible. Lesion appears somewhat shiny with uneven surface texture."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""seborrheic dermatitis"",
+        ""psoriasis"",
+        ""actinic keratosis"",
+        ""superficial basal cell carcinoma""
+    ]
+}
+```",[]
+26,public/ISIC_0022074.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.4,"The image shows a light pinkish background with a central brownish area, which is irregular in shape. The features are not distinct enough to provide a confident diagnosis.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a light pinkish background with a central brownish area, which is irregular in shape. The features are not distinct enough to provide a confident diagnosis."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""nevus"", ""lentigo"", ""seborrheic keratosis""]
+}
+```",[]
+27,youtube/ibybqKzOz54_frame_5920_1.jpg,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.5,The image displays a pinkish area with fine branching vessels. No clear identification of a particular skin condition can be made based on the visible findings.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image displays a pinkish area with fine branching vessels. No clear identification of a particular skin condition can be made based on the visible findings."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""telangiectasia"", ""early hemangioma"", ""normal vascular structure""]
+}
+```",[]
+28,public/ISIC_0022408.JPG,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.5,The image shows a pinkish circular area with slightly irregular borders and possible scaling. The surrounding skin appears normal with no additional distinctive features.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unable to determine"",
+    ""caption"": ""The image shows a pinkish circular area with slightly irregular borders and possible scaling. The surrounding skin appears normal with no additional distinctive features."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""actinic keratosis"", ""basal cell carcinoma"", ""insect bite reaction""]
+}
+```",[]
+29,youtube/jt3qSMam07o_frame_4640_1.jpg,basal cell carcinoma,"proliferations, malignant, non-melanocytic, basal cell carcinoma",no definitive diagnosis,0.6,"The image shows a raised, dome-shaped lesion that appears pink and smooth. The surrounding skin seems slightly erythematous. No visible scale, ulceration, or pigmentation is noted.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a raised, dome-shaped lesion that appears pink and smooth. The surrounding skin seems slightly erythematous. No visible scale, ulceration, or pigmentation is noted."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""basal cell carcinoma"", ""dermatofibroma"", ""pyogenic granuloma""]
+}
+```",[]
+30,youtube/ZkntcZt0aho_frame_58923_1.jpg,proliferations,proliferations,no definitive diagnosis,0.6,"The image shows an area of erythematous (red) skin with possible scaling and slight swelling. No other distinct features such as vesicles, pustules, or clear demarcation lines are visible.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""arm"",
+    ""caption"": ""The image shows an area of erythematous (red) skin with possible scaling and slight swelling. No other distinct features such as vesicles, pustules, or clear demarcation lines are visible."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""contact dermatitis"", ""eczema"", ""psoriasis"", ""allergic reaction"", ""cellulitis""]
+}
+```",[]
+31,youtube/ue12XjkOV_E_frame_48562_0_0.jpg,proliferations,proliferations,eczema,0.8,"The image shows a patch of dry, erythematous, and scaly skin. There are fine white scales with underlying redness and some lichenification visible. The affected area is located on the anterior part of the lower leg.","```json
+{
+    ""disease_label"": ""eczema"",
+    ""body_location"": ""anterior aspect of the lower leg"",
+    ""caption"": ""The image shows a patch of dry, erythematous, and scaly skin. There are fine white scales with underlying redness and some lichenification visible. The affected area is located on the anterior part of the lower leg."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""psoriasis"", ""contact dermatitis"", ""xerosis""]
+}
+```",[]
+32,youtube/BZ21v4OaWpM_frame_21990_2.jpg,proliferations,proliferations,cheilitis glandularis,0.8,"Swollen lips with a smooth, shiny surface and mild crusting. There is prominence in the central area with potential glandular involvement.","```json
+{
+    ""disease_label"": ""cheilitis glandularis"",
+    ""body_location"": ""lips"",
+    ""caption"": ""Swollen lips with a smooth, shiny surface and mild crusting. There is prominence in the central area with potential glandular involvement."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [
+        ""granulomatous cheilitis"",
+        ""angioedema"",
+        ""actinic cheilitis""
+    ]
+}
+```",[]
+33,youtube/4DN_SfwZZXU_frame_19788_0_0.jpg,proliferations,proliferations,no definitive diagnosis,0.0,The image quality and context are insufficient to identify any specific skin condition or anatomical location with confidence.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unclear"",
+    ""caption"": ""The image quality and context are insufficient to identify any specific skin condition or anatomical location with confidence."",
+    ""confidence"": 0.0,
+    ""differential_diagnoses"": []
+}
+```",[]
+34,youtube/oa3o-pGMz-U_frame_0_0.jpg,proliferations,proliferations,no definitive diagnosis,0.3,"The image shows an infant's skin with some mild redness and small bumps, but no clear pathological lesions can be confidently identified.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows an infant's skin with some mild redness and small bumps, but no clear pathological lesions can be confidently identified."",
+    ""confidence"": 0.3,
+    ""differential_diagnoses"": [""contact dermatitis"", ""atopic dermatitis"", ""heat rash""]
+}
+```",[]
+35,"edu/Argenziano, Giuseppe- Giacomel, Jason- Zalaudek, Iris - Dermatoscopy of Non-Pigmented Skin Tumors - Pink - Think - Blink.-CRC Press (2015)_00030_07186_1.jpg",squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.5,"The image shows a pinkish area with some red discoloration and fine vellus hairs, but lacks clear distinctive features of any particular skin condition. The specific anatomical location is not visible.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a pinkish area with some red discoloration and fine vellus hairs, but lacks clear distinctive features of any particular skin condition. The specific anatomical location is not visible."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""hemangioma"", ""basal cell carcinoma"", ""actinic keratosis"", ""nonspecific dermatitis""]
+}
+```",[]
+36,youtube/1O4E-aTIIiY_frame_8598_0.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.3,"The image shows an area with erythema, crusting, and possible ulceration. There are irregularly distributed areas of red and brown pigmentation, but the image quality and close-up nature do not provide enough information for a confident diagnosis.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows an area with erythema, crusting, and possible ulceration. There are irregularly distributed areas of red and brown pigmentation, but the image quality and close-up nature do not provide enough information for a confident diagnosis."",
+    ""confidence"": 0.3,
+    ""differential_diagnoses"": [
+        ""basal cell carcinoma"",
+        ""squamous cell carcinoma"",
+        ""actinic keratosis"",
+        ""contact dermatitis""
+    ]
+}
+```",[]
+37,youtube/ydZgOLJuf6U_frame_43277_1.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.6,The image shows a scalp with localized thinning or hair loss accompanied by some areas of scaling and erythema. There are also braided hair present.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""scalp"",
+    ""caption"": ""The image shows a scalp with localized thinning or hair loss accompanied by some areas of scaling and erythema. There are also braided hair present."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""traction alopecia"",
+        ""seborrheic dermatitis"",
+        ""tinea capitis"",
+        ""psoriasis""
+    ]
+}
+```",[]
+38,youtube/EScWfQK7pvA_frame_36436_0.jpg,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.5,"The image shows a scalp with apparent hair thinning, especially at the frontal and central regions. There appears to be a pattern of limited hair present, but the cause is unclear from the image.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""scalp"",
+    ""caption"": ""The image shows a scalp with apparent hair thinning, especially at the frontal and central regions. There appears to be a pattern of limited hair present, but the cause is unclear from the image."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [
+        ""androgenetic alopecia"",
+        ""alopecia areata"",
+        ""scarring alopecia"",
+        ""telogen effluvium""
+    ]
+}
+```",[]
+39,public/ISIC_0021072.JPG,squamous cell carcinoma,"proliferations, malignant, non-melanocytic, squamous cell carcinoma",no definitive diagnosis,0.4,"The image shows an area of erythematous (red) skin with some visible hair, but without definitive characteristics of a specific dermatological condition.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""uncertain"",
+    ""caption"": ""The image shows an area of erythematous (red) skin with some visible hair, but without definitive characteristics of a specific dermatological condition."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""contact dermatitis"", ""eczema"", ""psoriasis"", ""skin irritation""]
+}
+```",[]
+40,IIYI/20486_2.png,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.6,"The image shows multiple, irregularly shaped, pink to red patches on the skin of the upper arm. The lesions do not appear to have a raised border or any scaling.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""upper arm"",
+    ""caption"": ""The image shows multiple, irregularly shaped, pink to red patches on the skin of the upper arm. The lesions do not appear to have a raised border or any scaling."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""nummular eczema"", ""tinea corporis"", ""contact dermatitis"", ""psoriasis""]
+}
+```",[]
+41,public/-1542787778564695920.png,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.4,"The image shows an area of diffuse erythema with ill-defined borders, possibly in a skin crease. The redness does not form distinct lesions.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""likely a fold or crease area"",
+    ""caption"": ""The image shows an area of diffuse erythema with ill-defined borders, possibly in a skin crease. The redness does not form distinct lesions."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""irritant contact dermatitis"", ""intertrigo"", ""eczema""]
+}
+```",[]
+42,youtube/EHC3ejfvcrY_frame_3125_0_0.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.6,"The image shows redness with some small raised lesions on the cheek. The skin appears to have some textural irregularities. However, the findings are not specific enough to determine a clear diagnosis.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""cheek region"",
+    ""caption"": ""The image shows redness with some small raised lesions on the cheek. The skin appears to have some textural irregularities. However, the findings are not specific enough to determine a clear diagnosis."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""rosacea"", ""acne"", ""seborrheic dermatitis""]
+}
+```",[]
+43,youtube/sdvE0xFsk7U_frame_896_0_0.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.5,"The image shows multiple erythematous, slightly raised, irregular patches scattered across the forearm. The patches vary in size and shape and appear to be mildly inflamed.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""forearm"",
+    ""caption"": ""The image shows multiple erythematous, slightly raised, irregular patches scattered across the forearm. The patches vary in size and shape and appear to be mildly inflamed."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [
+        ""urticaria"",
+        ""contact dermatitis"",
+        ""psoriasis""
+    ]
+}
+```",[]
+44,youtube/eH4cE2rg_ak_frame_29458_1.jpg,urticaria,"reaction patterns and descriptive terms, hypersensitivity, allergic reaction, urticaria",no definitive diagnosis,0.4,"The image shows skin on the legs with diffuse hyperpigmentation and some areas of possible lichenification, but no distinct lesions are identifiable.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""legs"",
+    ""caption"": ""The image shows skin on the legs with diffuse hyperpigmentation and some areas of possible lichenification, but no distinct lesions are identifiable."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""post-inflammatory hyperpigmentation"", ""lichen simplex chronicus"", ""acanthosis nigricans""]
+}
+```",[]
+45,youtube/d-nF_cZBgBY_frame_31402_0_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",lichen planus,0.8,"The image shows multiple violaceous, flat-topped papules and plaques on the wrists. The lesions have a shiny appearance and are symmetric.","```json
+{
+    ""disease_label"": ""lichen planus"",
+    ""body_location"": ""wrists"",
+    ""caption"": ""The image shows multiple violaceous, flat-topped papules and plaques on the wrists. The lesions have a shiny appearance and are symmetric."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""psoriasis"", ""eczema"", ""contact dermatitis""]
+}
+```",[]
+46,youtube/tMQAGKMxUEw_frame_73886_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.4,"The image depicts a patch of skin with a dark-colored lesion. The lesion appears slightly irregular with some discoloration, but due to image quality and lack of clear clinical details, a definitive diagnosis cannot be made.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image depicts a patch of skin with a dark-colored lesion. The lesion appears slightly irregular with some discoloration, but due to image quality and lack of clear clinical details, a definitive diagnosis cannot be made."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""nevus"", ""melanoma"", ""seborrheic keratosis""]
+}
+```",[]
+47,pubmed/a4_f4_PMC8859620_JOMFP_25_383_g004.png,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.5,"The image shows an inspection of the individual's oral cavity, including the teeth, tongue, and inner cheek. No clear and identifiable skin lesion or abnormality is visible.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""oral cavity"",
+    ""caption"": ""The image shows an inspection of the individual's oral cavity, including the teeth, tongue, and inner cheek. No clear and identifiable skin lesion or abnormality is visible."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""oral candidiasis"", ""leukoplakia"", ""lichen planus""]
+}
+```",[]
+48,youtube/jDTD1kfijoY_frame_17131_0_0.jpg,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.6,The image shows a close-up of a skin surface with diffuse erythema and overlying white scaling. No clear or specific lesions are visible to suggest a definitive diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a close-up of a skin surface with diffuse erythema and overlying white scaling. No clear or specific lesions are visible to suggest a definitive diagnosis."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""psoriasis"", ""seborrheic dermatitis"", ""eczema""]
+}
+```",[]
+49,IIYI/10730_4.png,lichen planus,"inflammatory, non-infectious, lichen planus",no definitive diagnosis,0.6,"The image shows multiple patches of discolored skin that appear scaly and possibly thickened. The lesions are ill-defined and have a slightly varied coloration, possibly indicating post-inflammatory changes.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""not specified"",
+    ""caption"": ""The image shows multiple patches of discolored skin that appear scaly and possibly thickened. The lesions are ill-defined and have a slightly varied coloration, possibly indicating post-inflammatory changes."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""lichen simplex chronicus"",
+        ""nummular eczema"",
+        ""psoriasis"",
+        ""dermatitis""
+    ]
+}
+```",[]
+50,public/warts-common-39.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",acrochordon (skin tag),0.9,"The image shows a flesh-colored, pedunculated lesion protruding from the eyelid margin. The lesion is soft and similar in tone to the surrounding skin.","```json
+{
+    ""disease_label"": ""acrochordon (skin tag)"",
+    ""body_location"": ""eyelid"",
+    ""caption"": ""The image shows a flesh-colored, pedunculated lesion protruding from the eyelid margin. The lesion is soft and similar in tone to the surrounding skin."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""seborrheic keratosis"", ""papilloma"", ""neurofibroma""]
+}
+```",[]
+51,IIYI/29217_1.png,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",milia,0.9,"The image shows multiple small, firm, white to flesh-colored papules on the face. They appear clustered and are consistent with superficial cysts typical of milia.","```json
+{
+    ""disease_label"": ""milia"",
+    ""body_location"": ""face"",
+    ""caption"": ""The image shows multiple small, firm, white to flesh-colored papules on the face. They appear clustered and are consistent with superficial cysts typical of milia."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""sebaceous hyperplasia"", ""closed comedones"", ""syringomas""]
+}
+```",[]
+52,public/herpes-type-1-recurrent-94.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",Herpes labialis,0.9,"The image shows clustered vesicles on an erythematous base located on the upper and lower lips. The vesicles appear clear with some crusting noted, characteristic of herpes simplex virus infection.","```json
+{
+    ""disease_label"": ""Herpes labialis"",
+    ""body_location"": ""upper lip and lower lip"",
+    ""caption"": ""The image shows clustered vesicles on an erythematous base located on the upper and lower lips. The vesicles appear clear with some crusting noted, characteristic of herpes simplex virus infection."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""Impetigo"", ""Contact dermatitis"", ""Aphthous ulcer""]
+}
+```",[]
+53,public/warts-common-64.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",possible viral wart (verrucae vulgaris),0.8,"The image shows multiple round, elevated lesions with a verrucous surface on the dorsum of the hand and fingers. The largest lesion has a dark, hyperkeratotic surface which may suggest a viral wart. Surrounding lesions are smaller and similarly shaped.","```json
+{
+    ""disease_label"": ""possible viral wart (verrucae vulgaris)"",
+    ""body_location"": ""dorsum of the hand"",
+    ""caption"": ""The image shows multiple round, elevated lesions with a verrucous surface on the dorsum of the hand and fingers. The largest lesion has a dark, hyperkeratotic surface which may suggest a viral wart. Surrounding lesions are smaller and similarly shaped."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""molluscum contagiosum"", ""dermatofibroma"", ""keratoacanthoma""]
+}
+```",[]
+54,public/corns-26.jpg,molluscum contagiosum,"inflammatory, infectious, viral, molluscum contagiosum",no definitive diagnosis,0.5,The image shows a faint erythematous and slightly scaly patch on the foot. There are no clear distinct lesions or identifiable patterns to support a specific diagnosis with confidence.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""sole of the foot"",
+    ""caption"": ""The image shows a faint erythematous and slightly scaly patch on the foot. There are no clear distinct lesions or identifiable patterns to support a specific diagnosis with confidence."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""tinea pedis"", ""eczema"", ""psoriasis""]
+}
+```",[]
+55,"note/Diane Jackson-Richards, Amit G. Pandya (eds.) - Dermatology Atlas for Skin of Color-Springer-Verlag Berlin Heidelberg (2014)_00020_00168_0.png",vitiligo,"reaction patterns and descriptive terms, vitiligo",hypopigmented macular lesion,0.8,There is a hypopigmented macular lesion on the lower leg. The lesion has a slightly irregular border and contrasts with the surrounding skin.,"```json
+{
+    ""disease_label"": ""hypopigmented macular lesion"",
+    ""body_location"": ""lower leg"",
+    ""caption"": ""There is a hypopigmented macular lesion on the lower leg. The lesion has a slightly irregular border and contrasts with the surrounding skin."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""vitiligo"", ""tinea versicolor"", ""post-inflammatory hypopigmentation""]
+}
+```",[]
+56,youtube/ughfUshyayw_frame_4579_0_0.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.5,The image shows a uniformly pinkish area without distinct or specific skin lesions identifiable for diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a uniformly pinkish area without distinct or specific skin lesions identifiable for diagnosis."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""normal skin appearance"", ""slight erythema"", ""mild dermatitis""]
+}
+```",[]
+57,youtube/dmTY89DBhAg_frame_41032_0.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.5,The image shows a section of skin with no clearly defined lesions or abnormal markings that allow for a definitive diagnosis.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows a section of skin with no clearly defined lesions or abnormal markings that allow for a definitive diagnosis."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""normal skin variation"", ""benign pigmentation"", ""early stage skin conditions""]
+}
+```",[]
+58,note/疑难皮肤病彩色图谱OCR_00257_14590_0.png,vitiligo,"reaction patterns and descriptive terms, vitiligo",no definitive diagnosis,0.6,"The image shows a fine, diffuse rash with evenly distributed small, uniform papules over the torso and arms. The rash appears erythematous but specific characteristics are unclear.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""torso and arms"",
+    ""caption"": ""The image shows a fine, diffuse rash with evenly distributed small, uniform papules over the torso and arms. The rash appears erythematous but specific characteristics are unclear."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""folliculitis"", ""keratosis pilaris"", ""mild eczema""]
+}
+```",[]
+59,pubmed/9f_db_PMC6927254_CCID-12-911-g0002_1.jpg,vitiligo,"reaction patterns and descriptive terms, vitiligo",vitiligo,0.9,"Presence of well-demarcated, symmetrical depigmented patches on the dorsum of the hand.","```json
+{
+    ""disease_label"": ""vitiligo"",
+    ""body_location"": ""dorsum of the hand"",
+    ""caption"": ""Presence of well-demarcated, symmetrical depigmented patches on the dorsum of the hand."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""pityriasis alba"", ""tinea versicolor"", ""idiopathic guttate hypomelanosis""]
+}
+```",[]
+60,public/sebaceous-hyperplasia-71.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",no definitive diagnosis,0.7,"The image shows a single, raised, pink nodule with a shiny surface and some visible telangiectasias. The surrounding skin appears normal.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""not specified"",
+    ""caption"": ""The image shows a single, raised, pink nodule with a shiny surface and some visible telangiectasias. The surrounding skin appears normal."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""Basal cell carcinoma"", ""Amelanotic melanoma"", ""Squamous cell carcinoma""]
+}
+```",[]
+61,public/seborrheic-keratosis-irritated-33.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",no definitive diagnosis,0.7,"The image depicts an irregularly shaped, scaly lesion with mixed pigmentation including dark and red areas, surrounded by normal skin. The border appears poorly defined.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image depicts an irregularly shaped, scaly lesion with mixed pigmentation including dark and red areas, surrounded by normal skin. The border appears poorly defined."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""melanoma"", ""seborrheic keratosis"", ""basal cell carcinoma""]
+}
+```",[]
+62,public/porokeratosis-31.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",folliculitis,0.8,"Multiple small, scattered erythematous papules consistent with follicular distribution suggestive of folliculitis.","```json
+{
+    ""disease_label"": ""folliculitis"",
+    ""body_location"": ""lower legs"",
+    ""caption"": ""Multiple small, scattered erythematous papules consistent with follicular distribution suggestive of folliculitis."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""keratosis pilaris"", ""acne"", ""eczema""]
+}
+```",[]
+63,public/dermatofibroma-123.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",no definitive diagnosis,0.6,"The image shows a solitary, well-defined, pink-brown papule with a smooth surface. There is no additional information to confidently determine the diagnosis from this single image.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unspecified"",
+    ""caption"": ""The image shows a solitary, well-defined, pink-brown papule with a smooth surface. There is no additional information to confidently determine the diagnosis from this single image."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""dermatofibroma"",
+        ""basal cell carcinoma"",
+        ""nevus""
+    ]
+}
+```",[]
+64,public/epidermal-cyst-108.jpg,seborrheic keratoses,"proliferations, benign, non-melanocytic, seborrheic keratosis, seborrheic keratoses",seborrheic keratosis,0.9,"The image shows a well-circumscribed, slightly raised lesion with a waxy, wart-like appearance and a rough surface. It is brown to black in color and appears stuck onto the skin.","```json
+{
+    ""disease_label"": ""seborrheic keratosis"",
+    ""body_location"": ""body skin (exact location unspecified)"",
+    ""caption"": ""The image shows a well-circumscribed, slightly raised lesion with a waxy, wart-like appearance and a rough surface. It is brown to black in color and appears stuck onto the skin."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [
+        ""melanoma"",
+        ""actinic keratosis"",
+        ""viral wart""
+    ]
+}
+```",[]
+65,public/Lichen-Sclerosus-Penis-4.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",balanitis,0.8,"The image shows the glans penis with diffuse erythema and mild glossiness, suggesting inflammation. There is no visible ulceration, scaling, or nodules.","{
+    ""disease_label"": ""balanitis"",
+    ""body_location"": ""glans penis"",
+    ""caption"": ""The image shows the glans penis with diffuse erythema and mild glossiness, suggesting inflammation. There is no visible ulceration, scaling, or nodules."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""contact dermatitis"", ""candidal infection"", ""lichen planus""]
+}",[]
+66,public/Psoriasis-Chronic-Plaque-170.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",psoriasis,0.9,"The image shows a well-demarcated, erythematous plaque with overlying silvery-white scaling, located on the arm. The lesion is elevated and appears to be chronic.","```json
+{
+    ""disease_label"": ""psoriasis"",
+    ""body_location"": ""arm"",
+    ""caption"": ""The image shows a well-demarcated, erythematous plaque with overlying silvery-white scaling, located on the arm. The lesion is elevated and appears to be chronic."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""seborrheic dermatitis"", ""eczema"", ""lichen simplex chronicus""]
+}
+```",[]
+67,public/Lichen-Sclerosis-Vulva-22.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",no definitive diagnosis,0.6,The image shows a reddened area with some scaling and minimal erosion or maceration in the intergluteal cleft region. There is also evidence of hair and possible secondary skin changes.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""intergluteal cleft"",
+    ""caption"": ""The image shows a reddened area with some scaling and minimal erosion or maceration in the intergluteal cleft region. There is also evidence of hair and possible secondary skin changes."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""intertriginous dermatitis"", ""candidiasis"", ""contact dermatitis""]
+}
+```",[]
+68,public/Psoriasis-Guttate-75.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",no definitive diagnosis,0.7,"The image shows multiple small, red papules scattered across the skin. There is no scaling or crusting visible. The lesions appear similar in size and shape.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unknown"",
+    ""caption"": ""The image shows multiple small, red papules scattered across the skin. There is no scaling or crusting visible. The lesions appear similar in size and shape."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""Folliculitis"", ""Viral exanthem"", ""Cherry angiomas""]
+}
+```",[]
+69,public/psoriasis-scalp-78.jpg,"lichen planus, psoriasis","inflammatory, non-infectious, lichen planus, psoriasis",no definitive diagnosis,0.7,"The image shows the posterior neck and lower scalp with diffuse scaling, erythema, and some white plaques. The skin appears dry and slightly thickened.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""neck and scalp area"",
+    ""caption"": ""The image shows the posterior neck and lower scalp with diffuse scaling, erythema, and some white plaques. The skin appears dry and slightly thickened."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [
+        ""seborrheic dermatitis"",
+        ""psoriasis"",
+        ""eczema"",
+        ""lichen simplex chronicus""
+    ]
+}
+```",[]
+70,IIYI/22269_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",Herpes Zoster,0.9,The image shows a cluster of erythematous and vesicular lesions with crusting distributed along a dermatomal pattern on the abdomen.,"```json
+{
+    ""disease_label"": ""Herpes Zoster"",
+    ""body_location"": ""abdomen"",
+    ""caption"": ""The image shows a cluster of erythematous and vesicular lesions with crusting distributed along a dermatomal pattern on the abdomen."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""Contact dermatitis"", ""Bullous impetigo""]
+}
+```",[]
+71,IIYI/24063_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",eczema (atopic dermatitis),0.8,"The image shows a forearm with diffuse erythematous patches and multiple small papules. There appears to be some scaling and excoriation, indicative of chronic scratching. The distribution and appearance are suggestive of eczema.","```json
+{
+    ""disease_label"": ""eczema (atopic dermatitis)"",
+    ""body_location"": ""forearm"",
+    ""caption"": ""The image shows a forearm with diffuse erythematous patches and multiple small papules. There appears to be some scaling and excoriation, indicative of chronic scratching. The distribution and appearance are suggestive of eczema."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""contact dermatitis"", ""psoriasis"", ""allergic contact dermatitis""]
+}
+```",[]
+72,IIYI/830_3.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",no definitive diagnosis,0.5,"Multiple small, erythematous papules distributed across the back. No clear pattern or configuration is noted. The lesions appear discrete and mildly inflamed.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""back"",
+    ""caption"": ""Multiple small, erythematous papules distributed across the back. No clear pattern or configuration is noted. The lesions appear discrete and mildly inflamed."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""folliculitis"", ""acne"", ""chickenpox"", ""contact dermatitis""]
+}
+```",[]
+73,IIYI/25663_2.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",no definitive diagnosis,0.7,"There are multiple large, tense bullae with a clear yellowish fluid over the skin of the thigh. Surrounding erythema is visible. Smaller vesicular lesions are also noted nearby.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""thigh"",
+    ""caption"": ""There are multiple large, tense bullae with a clear yellowish fluid over the skin of the thigh. Surrounding erythema is visible. Smaller vesicular lesions are also noted nearby."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [
+        ""bullous pemphigoid"",
+        ""second-degree burn"",
+        ""contact dermatitis"",
+        ""pemphigus vulgaris""
+    ]
+}
+```",[]
+74,public/3730702458099585701.png,herpes zoster,"inflammatory, infectious, viral, herpes zoster",no definitive diagnosis,0.6,"The image shows a skin lesion located on the right elbow characterized by red, slightly raised, and possibly scaly patches. There is no significant discharge or crusting visible.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""right elbow"",
+    ""caption"": ""The image shows a skin lesion located on the right elbow characterized by red, slightly raised, and possibly scaly patches. There is no significant discharge or crusting visible."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""psoriasis"",
+        ""eczema"",
+        ""contact dermatitis"",
+        ""nummular dermatitis""
+    ]
+}
+```",[]
+75,edu/(Eğitim Tanrısı) George Laskaris - Color Atlas of Oral Diseases- Diagnosis and Treatment-Thieme (2017)_00221_00884.png,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",aphthous ulcer,0.9,"A well-defined, round to oval ulceration with a whitish necrotic center and an erythematous halo on the inner lip.","```json
+{
+    ""disease_label"": ""aphthous ulcer"",
+    ""body_location"": ""inner lower lip"",
+    ""caption"": ""A well-defined, round to oval ulceration with a whitish necrotic center and an erythematous halo on the inner lip."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""herpes simplex virus infection"", ""traumatic ulceration"", ""oral squamous cell carcinoma""]
+}
+```",[]
+76,pubmed/a5_e7_PMC5004559_CCD-7-401-g002_1.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",no definitive diagnosis,0.6,"The image shows a view inside an open mouth with visible teeth and tongue. There is a red area on the posterior region of the oral cavity near the molars, possibly indicating inflammation or an abnormal lesion. However, specific details are unclear.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""oral cavity"",
+    ""caption"": ""The image shows a view inside an open mouth with visible teeth and tongue. There is a red area on the posterior region of the oral cavity near the molars, possibly indicating inflammation or an abnormal lesion. However, specific details are unclear."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""oral inflammation"", ""aphthous ulcer"", ""herpetic lesion""]
+}
+```",[]
+77,pubmed/13_ca_PMC6106674_abd-93-05-0726-g01_3.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",no definitive diagnosis,0.5,"The image shows multiple small, dark spots scattered over a lighter skin background, suggesting possible pigmented lesions or moles without clear specific features.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unidentified limb"",
+    ""caption"": ""The image shows multiple small, dark spots scattered over a lighter skin background, suggesting possible pigmented lesions or moles without clear specific features."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""dermatofibromas"", ""lentigines"", ""seborrheic keratoses"", ""melanocytic nevi""]
+}
+```",[]
+78,pubmed/e3_11_PMC4147289_GRP2014_934159.003.png,ulcer,"reaction patterns and descriptive terms, ulcers, erosion of skin, ulcer",no definitive diagnosis,0.5,The image shows the tongue with an uneven surface and a slightly swollen appearance. The overall color is pink with some areas that may appear slightly raised or textured. There is no distinct lesion that can be confidently categorized.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""tongue"",
+    ""caption"": ""The image shows the tongue with an uneven surface and a slightly swollen appearance. The overall color is pink with some areas that may appear slightly raised or textured. There is no distinct lesion that can be confidently categorized."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""geographic tongue"", ""glossitis"", ""lingual papillitis"", ""trauma or irritation""]
+}
+```",[]
+79,youtube/UsoXCLoC0bQ_frame_23401_2.jpg,ulcer,"reaction patterns and descriptive terms, ulcers, ulcer, erosion of skin",no definitive diagnosis,0.6,"The image displays multiple ulcerative lesions with a central necrotic core on the forearm. The borders appear erythematous, and the lesions vary in size.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""forearm"",
+    ""caption"": ""The image displays multiple ulcerative lesions with a central necrotic core on the forearm. The borders appear erythematous, and the lesions vary in size."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [
+        ""cutaneous anthrax"",
+        ""necrotizing fasciitis"",
+        ""pyoderma gangrenosum"",
+        ""vasculitis""
+    ]
+}
+```",[]
+80,youtube/IXZC_NOKpq0_frame_38432_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.4,"The image shows a section of the neck and upper chest. The skin appears erythematous and moist, potentially due to the application of a gel or substance. There is no clear lesion or distinct dermatological feature visible. The presence of gloved hands and equipment suggest a procedure is being conducted.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""neck and upper chest"",
+    ""caption"": ""The image shows a section of the neck and upper chest. The skin appears erythematous and moist, potentially due to the application of a gel or substance. There is no clear lesion or distinct dermatological feature visible. The presence of gloved hands and equipment suggest a procedure is being conducted."",
+    ""confidence"": 0.4,
+    ""differential_diagnoses"": [""contact dermatitis"", ""normal post-procedural skin change"", ""irritation from procedure""]
+}
+```",[]
+81,youtube/XYW6aQervTY_frame_50_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",solar lentigo,0.9,"The image shows multiple well-defined, flat, brown macules of varying sizes on the facial skin, consistent with sun-exposed areas. The lesions suggest hyperpigmentation due to sun exposure, common with solar lentigines.","```json
+{
+    ""disease_label"": ""solar lentigo"",
+    ""body_location"": ""face"",
+    ""caption"": ""The image shows multiple well-defined, flat, brown macules of varying sizes on the facial skin, consistent with sun-exposed areas. The lesions suggest hyperpigmentation due to sun exposure, common with solar lentigines."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""seborrheic keratosis"", ""melasma"", ""post-inflammatory hyperpigmentation""]
+}
+```",[]
+82,youtube/y1SpcTyifcU_frame_64505_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.5,"The image shows a patient with discoloration or pigmentation on the nose. Additional medical equipment such as electrodes and nasal cannula are present, indicating a clinical setting. No clear dermatological findings or specific skin lesions can be definitively diagnosed from this image alone.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""face (nose)"",
+    ""caption"": ""The image shows a patient with discoloration or pigmentation on the nose. Additional medical equipment such as electrodes and nasal cannula are present, indicating a clinical setting. No clear dermatological findings or specific skin lesions can be definitively diagnosed from this image alone."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""ecchymosis"", ""acute trauma"", ""pigmentation disorder""]
+}
+```",[]
+83,youtube/CKj3GPY9dvc_frame_480_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",Tonsillitis with tonsillar exudate,0.9,"The image shows an inflamed oropharynx with enlarged tonsils that have visible white patches suggestive of exudate. This finding is indicative of an infectious process in the throat, possibly bacterial or viral tonsillitis.","```json
+{
+    ""disease_label"": ""Tonsillitis with tonsillar exudate"",
+    ""body_location"": ""oropharynx"",
+    ""caption"": ""The image shows an inflamed oropharynx with enlarged tonsils that have visible white patches suggestive of exudate. This finding is indicative of an infectious process in the throat, possibly bacterial or viral tonsillitis."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [
+        ""Streptococcal pharyngitis"",
+        ""Infectious mononucleosis"",
+        ""Viral pharyngitis""
+    ]
+}
+```",[]
+84,youtube/WSjmXzl22Pk_frame_8766_0_0.jpg,contact dermatitis,"inflammatory, non-infectious, eczema, contact dermatitis",no definitive diagnosis,0.0,The image shows a surgical procedure on the skin with visible sutures and instruments. There is no clear recognizable skin lesion to diagnose.,"```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unspecified skin location"",
+    ""caption"": ""The image shows a surgical procedure on the skin with visible sutures and instruments. There is no clear recognizable skin lesion to diagnose."",
+    ""confidence"": 0.0,
+    ""differential_diagnoses"": []
+}
+```",[]
+85,public/tinea-incognito-51.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",no definitive diagnosis,0.7,"The image shows a cluster of red, scaly patches and plaques on the upper thigh or groin. Lesions appear slightly elevated with some desquamation, consistent with an inflammatory process.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""upper thigh or groin area"",
+    ""caption"": ""The image shows a cluster of red, scaly patches and plaques on the upper thigh or groin. Lesions appear slightly elevated with some desquamation, consistent with an inflammatory process."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [
+        ""tinea cruris (fungal infection)"",
+        ""inverse psoriasis"",
+        ""intertrigo"",
+        ""contact dermatitis""
+    ]
+}
+```",[]
+86,public/tinea-versicolor-162.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",no definitive diagnosis,0.7,"The image shows multiple dark, hyperpigmented macules and patches scattered across the back. The lesions vary in size and shape.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""back"",
+    ""caption"": ""The image shows multiple dark, hyperpigmented macules and patches scattered across the back. The lesions vary in size and shape."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""seborrheic keratosis"", ""lentigines"", ""dermatosis papulosa nigra""]
+}
+```",[]
+87,public/tinea-foot-webs-11.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",interdigital tinea pedis,0.9,"The image shows whitened, macerated skin with peeling and scaling between the toes. This appearance is typical of a fungal infection in the interdigital space.","```json
+{
+    ""disease_label"": ""interdigital tinea pedis"",
+    ""body_location"": ""between the toes"",
+    ""caption"": ""The image shows whitened, macerated skin with peeling and scaling between the toes. This appearance is typical of a fungal infection in the interdigital space."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""bacterial intertrigo"", ""contact dermatitis""]
+}
+```",[]
+88,public/tinea-groin-120.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",tinea cruris,0.9,"There is a well-defined, red, scaly patch with a slightly elevated border and central clearing visible in the groin area.","```json
+{
+    ""disease_label"": ""tinea cruris"",
+    ""body_location"": ""groin area"",
+    ""caption"": ""There is a well-defined, red, scaly patch with a slightly elevated border and central clearing visible in the groin area."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""contact dermatitis"", ""inverse psoriasis"", ""erythrasma""]
+}
+```",[]
+89,public/tinea-foot-dorsum-4.jpg,"candidiasis, tinea","inflammatory, infectious, fungal, candidiasis, tinea",no definitive diagnosis,0.6,"The image shows erythematous patches and papules on the heel and surrounding areas of the foot, with slight scaling. The skin appears dry and possibly inflamed.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""heel and surrounding foot area"",
+    ""caption"": ""The image shows erythematous patches and papules on the heel and surrounding areas of the foot, with slight scaling. The skin appears dry and possibly inflamed."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""psoriasis"", ""eczema"", ""dermatitis""]
+}
+```",[]
+90,youtube/iZrp1daJWk0_frame_15452_0.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",no definitive diagnosis,0.7,"The image shows extensive thick, crusty scaling covering the scalp with areas of erythema and possible plaque formation.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""scalp"",
+    ""caption"": ""The image shows extensive thick, crusty scaling covering the scalp with areas of erythema and possible plaque formation."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [""seborrheic dermatitis"", ""psoriasis"", ""tinea capitis""]
+}
+```",[]
+91,edu/Illustrated-Manual-of-Pediatric-Dermatology-Diagno...-批量 OCR_00166_10141.png,tinea,"inflammatory, infectious, fungal, tinea",no definitive diagnosis,0.6,"The image shows several small, raised, erythematous papules on the neck. There is also an area of alopecia with scaling on the scalp.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""neck and scalp"",
+    ""caption"": ""The image shows several small, raised, erythematous papules on the neck. There is also an area of alopecia with scaling on the scalp."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""folliculitis"", ""tinea capitis"", ""seborrheic dermatitis""]
+}
+```",[]
+92,youtube/1rQ9PmDOrSs_frame_11842_2.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",no definitive diagnosis,0.6,"The image shows two oval, erythematous patches with central clearing and possible slight scaling along the edges. The findings are suggestive but not definitive for any specific condition.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""unclear from image"",
+    ""caption"": ""The image shows two oval, erythematous patches with central clearing and possible slight scaling along the edges. The findings are suggestive but not definitive for any specific condition."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""tinea corporis"", ""annular psoriasis"", ""nummular eczema""]
+}
+```",[]
+93,youtube/609D9bQFAtc_frame_56165_0.jpg,tinea,"inflammatory, infectious, fungal, dermatophyte infections, tinea",no definitive diagnosis,0.6,"The image shows toes with noticeable redness and light swelling, particularly around the joints and nail beds. There is no further detail available to conclude a specific diagnosis.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""toes"",
+    ""caption"": ""The image shows toes with noticeable redness and light swelling, particularly around the joints and nail beds. There is no further detail available to conclude a specific diagnosis."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""chilblains"", ""frostbite"", ""inflammatory arthritis""]
+}
+```",[]
+94,public/-5081790413284637815.png,tinea,"inflammatory, infectious, fungal, tinea",no definitive diagnosis,0.6,"The image shows a reddish, slightly raised, circular rash on the upper back area. The rash appears with some central clearing and a slightly darker border.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""upper back"",
+    ""caption"": ""The image shows a reddish, slightly raised, circular rash on the upper back area. The rash appears with some central clearing and a slightly darker border."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""tinea corporis"", ""nummular eczema"", ""contact dermatitis"", ""psoriasis""]
+}
+```",[]
+95,youtube/zzxJOYcnQ6g_frame_1727_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",no definitive diagnosis,0.6,"The image shows a section of skin with multiple small, flat-topped papules. The papules are reddish-brown in color, scattered across the wrist area. The skin around the papules appears otherwise unremarkable without signs of scale or crust.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""wrist"",
+    ""caption"": ""The image shows a section of skin with multiple small, flat-topped papules. The papules are reddish-brown in color, scattered across the wrist area. The skin around the papules appears otherwise unremarkable without signs of scale or crust."",
+    ""confidence"": 0.6,
+    ""differential_diagnoses"": [""lichen planus"", ""prurigo nodularis"", ""keratosis pilaris""]
+}
+```",[]
+96,youtube/EU7EEKXaFcg_frame_42145_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",no definitive diagnosis,0.7,"The image shows erythematous, crusted patches and plaques distributed on the cheek of a child. The lesions appear inflamed and are associated with excoriation marks.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""face"",
+    ""caption"": ""The image shows erythematous, crusted patches and plaques distributed on the cheek of a child. The lesions appear inflamed and are associated with excoriation marks."",
+    ""confidence"": 0.7,
+    ""differential_diagnoses"": [
+        ""atopic dermatitis"",
+        ""impetigo"",
+        ""contact dermatitis""
+    ]
+}
+```",[]
+97,youtube/zHIWVerNenY_frame_735_0_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",generalized exfoliative dermatitis,0.9,"Extensive erythema and scaling with thick, scaly plaques covering the posterior neck and upper back. The skin appears diffusely red and inflamed, with patches of cracked, thickened scales.","```json
+{
+    ""disease_label"": ""generalized exfoliative dermatitis"",
+    ""body_location"": ""posterior neck and upper back"",
+    ""caption"": ""Extensive erythema and scaling with thick, scaly plaques covering the posterior neck and upper back. The skin appears diffusely red and inflamed, with patches of cracked, thickened scales."",
+    ""confidence"": 0.9,
+    ""differential_diagnoses"": [""psoriasis"", ""eczema"", ""seborrheic dermatitis"", ""contact dermatitis""]
+}
+```",[]
+98,youtube/QjNDAQVm9Ys_frame_9240_0_0.jpg,scabies,"inflammatory, infectious, parasitic, scabies",no definitive diagnosis,0.8,"The image shows erythematous, scaly patches on the soles of the feet of an infant, with some areas appearing more inflamed. The distribution is bilateral and involves the lower legs.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""feet"",
+    ""caption"": ""The image shows erythematous, scaly patches on the soles of the feet of an infant, with some areas appearing more inflamed. The distribution is bilateral and involves the lower legs."",
+    ""confidence"": 0.8,
+    ""differential_diagnoses"": [""atopic dermatitis"", ""contact dermatitis"", ""psoriasis"", ""hand-foot-and-mouth disease""]
+}
+```",[]
+99,IIYI/10883_2.png,scabies,"inflammatory, infectious, parasitic, scabies",no definitive diagnosis,0.5,"The image shows a forearm with very subtle, faint erythematous macules or papules scattered sparsely. No prominent skin lesion is visible. The skin appears generally uniform in color with no significant texture changes.","```json
+{
+    ""disease_label"": ""no definitive diagnosis"",
+    ""body_location"": ""forearm"",
+    ""caption"": ""The image shows a forearm with very subtle, faint erythematous macules or papules scattered sparsely. No prominent skin lesion is visible. The skin appears generally uniform in color with no significant texture changes."",
+    ""confidence"": 0.5,
+    ""differential_diagnoses"": [""dry skin"", ""contact dermatitis"", ""viral exanthem""]
+}
+```",[]

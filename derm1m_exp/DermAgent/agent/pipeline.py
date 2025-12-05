@@ -32,80 +32,23 @@ class VLMFactory:
     @staticmethod
     def create(model_type: str, **kwargs):
         """모델 생성"""
-        if model_type == "mock":
-            return MockVLM()
-        elif model_type == "gpt":
-            return GPT4oVLM(api_key=kwargs.get("api_key"))
+        if model_type == "gpt":
+            api_key = kwargs.get("api_key") or os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise ValueError("API key is required for GPT model")
+            return GPT4oVLM(api_key=api_key)
         elif model_type == "qwen":
-            return QwenVLM(model_path=kwargs.get("model_path"))
+            model_path = kwargs.get("model_path")
+            if not model_path:
+                raise ValueError("model_path is required for Qwen model")
+            return QwenVLM(model_path=model_path)
         elif model_type == "internvl":
-            return InternVLM(model_path=kwargs.get("model_path"))
+            model_path = kwargs.get("model_path")
+            if not model_path:
+                raise ValueError("model_path is required for InternVL model")
+            return InternVLM(model_path=model_path)
         else:
             raise ValueError(f"Unknown model type: {model_type}")
-
-
-class MockVLM:
-    """테스트용 Mock VLM"""
-    
-    def chat_img(self, prompt: str, image_paths: List[str], max_tokens: int = 1024) -> str:
-        """Mock 응답 생성"""
-        # 프롬프트 분석하여 적절한 응답 반환
-        prompt_lower = prompt.lower()
-        
-        if "morphology" in prompt_lower or "observe" in prompt_lower or "analyze" in prompt_lower:
-            return json.dumps({
-                "morphology": ["papule", "plaque", "scaly"],
-                "color": ["red", "erythematous"],
-                "distribution": ["localized", "asymmetric"],
-                "surface": ["scaly"],
-                "border": ["well-defined"],
-                "location": "trunk",
-                "confidence": 0.8
-            })
-        
-        elif "categor" in prompt_lower:
-            return json.dumps({
-                "category": "inflammatory",
-                "confidence": 0.85,
-                "reasoning": "Erythematous scaly lesions suggest inflammatory process"
-            })
-        
-        elif "subcategor" in prompt_lower:
-            if "infectious" in prompt_lower:
-                return json.dumps({
-                    "subcategory": "fungal",
-                    "confidence": 0.75,
-                    "reasoning": "Annular configuration and scaling pattern"
-                })
-            else:
-                return json.dumps({
-                    "subcategory": "infectious",
-                    "confidence": 0.7,
-                    "reasoning": "Pattern suggests infectious etiology"
-                })
-        
-        elif "verify" in prompt_lower:
-            return json.dumps({
-                "verified": True,
-                "confidence": 0.8,
-                "consistent_features": ["annular", "scaly", "erythematous"],
-                "inconsistent_features": [],
-                "alternative_suggestions": ["Psoriasis", "Nummular eczema"]
-            })
-        
-        elif "conclude" in prompt_lower or "final" in prompt_lower or "diagnos" in prompt_lower:
-            return json.dumps({
-                "primary_diagnosis": "Tinea corporis",
-                "differential_diagnoses": ["Psoriasis", "Nummular eczema", "Pityriasis rosea"],
-                "confidence": 0.75,
-                "reasoning": "Annular scaly erythematous plaque with raised border consistent with dermatophyte infection"
-            })
-        
-        else:
-            # ReAct 형식 응답
-            return """Thought: Based on the clinical features, I should conclude the diagnosis.
-Action: conclude
-Action Input: {"primary_diagnosis": "Tinea corporis", "differential_diagnoses": ["Psoriasis"], "confidence": 0.7}"""
 
 
 class GPT4oVLM:
@@ -239,7 +182,7 @@ class InternVLM:
 class PipelineConfig:
     """파이프라인 설정"""
     ontology_path: Optional[str] = None  # None이면 자동 탐색
-    model_type: str = "mock"
+    model_type: str = "gpt"
     model_path: Optional[str] = None
     api_key: Optional[str] = None
     max_steps: int = 8
@@ -445,15 +388,6 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Demo mode
-  python pipeline.py --demo
-  
-  # Run with Mock VLM
-  python pipeline.py \\
-      --input data.csv \\
-      --output results.json \\
-      --model mock
-  
   # Run with GPT-4o
   python pipeline.py \\
       --input data.csv \\
@@ -468,15 +402,21 @@ Examples:
       --output results.json \\
       --model qwen \\
       --model_path Qwen/Qwen2-VL-7B-Instruct
+
+  # Run with InternVL
+  python pipeline.py \\
+      --input data.csv \\
+      --output results.json \\
+      --model internvl \\
+      --model_path OpenGVLab/InternVL2-8B
         """
     )
     
-    parser.add_argument('--demo', action='store_true', help='Run demo mode')
     parser.add_argument('--input', type=str, help='Input CSV or JSON file')
     parser.add_argument('--output', type=str, default='results.json', help='Output file')
     parser.add_argument('--image_dir', type=str, default='', help='Base image directory')
     parser.add_argument('--ontology', type=str, default=None, help='Ontology path (auto-detect if not specified)')
-    parser.add_argument('--model', type=str, choices=['mock', 'gpt', 'qwen', 'internvl'], default='mock')
+    parser.add_argument('--model', type=str, choices=['gpt', 'qwen', 'internvl'], default='gpt')
     parser.add_argument('--model_path', type=str, help='Model path (for local models)')
     parser.add_argument('--api_key', type=str, help='API key (for GPT)')
     parser.add_argument('--max_steps', type=int, default=8, help='Max reasoning steps')
@@ -485,29 +425,7 @@ Examples:
     parser.add_argument('--no_reasoning', action='store_true', help='Do not save reasoning chain')
     
     args = parser.parse_args()
-    
-    # Demo 모드
-    if args.demo:
-        print("="*60)
-        print("DEMO MODE")
-        print("="*60)
-        
-        config = PipelineConfig(
-            ontology_path=args.ontology,
-            model_type="mock",
-            max_steps=6,
-            verbose=True
-        )
-        
-        pipeline = DiagnosisPipeline(config)
-        result = pipeline.diagnose_single("/demo/image.jpg")
-        
-        print("\n" + "="*60)
-        print("DIAGNOSIS RESULT")
-        print("="*60)
-        print(json.dumps(result, indent=2, ensure_ascii=False))
-        return
-    
+
     # 입력 파일 확인
     if not args.input:
         parser.print_help()
@@ -519,7 +437,7 @@ Examples:
         ontology_path=args.ontology,
         model_type=args.model,
         model_path=args.model_path,
-        api_key=args.api_key,
+        api_key=args.api_key or os.getenv("OPENAI_API_KEY"),
         max_steps=args.max_steps,
         verbose=args.verbose,
         save_reasoning=not args.no_reasoning

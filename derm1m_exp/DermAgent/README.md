@@ -110,24 +110,20 @@ Hierarchical F1: 0.8000
 Partial Credit: 0.7500
 ```
 
-### 2️⃣ 에이전트 데모
+### 2️⃣ 에이전트 실행
 
 ```bash
 cd /home/work/wonjun/DermAgent/derm1m_exp/DermAgent/agent
-python run_agent.py --demo --verbose
+OPENAI_API_KEY=sk-xxx \
+python run_agent.py \
+    --input_csv /path/to/sampled_data.csv \
+    --image_dir /path/to/images \
+    --output results.json \
+    --model gpt \
+    --verbose
 ```
 
-**출력 예시:**
-```
-=== Demo Mode ===
-✓ Ontology auto-detected
-
-[Agent] Starting diagnosis for: /fake/image.jpg
-[Agent] Step 1: Initial Assessment
-[Agent]   Observed morphology: ['papule', 'plaque', 'scaly']
-[Agent] Final diagnosis: ['Tinea corporis']
-[Agent] Path: inflammatory → infectious → fungal → Tinea corporis
-```
+첫 실행 시 온톨로지가 자동으로 탐색되고, 결과가 `results.json`에 저장됩니다.
 
 ### 3️⃣ Python 코드에서 사용
 
@@ -289,11 +285,12 @@ sys.path.append('/home/work/wonjun/DermAgent/derm1m_exp/DermAgent/agent')
 sys.path.append('/home/work/wonjun/DermAgent/derm1m_exp/DermAgent/eval')
 
 from dermatology_agent import DermatologyAgent
+from pipeline import GPT4oVLM
 
-# 에이전트 생성
+vlm = GPT4oVLM(api_key="YOUR_OPENAI_KEY")  # 또는 OPENAI_API_KEY 환경 변수 사용
 agent = DermatologyAgent(
     ontology_path=None,  # 자동 탐색
-    vlm_model=None,      # Mock 모드 (또는 실제 VLM)
+    vlm_model=vlm,
     verbose=True
 )
 
@@ -329,11 +326,13 @@ print(result)
 
 ```python
 from react_agent import ReActDermatologyAgent
+from pipeline import GPT4oVLM
 
 # ReAct 에이전트 생성
+vlm = GPT4oVLM(api_key="YOUR_OPENAI_KEY")
 agent = ReActDermatologyAgent(
     ontology_path=None,
-    vlm_model=None,
+    vlm_model=vlm,
     max_steps=8,
     verbose=True
 )
@@ -362,16 +361,6 @@ Step 6: CONCLUDE → 최종 진단 및 신뢰도
 **ReAct 에이전트 + 계층적 평가를 통합한 완전한 파이프라인입니다.**
 
 ```bash
-# Demo 모드
-python pipeline.py --demo
-
-# Mock VLM으로 실행
-python pipeline.py \
-    --input data.csv \
-    --output results.json \
-    --model mock \
-    --verbose
-
 # GPT-4o 사용
 python pipeline.py \
     --input data.csv \
@@ -386,6 +375,13 @@ CUDA_VISIBLE_DEVICES=0,1 python pipeline.py \
     --output results.json \
     --model qwen \
     --model_path Qwen/Qwen2-VL-7B-Instruct
+
+# InternVL 사용 (GPU)
+python pipeline.py \
+    --input data.csv \
+    --output results.json \
+    --model internvl \
+    --model_path OpenGVLab/InternVL2-8B
 ```
 
 **입력 CSV 형식:**
@@ -484,7 +480,6 @@ Partial Credit = (공통 조상 깊이) / (GT 깊이)
 
 | 모델 | 제공자 | 사용 방법 |
 |------|--------|-----------|
-| **Mock** | 내장 | `--model mock` (테스트용) |
 | **GPT-4o** | OpenAI | `--model gpt --api_key KEY` |
 | **Qwen-VL** | Alibaba | `--model qwen --model_path PATH` |
 | **InternVL** | OpenGVLab | `--model internvl --model_path PATH` |
@@ -535,7 +530,7 @@ python ontology_utils.py
 python evaluation_metrics.py
 ```
 
-#### 2. 에이전트 데모
+#### 2. 에이전트 실행
 
 ```bash
 cd /home/work/wonjun/DermAgent/derm1m_exp/DermAgent/agent
@@ -546,15 +541,13 @@ python dermatology_agent.py
 # ReAct 에이전트
 python react_agent.py
 
-# 통합 실행 스크립트 (Demo)
-python run_agent.py --demo --verbose
-
-# CSV 데이터로 실행
+# CSV 데이터로 실행 (GPT-4o)
 python run_agent.py \
     --input_csv /path/to/data.csv \
     --image_dir /path/to/images \
     --output results.json \
-    --model mock \
+    --model gpt \
+    --api_key YOUR_API_KEY \
     --verbose
 ```
 
@@ -562,9 +555,6 @@ python run_agent.py \
 
 ```bash
 cd /home/work/wonjun/DermAgent/derm1m_exp/DermAgent/agent
-
-# Demo 모드
-python pipeline.py --demo
 
 # 실제 데이터 처리
 python pipeline.py \
@@ -608,11 +598,13 @@ sys.path.append('/home/work/wonjun/DermAgent/derm1m_exp/DermAgent/agent')
 sys.path.append('/home/work/wonjun/DermAgent/derm1m_exp/DermAgent/eval')
 
 from dermatology_agent import DermatologyAgent
+from pipeline import GPT4oVLM
 
 # 에이전트 생성
+vlm = GPT4oVLM(api_key="YOUR_OPENAI_KEY")
 agent = DermatologyAgent(
     ontology_path=None,
-    vlm_model=None,
+    vlm_model=vlm,
     verbose=True
 )
 
@@ -828,7 +820,7 @@ pwd
 | eval/evaluation_metrics.py | ✅ | `python eval/evaluation_metrics.py` |
 | agent/dermatology_agent.py | ✅ | `python agent/dermatology_agent.py` |
 | agent/react_agent.py | ✅ | `python agent/react_agent.py` |
-| agent/run_agent.py | ✅ | `python agent/run_agent.py --demo` |
+| agent/run_agent.py | ✅ | `python agent/run_agent.py --help` |
 | agent/pipeline.py | ✅ | `python agent/pipeline.py --help` |
 
 ---
@@ -847,7 +839,7 @@ pwd
 
 1. `agent/dermatology_agent.py` 데모 실행
 2. 코드 읽고 구조 이해
-3. Mock VLM으로 진단 테스트
+3. 실제 VLM 연결 후 진단 테스트
 4. 도구 시스템 이해 (OntologyNavigator, DifferentialDiagnosisTool)
 
 ### 고급: ReAct 에이전트

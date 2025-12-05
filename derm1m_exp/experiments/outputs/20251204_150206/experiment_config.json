@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-12-04T15:02:06.145167",
+  "input_csv": "/home/heodnjswns/DermAgent/dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv",
+  "output_dir": "/home/heodnjswns/DermAgent/derm1m_exp/experiments/outputs/20251204_150206",
+  "model": "gpt-4o",
+  "num_samples": 100,
+  "test_mode": false,
+  "methods": [
+    "sam_baseline",
+    "sam_llm_guided"
+  ]
+}

@@ -5,6 +5,7 @@ import csv
 import json
 from pathlib import Path
 from tqdm import tqdm
+from typing import Optional
 
 # Add project root to path
 project_root = Path(__file__).resolve().parent.parent.parent
@@ -14,25 +15,24 @@ from project_path import SAMPLED_DATA_CSV, OUTPUTS_ROOT, DERM1M_ROOT
 from model import QwenVL, GPT4o, InternVL
 
 
-# class DermDiagnosisModel:
-#     """Wrapper class for dermatology diagnosis models"""
+def load_openai_key(arg_key: Optional[str] = None) -> Optional[str]:
+    """Load OPENAI_API_KEY from arg, env, or project .env."""
+    if arg_key:
+        return arg_key
+    env_key = os.environ.get("OPENAI_API_KEY")
+    if env_key:
+        return env_key
+    env_path = Path(__file__).resolve().parents[2] / ".env"  # /home/work/wonjun/DermAgent/.env
+    if env_path.exists():
+        try:
+            for line in env_path.read_text(encoding="utf-8").splitlines():
+                if line.strip().startswith("OPENAI_API_KEY"):
+                    _, val = line.split("=", 1)
+                    return val.strip().strip('"').strip("'")
+        except Exception:
+            pass
+    return None
 
-#     def __init__(self, base_model):
-#         self.base_model = base_model
-#         # The base_model already has instruction with disease labels from model.py
-#         # We don't override it, just use structured prompts in analyze_image
-
-#     def analyze_image(self, image_path):
-#         """Analyze a single image and extract disease_label, body_location, and caption"""
-#         prompt = """Please analyze this dermatological image and provide the following information in JSON format:
-
-# {
-#     "disease_label": "The specific skin disease or condition visible in the image (must be from the provided list)",
-#     "body_location": "The body part or location where the condition appears",
-#     "caption": "A detailed description of the skin condition visible in the image"
-# }
-
-# Provide ONLY the JSON output without any additional text."""
 
 class DermDiagnosisModel:
     """Wrapper class for dermatology diagnosis models"""
@@ -47,10 +47,12 @@ class DermDiagnosisModel:
         prompt = """Please analyze this dermatological image and provide the following information in JSON format:
 
 {
-    "disease_label": "The specific skin disease visible in the image",
+    "disease_label": "The specific skin disease visible in the image (or 'no definitive diagnosis' if no clear lesion is visible)",
     "body_location": "The body part or location where the condition appears",
     "caption": "A detailed description of the skin condition visible in the image"
 }
+
+IMPORTANT: If you cannot identify any clear skin lesion or disease in the image, set disease_label to "no definitive diagnosis".
 
 Provide ONLY the JSON output without any additional text."""
 
@@ -179,6 +181,8 @@ def main():
                         help='API key for GPT model (if applicable)')
     parser.add_argument('--model_path', default=None,
                         help='Model path for Qwen/InternVL models')
+    parser.add_argument('--no_labels_prompt', action='store_true',
+                        help='Use label-agnostic prompt (Qwen/GPT)')
 
     args = parser.parse_args()
     
@@ -191,11 +195,12 @@ def main():
     if args.model == 'qwen':
         if args.model_path is None:
             raise ValueError("Model path must be provided for Qwen model.")
-        agent = QwenVL(model_path=args.model_path)
+        agent = QwenVL(model_path=args.model_path, use_labels_prompt=not args.no_labels_prompt)
     elif args.model == 'gpt':
-        if args.api_key is None:
-            raise ValueError("API key must be provided for GPT model.")
-        agent = GPT4o(api_key=args.api_key)
+        key = load_openai_key(args.api_key)
+        if key is None:
+            raise ValueError("API key must be provided for GPT model (set --api_key or OPENAI_API_KEY or .env).")
+        agent = GPT4o(api_key=key, use_labels_prompt=not args.no_labels_prompt)
     elif args.model == 'internvl':
         if args.model_path is None:
             raise ValueError("Model path must be provided for InternVL model.")

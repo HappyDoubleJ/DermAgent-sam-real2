@@ -1,55 +1,63 @@
 """
-Advanced Dermatology Diagnosis Agent with ReAct Pattern
+ReAct (Reasoning + Acting) Pattern Dermatology Agent
 
-ReAct (Reasoning + Acting) 패턴과 Chain-of-Thought 추론을 적용한 
-고급 피부과 진단 에이전트
+ReAct 패턴을 적용한 피부과 진단 에이전트
+- OpenAI GPT-4o API 사용 (Vision 지원)
+- 외부 온톨로지 파일 사용 (ontology.json)
+- 도구 기반 단계적 추론
+
+Author: DermAgent Team
 """
 
 import json
 import re
+import base64
+import os
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any, Union
+from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field
 from enum import Enum
-from abc import ABC, abstractmethod
-import time
+from datetime import datetime
 
 # 경로 설정 - eval 폴더의 모듈을 import하기 위해
-SCRIPT_DIR = Path(__file__).parent.parent
-sys.path.insert(0, str(SCRIPT_DIR / "eval"))
+SCRIPT_DIR = Path(__file__).parent
+AGENT_DIR = SCRIPT_DIR.parent  # DermAgent
+DERM1M_EXP_DIR = AGENT_DIR.parent  # derm1m_exp
+sys.path.insert(0, str(DERM1M_EXP_DIR / "eval"))
+sys.path.insert(0, str(DERM1M_EXP_DIR / "experiments"))
 
 from ontology_utils import OntologyTree
 
 
-# ============ 데이터 구조 ============
+# ============ 데이터 클래스 ============
 
 class ActionType(Enum):
     """에이전트 행동 유형"""
-    OBSERVE = "observe"           # 이미지 관찰
-    NAVIGATE = "navigate"         # 온톨로지 탐색
-    COMPARE = "compare"           # 후보 비교
-    VERIFY = "verify"             # 진단 검증
-    CONCLUDE = "conclude"         # 결론 도출
-    ASK_CLARIFICATION = "ask"     # 추가 정보 요청
+    OBSERVE = "observe"              # 이미지 관찰
+    ANALYZE_FEATURES = "analyze"     # 특징 분석
+    NAVIGATE_ONTOLOGY = "navigate"   # 온톨로지 탐색
+    COMPARE_DISEASES = "compare"     # 질환 비교
+    VERIFY = "verify"                # 진단 검증
+    CONCLUDE = "conclude"            # 결론 도출
 
 
 @dataclass
-class Observation:
-    """관찰 결과"""
-    morphology: List[str] = field(default_factory=list)
-    color: List[str] = field(default_factory=list)
-    distribution: List[str] = field(default_factory=list)
-    surface: List[str] = field(default_factory=list)
-    border: List[str] = field(default_factory=list)
-    location: str = ""
-    size: str = ""
-    symptoms: List[str] = field(default_factory=list)
-    duration: str = ""
-    patient_info: Dict[str, Any] = field(default_factory=dict)
-    confidence: float = 0.0
-    raw_text: str = ""
-    
+class ClinicalObservation:
+    """임상 관찰 결과"""
+    morphology: List[str] = field(default_factory=list)    # 형태: papule, plaque, vesicle 등
+    color: List[str] = field(default_factory=list)         # 색상: red, brown, white 등
+    distribution: List[str] = field(default_factory=list)  # 분포: localized, generalized 등
+    surface: List[str] = field(default_factory=list)       # 표면: scaly, smooth, crusted 등
+    border: List[str] = field(default_factory=list)        # 경계: well-defined, irregular 등
+    location: str = ""                                      # 신체 위치
+    size: str = ""                                          # 크기
+    pattern: List[str] = field(default_factory=list)       # 패턴: reticular, linear 등
+    symptoms: List[str] = field(default_factory=list)      # 증상: itching, burning 등
+    duration: str = ""                                      # 지속 기간
+    additional_notes: str = ""                              # 추가 소견
+    confidence: float = 0.0                                 # 관찰 신뢰도
+
     def to_dict(self) -> Dict:
         return {
             "morphology": self.morphology,
@@ -59,13 +67,15 @@ class Observation:
             "border": self.border,
             "location": self.location,
             "size": self.size,
+            "pattern": self.pattern,
             "symptoms": self.symptoms,
             "duration": self.duration,
-            "patient_info": self.patient_info,
+            "additional_notes": self.additional_notes,
             "confidence": self.confidence
         }
-    
+
     def to_text(self) -> str:
+        """텍스트 형태로 변환"""
         parts = []
         if self.morphology:
             parts.append(f"Morphology: {', '.join(self.morphology)}")
@@ -77,29 +87,31 @@ class Observation:
             parts.append(f"Surface: {', '.join(self.surface)}")
         if self.border:
             parts.append(f"Border: {', '.join(self.border)}")
+        if self.pattern:
+            parts.append(f"Pattern: {', '.join(self.pattern)}")
         if self.location:
             parts.append(f"Location: {self.location}")
         if self.symptoms:
             parts.append(f"Symptoms: {', '.join(self.symptoms)}")
-        return "; ".join(parts)
+        return "\n".join(parts) if parts else "No observation available"
 
 
-@dataclass 
+@dataclass
 class ThoughtStep:
-    """사고 단계"""
+    """ReAct 사고 단계"""
     step_num: int
-    thought: str           # 현재 생각
-    action: ActionType     # 수행할 행동
-    action_input: Dict     # 행동 입력
-    observation: str       # 행동 결과
-    
+    thought: str           # 현재 생각 (Reasoning)
+    action: ActionType     # 수행할 행동 (Acting)
+    action_input: Dict     # 행동 입력 파라미터
+    observation: str       # 행동 결과 (Observation)
+
     def to_dict(self) -> Dict:
         return {
             "step": self.step_num,
             "thought": self.thought,
-            "action": self.action.value,
+            "action": self.action.value if isinstance(self.action, ActionType) else str(self.action),
             "action_input": self.action_input,
-            "observation": self.observation
+            "observation": self.observation[:500] + "..." if len(self.observation) > 500 else self.observation
         }
 
 
@@ -109,124 +121,121 @@ class DiagnosisResult:
     primary_diagnosis: str = ""
     differential_diagnoses: List[str] = field(default_factory=list)
     confidence: float = 0.0
+    severity: str = ""  # mild, moderate, severe, urgent
     ontology_path: List[str] = field(default_factory=list)
-    observations: Optional[Observation] = None
+    observations: Optional[ClinicalObservation] = None
     reasoning_chain: List[ThoughtStep] = field(default_factory=list)
-    verification_passed: bool = False
+    recommendations: List[str] = field(default_factory=list)
     warnings: List[str] = field(default_factory=list)
-    
+    is_urgent: bool = False
+    verification_passed: bool = True
+    timestamp: str = ""
+
     def to_dict(self) -> Dict:
         return {
             "primary_diagnosis": self.primary_diagnosis,
             "differential_diagnoses": self.differential_diagnoses,
             "confidence": self.confidence,
+            "severity": self.severity,
             "ontology_path": self.ontology_path,
             "observations": self.observations.to_dict() if self.observations else {},
             "reasoning_chain": [s.to_dict() for s in self.reasoning_chain],
+            "recommendations": self.recommendations,
+            "warnings": self.warnings,
+            "is_urgent": self.is_urgent,
             "verification_passed": self.verification_passed,
-            "warnings": self.warnings
+            "timestamp": self.timestamp
         }
 
+    def summary(self) -> str:
+        """진단 요약"""
+        lines = [
+            "=" * 60,
+            "Dermatology Diagnosis Result",
+            "=" * 60,
+            f"Primary Diagnosis: {self.primary_diagnosis}",
+            f"Confidence: {self.confidence:.1%}",
+            f"Severity: {self.severity}",
+        ]
 
-# ============ 도구 정의 ============
+        if self.is_urgent:
+            lines.append("URGENT: Immediate specialist consultation required!")
 
-class Tool(ABC):
-    """도구 기본 클래스"""
-    
-    @property
-    @abstractmethod
-    def name(self) -> str:
-        pass
-    
-    @property
-    @abstractmethod
-    def description(self) -> str:
-        pass
-    
-    @property
-    @abstractmethod
-    def parameters(self) -> Dict:
-        pass
-    
-    @abstractmethod
-    def run(self, **kwargs) -> str:
-        pass
+        if self.differential_diagnoses:
+            lines.append(f"Differential: {', '.join(self.differential_diagnoses[:3])}")
 
+        if self.ontology_path:
+            lines.append(f"Ontology Path: {' -> '.join(self.ontology_path)}")
 
-class ObserveTool(Tool):
-    """이미지 관찰 도구"""
-    
-    def __init__(self, vlm_model, prompts: Dict[str, str]):
-        self.vlm = vlm_model
-        self.prompts = prompts
-    
-    @property
-    def name(self) -> str:
-        return "observe_image"
-    
-    @property
-    def description(self) -> str:
-        return """Observe and analyze the dermatological image to extract clinical features.
-Use this tool to identify morphology, color, distribution, surface features, and body location."""
-    
-    @property
-    def parameters(self) -> Dict:
-        return {
-            "image_path": "Path to the skin image",
-            "focus": "Optional: specific aspect to focus on (morphology/color/distribution/all)"
-        }
-    
-    def run(self, image_path: str, focus: str = "all") -> str:
-        prompt = self.prompts.get("observation", "")
-        
-        if self.vlm is None:
-            return json.dumps({
-                "morphology": ["papule", "plaque"],
-                "color": ["red", "erythematous"],
-                "distribution": ["localized"],
-                "location": "trunk"
-            })
-        
-        try:
-            response = self.vlm.chat_img(prompt, [image_path], max_tokens=1024)
-            return response
-        except Exception as e:
-            return json.dumps({"error": str(e)})
+        if self.recommendations:
+            lines.append("\nRecommendations:")
+            for rec in self.recommendations[:3]:
+                lines.append(f"  - {rec}")
+
+        if self.warnings:
+            lines.append("\nWarnings:")
+            for warn in self.warnings:
+                lines.append(f"  - {warn}")
+
+        lines.append("=" * 60)
+        return "\n".join(lines)
 
 
-class NavigateOntologyTool(Tool):
-    """온톨로지 탐색 도구"""
-    
+# ============ 도구 클래스 ============
+
+class OntologyNavigatorTool:
+    """온톨로지 탐색 도구 - OntologyTree 사용"""
+
     def __init__(self, tree: OntologyTree):
         self.tree = tree
-    
+
     @property
     def name(self) -> str:
         return "navigate_ontology"
-    
+
     @property
     def description(self) -> str:
-        return """Navigate the disease ontology tree to explore categories and diseases.
-Actions: get_children, get_path, get_siblings, get_parent, search"""
-    
-    @property
-    def parameters(self) -> Dict:
-        return {
-            "action": "One of: get_children, get_path, get_siblings, get_parent, search",
-            "node": "Node name to operate on",
-            "query": "Search query (for search action)"
-        }
-    
-    def run(self, action: str, node: str = "root", query: str = "") -> str:
+        return "Navigate the disease ontology tree to find relevant categories and diseases"
+
+    def execute(self, action: str, node: str = "root", query: str = "") -> str:
+        """
+        온톨로지 탐색 실행
+
+        Actions:
+        - get_children: 자식 노드들 반환
+        - get_info: 노드 정보 반환
+        - get_path: 루트까지 경로 반환
+        - search: 질환명 검색
+        - validate: 노드 유효성 검증
+        """
         try:
             if action == "get_children":
-                children = self.tree.get_children(node)
+                # root는 특수 처리 (valid_nodes에 포함되지 않음)
+                if node == "root":
+                    children = self.tree.ontology.get("root", [])
+                else:
+                    children = self.tree.get_children(node)
                 return json.dumps({
                     "node": node,
                     "children": children,
                     "count": len(children)
                 })
-            
+
+            elif action == "get_info":
+                is_valid = self.tree.is_valid_node(node)
+                if not is_valid:
+                    return json.dumps({"error": f"Node not found: {node}"})
+
+                children = self.tree.get_children(node)
+                path = self.tree.get_path_to_root(node)
+                return json.dumps({
+                    "node": node,
+                    "valid": True,
+                    "children": children,
+                    "path_to_root": path,
+                    "is_leaf": len(children) == 0
+                })
+
             elif action == "get_path":
                 path = self.tree.get_path_to_root(node)
                 return json.dumps({
@@ -234,44 +243,44 @@ Actions: get_children, get_path, get_siblings, get_parent, search"""
                     "path": path,
                     "depth": len(path) - 1
                 })
-            
-            elif action == "get_siblings":
-                siblings = self.tree.get_siblings(node)
-                return json.dumps({
-                    "node": node,
-                    "siblings": siblings
-                })
-            
-            elif action == "get_parent":
-                parent = self.tree.parent_map.get(
-                    self.tree.get_canonical_name(node), None
-                )
-                return json.dumps({
-                    "node": node,
-                    "parent": parent
-                })
-            
+
             elif action == "search":
-                # 간단한 검색: 노드 이름에 쿼리가 포함된 것 찾기
+                # 검색 기능 - 이름에 query가 포함된 노드 찾기
                 matches = []
-                query_lower = query.lower()
-                for node_name in self.tree.ontology.keys():
-                    if query_lower in node_name.lower():
-                        matches.append(node_name)
+                query_lower = query.lower().replace(" ", "_").replace("-", "_")
+
+                for valid_node in self.tree.valid_nodes:
+                    node_lower = valid_node.lower()
+                    if query_lower in node_lower or node_lower in query_lower:
+                        children = self.tree.get_children(valid_node)
+                        matches.append({
+                            "name": valid_node,
+                            "is_leaf": len(children) == 0
+                        })
+
                 return json.dumps({
                     "query": query,
-                    "matches": matches[:20]
+                    "matches": matches[:15]
                 })
-            
+
+            elif action == "validate":
+                is_valid = self.tree.is_valid_node(node)
+                canonical = self.tree.get_canonical_name(node) if is_valid else None
+                return json.dumps({
+                    "node": node,
+                    "valid": is_valid,
+                    "canonical_name": canonical
+                })
+
             else:
                 return json.dumps({"error": f"Unknown action: {action}"})
-                
+
         except Exception as e:
             return json.dumps({"error": str(e)})
 
 
-class CompareCandidatesTool(Tool):
-    """VLM 기반 동적 후보 질환 비교 도구"""
+class DiseaseComparatorTool:
+    """질환 비교 도구 - VLM 기반"""
 
     def __init__(self, tree: OntologyTree, vlm_model=None):
         self.tree = tree
@@ -279,67 +288,48 @@ class CompareCandidatesTool(Tool):
 
     @property
     def name(self) -> str:
-        return "compare_candidates"
+        return "compare_diseases"
 
     @property
     def description(self) -> str:
-        return """Compare clinical observations with candidate diseases using VLM-based dynamic comparison.
-Returns ranked list of candidates with likelihood scores."""
+        return "Compare observed clinical features with candidate diseases using VLM"
 
-    @property
-    def parameters(self) -> Dict:
-        return {
-            "candidates": "List of candidate disease names",
-            "observations": "Dict of observed clinical features",
-            "image_path": "Path to the dermatological image (required for VLM comparison)"
-        }
-
-    def run(self, candidates: List[str], observations: Dict, image_path: str = None) -> str:
-        """
-        VLM을 사용하여 후보 질환들을 비교하고 점수 매기기
-
-        Args:
-            candidates: 후보 질환 목록
-            observations: 관찰된 임상 특징
-            image_path: 이미지 경로 (VLM 사용 시 필요)
-        """
+    def execute(
+        self,
+        candidates: List[str],
+        observations: ClinicalObservation,
+        image_path: str = None
+    ) -> str:
+        """후보 질환들과 관찰된 특징 비교"""
         if self.vlm is None or image_path is None:
-            # VLM 없으면 균등 점수
-            ranked = [
-                {"disease": c, "score": 0.5, "supporting_features": [], "contradicting_features": []}
-                for c in candidates[:10]
-            ]
-            return json.dumps({"ranked_candidates": ranked})
+            # VLM 없이 기본 비교
+            return json.dumps({
+                "comparisons": [
+                    {"disease": c, "score": 0.5, "matched_features": []}
+                    for c in candidates
+                ]
+            })
 
-        # VLM으로 배치 비교
-        return self._compare_with_vlm_batch(candidates, observations, image_path)
+        try:
+            scores = self._compare_with_vlm_batch(candidates, observations, image_path)
+            return json.dumps({"comparisons": scores})
+        except Exception as e:
+            return json.dumps({"error": str(e)})
 
-    def _compare_with_vlm_batch(self, candidates: List[str], observations: Dict, image_path: str) -> str:
-        """
-        한 번의 VLM 호출로 모든 후보 비교 (비용 효율적)
-        """
+    def _compare_with_vlm_batch(
+        self,
+        candidates: List[str],
+        observations: ClinicalObservation,
+        image_path: str
+    ) -> List[Dict]:
+        """VLM을 사용하여 후보 질환들 비교"""
         if not candidates:
-            return json.dumps({"ranked_candidates": []})
+            return []
 
-        # 후보 목록 포맷팅
         candidates_list = "\n".join([f"{i+1}. {c}" for i, c in enumerate(candidates)])
+        obs_text = observations.to_text()
 
-        # 관찰 결과 포맷팅
-        obs_formatted = []
-        if observations.get("morphology"):
-            obs_formatted.append(f"Morphology: {', '.join(observations['morphology'])}")
-        if observations.get("color"):
-            obs_formatted.append(f"Color: {', '.join(observations['color'])}")
-        if observations.get("distribution"):
-            obs_formatted.append(f"Distribution: {', '.join(observations['distribution'])}")
-        if observations.get("surface"):
-            obs_formatted.append(f"Surface: {', '.join(observations['surface'])}")
-        if observations.get("location"):
-            obs_formatted.append(f"Location: {observations['location']}")
-
-        obs_text = "\n".join(obs_formatted) if obs_formatted else "Not specified"
-
-        prompt = f"""Compare this skin lesion with the following candidate diagnoses.
+        prompt = f"""Compare this skin lesion with the following candidate diagnoses and rate each one.
 
 Candidate Diagnoses:
 {candidates_list}
@@ -347,495 +337,746 @@ Candidate Diagnoses:
 Observed Clinical Features:
 {obs_text}
 
-For EACH candidate, evaluate how well the image and observed features match the typical presentation of that disease.
+For EACH candidate diagnosis, evaluate how well the observed features match.
+Rate each with a likelihood score from 0-10.
 
 Respond in JSON format:
 {{
     "comparisons": [
         {{
-            "disease": "exact disease name from list",
+            "disease": "exact disease name from the list",
             "likelihood_score": 0-10,
-            "supporting_features": ["features that support this diagnosis"],
-            "contradicting_features": ["features that contradict this diagnosis"]
+            "brief_reasoning": "one sentence explanation"
         }},
-        ... (include ALL {len(candidates)} candidates)
+        ... (one entry for each candidate)
     ]
 }}
 
-Provide ONLY the JSON output."""
+IMPORTANT: Include ALL {len(candidates)} candidates. Provide ONLY the JSON output."""
 
         try:
-            response = self.vlm.chat_img(prompt, [image_path], max_tokens=2048)
-
-            # JSON 파싱
+            response = self.vlm.chat_img(prompt, [image_path], max_tokens=1500)
             json_match = re.search(r'\{[\s\S]*\}', response)
+
             if json_match:
                 parsed = json.loads(json_match.group())
                 comparisons = parsed.get("comparisons", [])
 
-                # 점수 정규화 (0-10 → 0-1)
-                ranked = []
+                results = []
                 for comp in comparisons:
-                    disease = comp.get("disease", "")
-                    likelihood = comp.get("likelihood_score", 5)
-                    ranked.append({
+                    if not isinstance(comp, dict):
+                        continue
+                    disease = comp.get("disease", "").strip()
+                    if not disease:
+                        continue
+
+                    try:
+                        score = float(comp.get("likelihood_score", 5)) / 10.0
+                    except (TypeError, ValueError):
+                        score = 0.5
+
+                    results.append({
                         "disease": disease,
-                        "score": round(likelihood / 10.0, 3),
-                        "supporting_features": comp.get("supporting_features", []),
-                        "contradicting_features": comp.get("contradicting_features", [])
+                        "score": round(score, 3),
+                        "reasoning": comp.get("brief_reasoning", "")
                     })
 
-                # 점수 순으로 정렬
-                ranked.sort(key=lambda x: x["score"], reverse=True)
-
-                # 누락된 후보들 추가 (중립 점수)
-                included_diseases = {r["disease"] for r in ranked}
+                # 누락된 후보들 추가
+                result_diseases = {r["disease"].lower() for r in results}
                 for candidate in candidates:
-                    if candidate not in included_diseases:
-                        ranked.append({
+                    if candidate.lower() not in result_diseases:
+                        results.append({
                             "disease": candidate,
                             "score": 0.5,
-                            "supporting_features": [],
-                            "contradicting_features": []
+                            "reasoning": "Not evaluated"
                         })
 
-                return json.dumps({"ranked_candidates": ranked[:10]})
-            else:
-                # 파싱 실패
-                ranked = [{"disease": c, "score": 0.5, "supporting_features": [], "contradicting_features": []} for c in candidates[:10]]
-                return json.dumps({"ranked_candidates": ranked})
+                return sorted(results, key=lambda x: x["score"], reverse=True)
+
+            return [{"disease": c, "score": 0.5, "reasoning": "Parse failed"} for c in candidates]
 
         except Exception:
-            # VLM 호출 실패
-            ranked = [{"disease": c, "score": 0.5, "supporting_features": [], "contradicting_features": []} for c in candidates[:10]]
-            return json.dumps({"ranked_candidates": ranked})
-
-
-class VerifyDiagnosisTool(Tool):
-    """진단 검증 도구"""
-    
-    def __init__(self, vlm_model, tree: OntologyTree, prompts: Dict[str, str]):
-        self.vlm = vlm_model
-        self.tree = tree
-        self.prompts = prompts
-    
-    @property
-    def name(self) -> str:
-        return "verify_diagnosis"
-    
-    @property
-    def description(self) -> str:
-        return """Verify if the proposed diagnosis is consistent with the image and observations.
-Returns verification result with confidence and any inconsistencies found."""
-    
-    @property
-    def parameters(self) -> Dict:
-        return {
-            "image_path": "Path to the skin image",
-            "diagnosis": "Proposed diagnosis",
-            "observations": "Clinical observations"
-        }
-    
-    def run(self, image_path: str, diagnosis: str, observations: Dict) -> str:
-        prompt = self.prompts.get("verification", "").format(
-            diagnosis=diagnosis,
-            observations=json.dumps(observations)
-        )
-        
-        if self.vlm is None:
-            return json.dumps({
-                "verified": True,
-                "confidence": 0.8,
-                "consistent_features": observations.get("morphology", [])[:2],
-                "inconsistent_features": [],
-                "alternative_suggestions": []
-            })
-        
-        try:
-            response = self.vlm.chat_img(prompt, [image_path], max_tokens=512)
-            return response
-        except Exception as e:
-            return json.dumps({"error": str(e), "verified": False})
+            return [{"disease": c, "score": 0.5, "reasoning": "VLM error"} for c in candidates]
 
 
 # ============ ReAct 에이전트 ============
 
 class ReActDermatologyAgent:
-    """ReAct 패턴 기반 피부과 진단 에이전트"""
-    
+    """
+    ReAct 패턴 기반 피부질환 진단 에이전트
+
+    Reasoning과 Acting을 반복하며 단계적으로 진단을 수행합니다.
+    """
+
     def __init__(
         self,
         ontology_path: Optional[str] = None,
-        vlm_model = None,
-        max_steps: int = 10,
+        vlm_model: Any = None,
+        max_steps: int = 8,
         verbose: bool = True
     ):
-        self.tree = OntologyTree(ontology_path)  # None이면 자동 탐색
+        """
+        초기화
+
+        Args:
+            ontology_path: 온톨로지 JSON 파일 경로 (None이면 자동 탐색)
+            vlm_model: Vision-Language Model (GPT4oWrapper 등)
+            max_steps: 최대 추론 단계 수
+            verbose: 상세 로그 출력 여부
+        """
+        # 온톨로지 트리 초기화
+        self.tree = OntologyTree(ontology_path)
         self.vlm = vlm_model
         self.max_steps = max_steps
         self.verbose = verbose
-        
-        # 프롬프트 로드
-        self._init_prompts()
+
+        if vlm_model is None:
+            raise ValueError("vlm_model must be provided")
 
         # 도구 초기화
-        self._init_tools()
-    
-    def _init_prompts(self):
-        """프롬프트 템플릿 초기화"""
-        self.prompts = {
-            "observation": """Analyze this dermatological image carefully.
+        self.tools = {
+            "navigator": OntologyNavigatorTool(self.tree),
+            "comparator": DiseaseComparatorTool(self.tree, self.vlm)
+        }
 
-Extract and describe the following clinical features in JSON format:
+        # 루트 카테고리
+        self.root_categories = self.tree.ontology.get("root", [])
+
+        # 유효 노드 목록
+        self.valid_diseases = sorted(list(self.tree.valid_nodes))
+
+        # 프롬프트 템플릿 로드
+        self._load_prompts()
+
+        if self.verbose:
+            self._log(f"ReAct Agent initialized with {len(self.valid_diseases)} valid nodes")
+
+    def _load_prompts(self):
+        """프롬프트 템플릿 로드"""
+        self.prompts = {
+            "system": """You are a board-certified dermatology expert using ReAct (Reasoning + Acting) pattern for diagnosis.
+
+Your role:
+- Analyze skin images and identify clinical features
+- Use step-by-step reasoning with explicit thought process
+- Navigate the disease ontology to find the most appropriate diagnosis
+- Provide differential diagnoses when uncertain
+
+Important:
+- This is for educational/reference purposes only
+- Always recommend professional medical consultation
+- Flag urgent conditions immediately""",
+
+            "observation": """Analyze this dermatological image and describe what you observe.
+
+IMPORTANT: If no clear skin lesion is visible, the image does not show identifiable human skin, or you cannot make a confident diagnosis, respond with:
 {
-    "morphology": ["primary lesion types: papule/macule/patch/plaque/nodule/vesicle/pustule/bulla/wheal/cyst/erosion/ulcer"],
-    "color": ["colors observed: red/pink/brown/black/white/yellow/purple/blue"],
-    "distribution": ["pattern: localized/generalized/symmetric/unilateral/linear/dermatomal/follicular"],
-    "surface": ["texture: smooth/rough/scaly/crusted/verrucous/ulcerated/erosion"],
-    "border": ["border characteristics: well-defined/ill-defined/regular/irregular"],
-    "location": "anatomical location",
-    "size": "approximate size if visible",
-    "confidence": 0.0-1.0
+    "morphology": ["no visible lesion"],
+    "color": ["not observed"],
+    "distribution": ["not observed"],
+    "surface": ["not observed"],
+    "border": ["not observed"],
+    "location": "not observed",
+    "additional_notes": "no definitive diagnosis"
 }
 
-Be specific and use standard dermatological terminology. Output ONLY valid JSON.""",
+Focus on PRIMARY LESION MORPHOLOGY - be VERY specific:
+1. Morphology (primary lesion type): macule, patch, papule, plaque, nodule, wheal, vesicle, bulla, pustule, erosion, ulcer, etc.
+2. Color: red, pink, brown, black, white, yellow, purple, skin-colored, etc.
+3. Distribution: localized, generalized, symmetric, asymmetric, clustered, linear, dermatomal, etc.
+4. Surface features: smooth, scaly, crusted, rough, verrucous, ulcerated, etc.
+5. Border: well-defined, ill-defined, regular, irregular, raised, rolled
+6. Body location: face, trunk, extremities, hands, feet, scalp, etc.
 
-            "react_system": """You are a dermatology diagnostic agent using systematic reasoning.
+Provide your observations in JSON format:
+{
+    "morphology": ["list of PRIMARY lesion types"],
+    "color": ["list of colors observed"],
+    "distribution": ["distribution patterns"],
+    "surface": ["surface features"],
+    "border": ["border characteristics"],
+    "location": "body location",
+    "additional_notes": "any other relevant observations"
+}
 
-Available Tools:
-{tools}
+Provide ONLY the JSON output.""",
 
-For each step, output in this EXACT format:
-Thought: [Your reasoning about what to do next]
-Action: [Tool name]
-Action Input: [JSON parameters for the tool]
+            "category_classification": """Based on the clinical features observed in this skin image,
+classify this condition into ONE of the following major categories:
 
-After receiving observation, continue with next Thought.
-
-When ready to conclude, use:
-Thought: [Final reasoning]
-Action: conclude
-Action Input: {{"primary_diagnosis": "...", "differential_diagnoses": [...], "confidence": 0.0-1.0}}
-
-Important Guidelines:
-1. Start by observing the image to gather clinical features
-2. Use the ontology to systematically narrow down categories
-3. Compare candidates when you have specific observations
-4. Verify your diagnosis before concluding
-5. Consider differential diagnoses
-6. Be confident but acknowledge uncertainty""",
-
-            "category_selection": """Based on these clinical observations:
-{observations}
-
-Select the most appropriate category from:
+Categories:
 {categories}
 
-Consider the morphology, distribution pattern, and clinical context.
-Output JSON: {{"category": "selected_category", "confidence": 0.0-1.0, "reasoning": "brief explanation"}}""",
-
-            "verification": """Verify if '{diagnosis}' is consistent with this skin image.
-
-Clinical observations: {observations}
-
-Evaluate:
-1. Are the observed features typical for this diagnosis?
-2. Are there any features that contradict this diagnosis?
-3. What alternative diagnoses should be considered?
-
-Output JSON:
+Consider the morphology, distribution, and clinical presentation.
+Respond with JSON:
 {{
-    "verified": true/false,
+    "selected_category": "the most likely category",
     "confidence": 0.0-1.0,
-    "consistent_features": ["list of features that support the diagnosis"],
-    "inconsistent_features": ["list of features that contradict"],
-    "alternative_suggestions": ["other possible diagnoses"]
-}}"""
+    "reasoning": "brief explanation"
+}}
+
+Provide ONLY the JSON output.""",
+
+            "subcategory_classification": """Given that this skin condition belongs to the "{parent_category}" category,
+further classify it into one of these subcategories:
+
+Subcategories:
+{subcategories}
+
+Based on the image features:
+{observations}
+
+Respond with JSON:
+{{
+    "selected_subcategory": "the most likely subcategory",
+    "confidence": 0.0-1.0,
+    "reasoning": "brief explanation"
+}}
+
+Provide ONLY the JSON output.""",
+
+            "react_step": """You are performing step-by-step diagnosis using ReAct pattern.
+
+Current diagnosis progress:
+{history}
+
+Clinical observations:
+{observations}
+
+Current candidates:
+{candidates}
+
+Think about what you should do next and take an action.
+
+Available Actions:
+1. navigate - Explore ontology (get children, validate nodes)
+2. compare - Compare candidates with observed features
+3. analyze - Perform deeper analysis
+4. verify - Verify current diagnosis hypothesis
+5. conclude - Make final diagnosis decision
+
+Respond in JSON:
+{{
+    "thought": "Your current reasoning about the situation",
+    "action": "the action to take (navigate/compare/analyze/verify/conclude)",
+    "action_input": {{parameters for the action}}
+}}
+
+Provide ONLY the JSON output.""",
+
+            "final_diagnosis": """Based on the hierarchical classification path:
+{path}
+
+And the clinical observations:
+{observations}
+
+Select the most likely specific diagnosis from these candidates:
+{candidates}
+
+IMPORTANT: If no clear skin lesion is visible, the image does not show identifiable human skin, or you cannot make a confident diagnosis, set primary_diagnosis to "no definitive diagnosis".
+
+Respond with JSON:
+{{
+    "primary_diagnosis": "most likely diagnosis (or 'no definitive diagnosis' if uncertain)",
+    "confidence": 0.0-1.0,
+    "differential_diagnoses": ["other possible diagnoses in order of likelihood"],
+    "reasoning": "clinical reasoning for your diagnosis"
+}}
+
+Provide ONLY the JSON output."""
         }
-    
-    def _init_tools(self):
-        """도구 초기화"""
-        self.tools = {
-            "observe_image": ObserveTool(self.vlm, self.prompts),
-            "navigate_ontology": NavigateOntologyTool(self.tree),
-            "compare_candidates": CompareCandidatesTool(self.tree, self.vlm),
-            "verify_diagnosis": VerifyDiagnosisTool(self.vlm, self.tree, self.prompts),
-        }
-    
+
     def _log(self, message: str, level: str = "info"):
         """로깅"""
         if self.verbose:
-            prefix = {"info": "ℹ️", "thought": "💭", "action": "🔧", "result": "📋", "warning": "⚠️", "success": "✅"}
-            print(f"{prefix.get(level, '•')} {message}")
-    
-    def _parse_action(self, response: str) -> Tuple[str, Dict]:
-        """응답에서 액션 파싱"""
-        action_match = re.search(r'Action:\s*(\w+)', response)
-        input_match = re.search(r'Action Input:\s*(\{.*?\})', response, re.DOTALL)
-        
-        action = action_match.group(1) if action_match else "conclude"
-        
-        try:
-            action_input = json.loads(input_match.group(1)) if input_match else {}
-        except json.JSONDecodeError:
-            action_input = {}
-        
-        return action, action_input
-    
-    def _execute_tool(self, tool_name: str, params: Dict, image_path: str = None) -> str:
-        """도구 실행"""
-        if tool_name == "conclude":
-            return json.dumps(params)
+            prefix = {
+                "info": "[INFO]",
+                "success": "[OK]",
+                "warning": "[WARN]",
+                "error": "[ERROR]",
+                "step": "[STEP]"
+            }.get(level, "")
+            print(f"{prefix} [ReActAgent] {message}")
 
-        tool = self.tools.get(tool_name)
-        if tool is None:
-            return json.dumps({"error": f"Unknown tool: {tool_name}"})
-
-        try:
-            # compare_candidates와 verify_diagnosis는 image_path 필요
-            if tool_name in ["compare_candidates", "verify_diagnosis"] and image_path:
-                params["image_path"] = image_path
-            return tool.run(**params)
-        except Exception as e:
-            return json.dumps({"error": str(e)})
-    
-    def _generate_react_step(
-        self, 
-        image_path: str,
-        step_num: int,
-        history: List[ThoughtStep],
-        current_observations: Optional[Observation]
-    ) -> Tuple[str, str, Dict, str]:
-        """ReAct 한 단계 생성"""
-        
-        # 히스토리 텍스트 구성
-        history_text = ""
-        for step in history:
-            history_text += f"\nStep {step.step_num}:\n"
-            history_text += f"Thought: {step.thought}\n"
-            history_text += f"Action: {step.action.value}\n"
-            history_text += f"Action Input: {json.dumps(step.action_input)}\n"
-            history_text += f"Observation: {step.observation[:500]}...\n" if len(step.observation) > 500 else f"Observation: {step.observation}\n"
-        
-        # 도구 설명
-        tools_desc = "\n".join([
-            f"- {name}: {tool.description}"
-            for name, tool in self.tools.items()
-        ])
-        tools_desc += "\n- conclude: Finalize diagnosis with primary_diagnosis, differential_diagnoses, and confidence"
-        
-        # 프롬프트 구성
-        prompt = f"""{self.prompts['react_system'].format(tools=tools_desc)}
-
-{history_text}
-
-Current observations: {current_observations.to_text() if current_observations else 'None yet'}
-
-Now continue with Step {step_num}:
-Thought:"""
-        
-        # VLM 호출
+    def _call_vlm(self, prompt: str, image_path: str, max_tokens: int = 1024) -> str:
+        """VLM 호출"""
         if self.vlm is None:
-            # Mock 응답 생성
-            if step_num == 1:
-                thought = "I need to first observe the image to identify clinical features."
-                action = "observe_image"
-                action_input = {"image_path": image_path, "focus": "all"}
-            elif step_num == 2:
-                thought = "Now I should explore the ontology to find matching categories."
-                action = "navigate_ontology"
-                action_input = {"action": "get_children", "node": "root"}
-            elif step_num == 3:
-                thought = "Based on observations, this looks like an inflammatory condition. Let me explore further."
-                action = "navigate_ontology"
-                action_input = {"action": "get_children", "node": "inflammatory"}
-            elif step_num == 4:
-                thought = "The features suggest an infectious etiology. Let me check fungal infections."
-                action = "navigate_ontology"
-                action_input = {"action": "get_children", "node": "fungal"}
-            elif step_num == 5:
-                thought = "Let me compare the candidates with my observations."
-                action = "compare_candidates"
-                obs_dict = current_observations.to_dict() if current_observations else {}
-                action_input = {
-                    "candidates": ["Tinea corporis", "Tinea pedis", "Candidiasis"],
-                    "observations": obs_dict
-                }
-            else:
-                thought = "Based on my analysis, I'm ready to conclude."
-                action = "conclude"
-                action_input = {
-                    "primary_diagnosis": "Tinea corporis",
-                    "differential_diagnoses": ["Psoriasis", "Nummular eczema"],
-                    "confidence": 0.75
-                }
-            
-            response = f"Thought: {thought}\nAction: {action}\nAction Input: {json.dumps(action_input)}"
-        else:
-            try:
-                response = self.vlm.chat_img(prompt, [image_path], max_tokens=512)
-            except Exception as e:
-                self._log(f"VLM error: {e}", "warning")
-                response = 'Thought: Error occurred, concluding.\nAction: conclude\nAction Input: {"primary_diagnosis": "", "confidence": 0.0}'
-        
-        # 파싱
-        thought_match = re.search(r'Thought:\s*(.+?)(?=Action:|$)', response, re.DOTALL)
-        thought = thought_match.group(1).strip() if thought_match else ""
-        
-        action, action_input = self._parse_action(response)
-        
-        # 도구 실행
-        if action == "observe_image":
-            action_input["image_path"] = image_path
+            raise RuntimeError("VLM model is not set")
 
-        observation = self._execute_tool(action, action_input, image_path)
-        
-        return thought, action, action_input, observation
-    
+        full_prompt = f"{self.prompts['system']}\n\n{prompt}"
+
+        try:
+            response = self.vlm.chat_img(full_prompt, [image_path], max_tokens=max_tokens)
+            return response if response else "{}"
+        except Exception as e:
+            self._log(f"VLM Error: {e}", "error")
+            return "{}"
+
+    def _parse_json(self, response: str) -> Dict:
+        """JSON 파싱"""
+        if not response or not isinstance(response, str):
+            return {}
+
+        try:
+            json_match = re.search(r'\{[\s\S]*\}', response)
+            if json_match:
+                return json.loads(json_match.group())
+        except (json.JSONDecodeError, TypeError):
+            pass
+        return {}
+
+    def _observe_image(self, image_path: str) -> ClinicalObservation:
+        """Step 1: 이미지 관찰"""
+        self._log("Observing image...", "step")
+
+        response = self._call_vlm(self.prompts["observation"], image_path)
+        parsed = self._parse_json(response)
+
+        def _normalize_list(values):
+            return values if values else ["not observed"]
+
+        observation = ClinicalObservation(
+            morphology=_normalize_list(parsed.get("morphology", [])),
+            color=_normalize_list(parsed.get("color", [])),
+            distribution=_normalize_list(parsed.get("distribution", [])),
+            surface=_normalize_list(parsed.get("surface", [])),
+            border=_normalize_list(parsed.get("border", [])),
+            pattern=_normalize_list(parsed.get("pattern", [])),
+            location=parsed.get("location", ""),
+            additional_notes=parsed.get("additional_notes", ""),
+            confidence=parsed.get("confidence", 0.5)
+        )
+
+        self._log(f"  Morphology: {observation.morphology}", "info")
+        self._log(f"  Color: {observation.color}", "info")
+        self._log(f"  Location: {observation.location}", "info")
+
+        return observation
+
+    def _classify_category(self, image_path: str) -> tuple:
+        """Step 2: 대분류 선택"""
+        self._log("Classifying category...", "step")
+
+        categories_desc = "\n".join([f"- {cat}" for cat in self.root_categories])
+        prompt = self.prompts["category_classification"].format(categories=categories_desc)
+
+        response = self._call_vlm(prompt, image_path)
+        parsed = self._parse_json(response)
+
+        selected = parsed.get("selected_category", "")
+        confidence = parsed.get("confidence", 0.5)
+
+        # 유효성 확인
+        canonical = self.tree.get_canonical_name(selected)
+        if canonical and canonical in self.root_categories:
+            self._log(f"  Selected category: {canonical} (conf: {confidence:.2f})", "info")
+            return canonical, confidence
+
+        # 폴백
+        self._log(f"  Invalid category '{selected}', using fallback 'inflammatory'", "warning")
+        return "inflammatory", 0.3
+
+    def _classify_subcategory(
+        self,
+        image_path: str,
+        parent_category: str,
+        observations: ClinicalObservation
+    ) -> tuple:
+        """Step 3: 하위 카테고리 선택"""
+        children = self.tree.get_children(parent_category)
+
+        if not children:
+            return parent_category, 0.9
+
+        if len(children) == 1:
+            return children[0], 0.9
+
+        self._log(f"Classifying subcategory under '{parent_category}'...", "step")
+
+        subcategories_desc = "\n".join([f"- {child}" for child in children])
+        obs_desc = json.dumps({
+            "morphology": observations.morphology,
+            "color": observations.color,
+            "location": observations.location
+        }, indent=2)
+
+        prompt = self.prompts["subcategory_classification"].format(
+            parent_category=parent_category,
+            subcategories=subcategories_desc,
+            observations=obs_desc
+        )
+
+        response = self._call_vlm(prompt, image_path)
+        parsed = self._parse_json(response)
+
+        selected = parsed.get("selected_subcategory", "")
+        confidence = parsed.get("confidence", 0.5)
+
+        canonical = self.tree.get_canonical_name(selected)
+        if canonical and canonical in children:
+            self._log(f"  Selected: {canonical} (conf: {confidence:.2f})", "info")
+            return canonical, confidence
+
+        # 폴백: 첫 번째 자식
+        self._log(f"  Invalid subcategory '{selected}', using first child: {children[0]}", "warning")
+        return children[0], 0.3
+
+    def _get_candidates(self, current_path: List[str]) -> List[str]:
+        """현재 경로 기반 후보 질환 생성"""
+        if not current_path:
+            return []
+
+        current_node = current_path[-1]
+        descendants = self.tree.get_all_descendants(current_node)
+
+        # 현재 노드 + 경로의 모든 노드 + 자손 노드
+        all_candidates = set(descendants)
+        all_candidates.update(current_path)
+        all_candidates.add(current_node)
+
+        return sorted(all_candidates)[:20]
+
+    def _compare_candidates(
+        self,
+        candidates: List[str],
+        observations: ClinicalObservation,
+        image_path: str
+    ) -> Dict[str, float]:
+        """Step 4: 후보 질환 비교"""
+        self._log(f"Comparing {len(candidates)} candidates...", "step")
+
+        result = self.tools["comparator"].execute(candidates, observations, image_path)
+        parsed = self._parse_json(result)
+
+        scores = {}
+        for comp in parsed.get("comparisons", []):
+            if isinstance(comp, dict):
+                disease = comp.get("disease", "")
+                score = comp.get("score", 0.5)
+                if disease:
+                    scores[disease] = score
+
+        # 누락된 후보 추가
+        for candidate in candidates:
+            if candidate not in scores:
+                scores[candidate] = 0.5
+
+        top_3 = sorted(scores.items(), key=lambda x: x[1], reverse=True)[:3]
+        self._log(f"  Top 3: {[(d, f'{s:.2f}') for d, s in top_3]}", "info")
+
+        return scores
+
+    def _make_final_diagnosis(
+        self,
+        image_path: str,
+        current_path: List[str],
+        candidates: List[str],
+        observations: ClinicalObservation
+    ) -> tuple:
+        """Step 5: 최종 진단"""
+        self._log("Making final diagnosis...", "step")
+
+        path_str = " -> ".join(current_path)
+        candidates_str = "\n".join([f"- {c}" for c in candidates[:15]])
+        obs_str = json.dumps({
+            "morphology": observations.morphology,
+            "color": observations.color,
+            "distribution": observations.distribution,
+            "location": observations.location
+        }, indent=2)
+
+        prompt = self.prompts["final_diagnosis"].format(
+            path=path_str,
+            observations=obs_str,
+            candidates=candidates_str
+        )
+
+        response = self._call_vlm(prompt, image_path, max_tokens=1500)
+        parsed = self._parse_json(response)
+
+        primary = parsed.get("primary_diagnosis", "")
+        confidence = parsed.get("confidence", 0.5)
+        differentials = parsed.get("differential_diagnoses", [])
+        reasoning = parsed.get("reasoning", "")
+
+        return primary, confidence, differentials, reasoning
+
     def diagnose(self, image_path: str) -> DiagnosisResult:
-        """이미지 진단 수행"""
-        self._log(f"\n{'='*60}")
-        self._log(f"Starting diagnosis for: {image_path}")
-        self._log(f"{'='*60}\n")
-        
-        result = DiagnosisResult()
-        history: List[ThoughtStep] = []
-        current_observations: Optional[Observation] = None
-        
-        for step_num in range(1, self.max_steps + 1):
-            self._log(f"\n--- Step {step_num} ---", "info")
-            
-            # ReAct 단계 실행
-            thought, action, action_input, observation = self._generate_react_step(
-                image_path, step_num, history, current_observations
+        """
+        메인 진단 메서드
+
+        Args:
+            image_path: 피부 이미지 경로
+
+        Returns:
+            DiagnosisResult: 진단 결과
+        """
+        self._log("=" * 50)
+        self._log(f"Starting diagnosis: {image_path}")
+        self._log("=" * 50)
+
+        result = DiagnosisResult(timestamp=datetime.now().isoformat())
+        reasoning_chain = []
+        current_path = []
+        confidence_scores = {}
+
+        try:
+            # Step 1: 이미지 관찰
+            observations = self._observe_image(image_path)
+            result.observations = observations
+
+            reasoning_chain.append(ThoughtStep(
+                step_num=1,
+                thought="Observing clinical features from the skin image",
+                action=ActionType.OBSERVE,
+                action_input={"image_path": image_path},
+                observation=observations.to_text()
+            ))
+
+            # 병변이 보이지 않으면 조기 종료
+            if "no visible lesion" in [m.lower() for m in observations.morphology]:
+                self._log("No visible lesion detected", "warning")
+                result.primary_diagnosis = "no definitive diagnosis"
+                result.confidence = 0.0
+                result.reasoning_chain = reasoning_chain
+                result.warnings.append("No visible skin lesion detected in the image")
+                return result
+
+            # Step 2: 대분류
+            category, cat_conf = self._classify_category(image_path)
+            current_path.append(category)
+            confidence_scores[category] = cat_conf
+
+            reasoning_chain.append(ThoughtStep(
+                step_num=2,
+                thought=f"Classifying into major category: {category}",
+                action=ActionType.NAVIGATE_ONTOLOGY,
+                action_input={"action": "get_children", "node": category},
+                observation=f"Selected category: {category} (confidence: {cat_conf:.2f})"
+            ))
+
+            # Step 3: 하위 카테고리 탐색 (최대 3단계)
+            for depth in range(3):
+                children = self.tree.get_children(current_path[-1])
+                if not children:
+                    break
+
+                subcategory, sub_conf = self._classify_subcategory(
+                    image_path, current_path[-1], observations
+                )
+                current_path.append(subcategory)
+                confidence_scores[subcategory] = sub_conf
+
+                reasoning_chain.append(ThoughtStep(
+                    step_num=3 + depth,
+                    thought=f"Classifying into subcategory: {subcategory}",
+                    action=ActionType.NAVIGATE_ONTOLOGY,
+                    action_input={"parent": current_path[-2], "selected": subcategory},
+                    observation=f"Selected: {subcategory} (confidence: {sub_conf:.2f})"
+                ))
+
+            # Step 4: 후보 비교
+            candidates = self._get_candidates(current_path)
+
+            if candidates:
+                scores = self._compare_candidates(candidates, observations, image_path)
+                confidence_scores.update(scores)
+
+                reasoning_chain.append(ThoughtStep(
+                    step_num=len(reasoning_chain) + 1,
+                    thought="Comparing candidate diseases with observed features",
+                    action=ActionType.COMPARE_DISEASES,
+                    action_input={"candidates": candidates[:10]},
+                    observation=f"Compared {len(candidates)} candidates"
+                ))
+
+            # Step 5: 최종 진단
+            primary, conf, differentials, reasoning = self._make_final_diagnosis(
+                image_path, current_path, candidates, observations
             )
-            
-            self._log(f"Thought: {thought}", "thought")
-            self._log(f"Action: {action}", "action")
-            self._log(f"Observation: {observation[:200]}...", "result")
-            
-            # 관찰 결과 업데이트
-            if action == "observe_image":
-                try:
-                    obs_data = json.loads(observation)
-                    current_observations = Observation(
-                        morphology=obs_data.get("morphology", []),
-                        color=obs_data.get("color", []),
-                        distribution=obs_data.get("distribution", []),
-                        surface=obs_data.get("surface", []),
-                        border=obs_data.get("border", []),
-                        location=obs_data.get("location", ""),
-                        confidence=obs_data.get("confidence", 0.5),
-                        raw_text=observation
-                    )
-                    result.observations = current_observations
-                except json.JSONDecodeError:
-                    pass
-            
-            # 히스토리 기록
-            try:
-                action_type = ActionType(action) if action in [a.value for a in ActionType] else ActionType.OBSERVE
-            except ValueError:
-                action_type = ActionType.OBSERVE
-            
-            step = ThoughtStep(
-                step_num=step_num,
-                thought=thought,
-                action=action_type,
-                action_input=action_input,
-                observation=observation
-            )
-            history.append(step)
-            result.reasoning_chain.append(step)
-            
-            # 종료 조건
-            if action == "conclude":
-                try:
-                    conclusion = json.loads(observation)
-                    result.primary_diagnosis = conclusion.get("primary_diagnosis", "")
-                    result.differential_diagnoses = conclusion.get("differential_diagnoses", [])
-                    result.confidence = conclusion.get("confidence", 0.5)
-                    
-                    # 유효성 검증
-                    canonical = self.tree.get_canonical_name(result.primary_diagnosis)
-                    if canonical:
-                        result.primary_diagnosis = canonical
-                        result.ontology_path = self.tree.get_path_to_root(canonical)
-                        result.verification_passed = True
+
+            # 유효성 검증 및 결과 설정
+            if primary.lower() == "no definitive diagnosis":
+                result.primary_diagnosis = "no definitive diagnosis"
+                result.confidence = conf
+            else:
+                canonical_primary = self.tree.get_canonical_name(primary)
+                if canonical_primary:
+                    result.primary_diagnosis = canonical_primary
+                    result.confidence = conf
+                else:
+                    # VLM이 반환한 진단이 온톨로지에 없는 경우
+                    # 점수 기반으로 가장 좋은 후보 선택
+                    best_candidate = max(confidence_scores.items(), key=lambda x: x[1])[0] if confidence_scores else ""
+                    if self.tree.is_valid_node(best_candidate):
+                        result.primary_diagnosis = self.tree.get_canonical_name(best_candidate)
+                        result.confidence = confidence_scores.get(best_candidate, 0.5)
+                        result.warnings.append(f"VLM diagnosis '{primary}' not in ontology, using '{result.primary_diagnosis}'")
                     else:
-                        result.warnings.append(f"Primary diagnosis '{result.primary_diagnosis}' not found in ontology")
-                        result.verification_passed = False
-                    
-                except json.JSONDecodeError:
-                    result.warnings.append("Failed to parse conclusion")
-                
-                break
-        
-        self._log(f"\n{'='*60}")
-        self._log(f"Diagnosis complete!", "success")
-        self._log(f"Primary: {result.primary_diagnosis}")
-        self._log(f"Confidence: {result.confidence:.2f}")
-        self._log(f"Path: {' → '.join(result.ontology_path)}")
-        self._log(f"{'='*60}\n")
-        
+                        result.primary_diagnosis = "no definitive diagnosis"
+                        result.confidence = 0.3
+                        result.warnings.append(f"Could not validate diagnosis")
+
+            # 감별 진단 설정
+            valid_differentials = []
+            for diff in differentials[:5]:
+                canonical = self.tree.get_canonical_name(diff)
+                if canonical and canonical != result.primary_diagnosis:
+                    valid_differentials.append(canonical)
+            result.differential_diagnoses = valid_differentials
+
+            # 온톨로지 경로 설정
+            if result.primary_diagnosis and result.primary_diagnosis != "no definitive diagnosis":
+                result.ontology_path = self.tree.get_path_to_root(result.primary_diagnosis)
+            else:
+                result.ontology_path = current_path
+
+            reasoning_chain.append(ThoughtStep(
+                step_num=len(reasoning_chain) + 1,
+                thought=f"Final diagnosis: {result.primary_diagnosis}",
+                action=ActionType.CONCLUDE,
+                action_input={"diagnosis": result.primary_diagnosis},
+                observation=f"Confidence: {result.confidence:.2f}, Reasoning: {reasoning[:200]}"
+            ))
+
+            result.reasoning_chain = reasoning_chain
+
+            # 중증도 및 권장사항
+            result.severity = "moderate"  # 기본값
+            result.recommendations = [
+                "Please consult a dermatologist for professional diagnosis.",
+                "Monitor the lesion for any changes in size, color, or symptoms."
+            ]
+            result.warnings.append("This is an AI-assisted analysis for reference only. Consult a medical professional.")
+
+            self._log("=" * 50)
+            self._log(f"Diagnosis complete: {result.primary_diagnosis}")
+            self._log(f"Confidence: {result.confidence:.2f}")
+            self._log(f"Path: {' -> '.join(result.ontology_path)}")
+            self._log("=" * 50)
+
+        except Exception as e:
+            self._log(f"Error during diagnosis: {e}", "error")
+            result.primary_diagnosis = "no definitive diagnosis"
+            result.confidence = 0.0
+            result.warnings.append(f"Error occurred: {str(e)}")
+            result.reasoning_chain = reasoning_chain
+
         return result
-    
-    def diagnose_batch(
-        self, 
-        image_paths: List[str],
-        show_progress: bool = True
-    ) -> List[DiagnosisResult]:
+
+    def diagnose_batch(self, image_paths: List[str]) -> List[DiagnosisResult]:
         """배치 진단"""
         results = []
-        
-        iterator = image_paths
-        if show_progress:
-            try:
-                from tqdm import tqdm
-                iterator = tqdm(image_paths, desc="Diagnosing")
-            except ImportError:
-                pass
-        
-        for path in iterator:
-            try:
-                result = self.diagnose(path)
-            except Exception as e:
-                result = DiagnosisResult(
-                    warnings=[f"Error: {str(e)}"]
-                )
+        for path in image_paths:
+            result = self.diagnose(path)
             results.append(result)
-        
         return results
 
 
-# ============ 데모 ============
+# ============ 테스트 함수 ============
 
-def demo():
-    """데모 실행"""
-    print("="*60)
-    print("ReAct Dermatology Agent Demo")
-    print("="*60)
+def test_structure():
+    """에이전트 구조 테스트 (VLM 없이)"""
+    print("=" * 60)
+    print("ReAct Agent - Structure Test")
+    print("=" * 60)
 
     try:
-        # 에이전트 생성 (VLM 없이 Mock 모드, 자동 경로)
-        agent = ReActDermatologyAgent(
-            ontology_path=None,
-            vlm_model=None,
-            max_steps=6,
-            verbose=True
-        )
+        tree = OntologyTree()
+        print(f"\nOntology loaded: {tree.ontology_path}")
+        print(f"  Total nodes: {len(tree.valid_nodes)}")
 
-        # 진단 실행
-        result = agent.diagnose("/demo/skin_image.jpg")
+        # 리프 노드와 중간 노드 수 계산
+        leaf_nodes = [n for n in tree.valid_nodes if not tree.get_children(n)]
+        print(f"  Leaf nodes: {len(leaf_nodes)}")
+        print(f"  Intermediate nodes: {len(tree.valid_nodes) - len(leaf_nodes)}")
 
-        print("\n" + "="*60)
-        print("DIAGNOSIS RESULT")
-        print("="*60)
-        print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        print("Please ensure ontology.json is in the correct location.")
+        return False
+
+    print("\n[OntologyNavigatorTool Test]")
+    nav = OntologyNavigatorTool(tree)
+
+    print("\nRoot categories:")
+    result = json.loads(nav.execute("get_children", "root"))
+    for child in result["children"]:
+        print(f"  - {child}")
+
+    print("\n'inflammatory' children:")
+    result = json.loads(nav.execute("get_children", "inflammatory"))
+    for child in result["children"][:5]:
+        print(f"  - {child}")
+
+    print("\n'Tinea corporis' path:")
+    result = json.loads(nav.execute("get_path", "Tinea corporis"))
+    print(f"  {' -> '.join(result['path'])}")
+
+    print("\n[Search 'eczema']")
+    result = json.loads(nav.execute("search", query="eczema"))
+    for match in result["matches"][:5]:
+        print(f"  - {match['name']}")
+
+    print("\nStructure test completed!")
+    return True
+
+
+def test_with_vlm(api_key: str, image_path: str):
+    """VLM을 사용한 실제 테스트"""
+    print("=" * 60)
+    print("ReAct Agent - VLM Test")
+    print("=" * 60)
+
+    try:
+        from vlm_wrapper import GPT4oWrapper
+    except ImportError:
+        print("vlm_wrapper not found, trying alternative import...")
+        try:
+            from model import GPT4o as GPT4oWrapper
+        except ImportError:
+            print("Error: Could not import VLM wrapper")
+            return None
+
+    # VLM 초기화
+    vlm = GPT4oWrapper(api_key=api_key, use_labels_prompt=False)
+    print("VLM initialized")
+
+    # 에이전트 초기화
+    agent = ReActDermatologyAgent(vlm_model=vlm, verbose=True)
+    print(f"Agent initialized (valid nodes: {len(agent.valid_diseases)})")
+
+    # 진단 수행
+    print(f"\nDiagnosing: {image_path}")
+    result = agent.diagnose(image_path)
+
+    print(f"\n=== Diagnosis Result ===")
+    print(f"Primary Diagnosis: {result.primary_diagnosis}")
+    print(f"Confidence: {result.confidence:.2f}")
+    print(f"Differentials: {result.differential_diagnoses}")
+    print(f"Path: {' -> '.join(result.ontology_path)}")
+
+    return result
 
 
 if __name__ == "__main__":
-    demo()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="ReAct Dermatology Agent")
+    parser.add_argument("--api_key", type=str, default=None,
+                        help="OpenAI API key")
+    parser.add_argument("--image", type=str, default=None,
+                        help="Image path for testing")
+    parser.add_argument("--test", action="store_true",
+                        help="Run structure test only")
+
+    args = parser.parse_args()
+
+    # 구조 테스트
+    test_structure()
+
+    # VLM 테스트
+    if args.api_key and args.image:
+        print("\n")
+        test_with_vlm(args.api_key, args.image)
+    elif args.api_key or args.image:
+        print("\n[Note] Both --api_key and --image are required for VLM test")

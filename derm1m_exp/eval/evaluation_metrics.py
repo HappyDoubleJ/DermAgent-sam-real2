@@ -29,30 +29,34 @@ class PredictionResult:
     raw_prediction: List[str] = field(default_factory=list)
 
 
-@dataclass 
+@dataclass
 class EvaluationResult:
     """전체 평가 결과"""
     # 기본 메트릭
     exact_match: float = 0.0
     partial_match: float = 0.0
-    
+
     # 계층적 메트릭
     hierarchical_precision: float = 0.0
     hierarchical_recall: float = 0.0
     hierarchical_f1: float = 0.0
     avg_hierarchical_distance: float = 0.0
-    
+
     # 레벨별 정확도
     level_accuracy: Dict[int, float] = field(default_factory=dict)
-    
+
     # 부분 점수
     avg_partial_credit: float = 0.0
-    
+
+    # Top-K 정확도 (다중 예측 지원)
+    top_k_accuracy: Dict[int, float] = field(default_factory=dict)  # {k: accuracy}
+    top_k_hierarchical_f1: Dict[int, float] = field(default_factory=dict)  # {k: h_f1}
+
     # 상세 통계
     total_samples: int = 0
     valid_samples: int = 0  # GT와 Pred 모두 유효한 샘플 수
     skipped_samples: int = 0
-    
+
     # 추가 정보
     details: Dict[str, Any] = field(default_factory=dict)
 
@@ -71,7 +75,18 @@ class HierarchicalEvaluator:
     
     def preprocess_labels(self, labels: List[str]) -> List[str]:
         """라벨 전처리: 유효한 라벨만 필터링하고 정규화"""
-        return self.tree.filter_valid_labels(labels)
+        # 공백/대소문자/구두점에 강건하도록 정리 후 필터링
+        cleaned = []
+        for label in labels:
+            if label is None:
+                continue
+            text = str(label).strip().rstrip(" .,:;")
+            if not text:
+                continue
+            # 쉼표로 구분된 멀티 라벨 분해
+            parts = [p.strip() for p in text.split(",") if p.strip()]
+            cleaned.extend(parts if parts else [text])
+        return self.tree.filter_valid_labels(cleaned)
     
     # ============ 기본 메트릭 ============
     
@@ -360,8 +375,110 @@ class HierarchicalEvaluator:
         
         return max_score
     
+    # ============ Top-K 메트릭 ============
+
+    def top_k_exact_match(self, gt_labels: List[str], pred_labels: List[str], k: int) -> bool:
+        """
+        Top-K Exact Match: GT 중 하나라도 상위 K개 예측에 포함되면 True
+
+        Args:
+            gt_labels: 정답 라벨들
+            pred_labels: 예측 라벨들 (순서대로 Top-1, Top-2, ...)
+            k: 상위 몇 개까지 확인할지
+
+        Returns:
+            True if any GT label is in top-K predictions
+        """
+        gt_set = set(gt_labels)
+        top_k_preds = set(pred_labels[:k]) if len(pred_labels) >= k else set(pred_labels)
+        return len(gt_set & top_k_preds) > 0
+
+    def top_k_hierarchical_match(
+        self,
+        gt_labels: List[str],
+        pred_labels: List[str],
+        k: int,
+        threshold: float = 0.5
+    ) -> bool:
+        """
+        Top-K Hierarchical Match: 상위 K개 예측 중 하나라도 GT와 계층적으로 유사하면 True
+
+        Args:
+            gt_labels: 정답 라벨들
+            pred_labels: 예측 라벨들 (순서대로)
+            k: 상위 몇 개까지 확인할지
+            threshold: 유사도 임계값
+
+        Returns:
+            True if any top-K prediction is hierarchically similar to GT
+        """
+        top_k_preds = pred_labels[:k] if len(pred_labels) >= k else pred_labels
+        for gt in gt_labels:
+            for pred in top_k_preds:
+                if self.hierarchical_similarity(gt, pred) >= threshold:
+                    return True
+        return False
+
+    def top_k_hierarchical_f1(
+        self,
+        gt_labels: List[str],
+        pred_labels: List[str],
+        k: int
+    ) -> Tuple[float, float, float]:
+        """
+        Top-K Hierarchical F1: 상위 K개 예측을 사용한 계층적 F1
+
+        Args:
+            gt_labels: 정답 라벨들
+            pred_labels: 예측 라벨들 (순서대로)
+            k: 상위 몇 개까지 사용할지
+
+        Returns:
+            (precision, recall, f1) using top-K predictions
+        """
+        top_k_preds = pred_labels[:k] if len(pred_labels) >= k else pred_labels
+        return self.hierarchical_precision_recall(gt_labels, top_k_preds)
+
+    def compute_top_k_metrics(
+        self,
+        gt_labels: List[str],
+        pred_labels: List[str],
+        k_values: List[int] = [1, 3, 5]
+    ) -> Dict[str, Dict[int, float]]:
+        """
+        여러 K값에 대해 Top-K 메트릭 계산
+
+        Args:
+            gt_labels: 정답 라벨들
+            pred_labels: 예측 라벨들 (순서대로, 예: [primary, diff1, diff2, ...])
+            k_values: 계산할 K값들
+
+        Returns:
+            {
+                'top_k_exact': {1: bool, 3: bool, 5: bool},
+                'top_k_h_match': {1: bool, 3: bool, 5: bool},
+                'top_k_h_f1': {1: float, 3: float, 5: float}
+            }
+        """
+        gt_valid = self.preprocess_labels(gt_labels)
+        pred_valid = self.preprocess_labels(pred_labels)
+
+        result = {
+            'top_k_exact': {},
+            'top_k_h_match': {},
+            'top_k_h_f1': {}
+        }
+
+        for k in k_values:
+            result['top_k_exact'][k] = self.top_k_exact_match(gt_valid, pred_valid, k) if gt_valid else False
+            result['top_k_h_match'][k] = self.top_k_hierarchical_match(gt_valid, pred_valid, k) if gt_valid else False
+            _, _, f1 = self.top_k_hierarchical_f1(gt_valid, pred_valid, k) if gt_valid and pred_valid else (0, 0, 0)
+            result['top_k_h_f1'][k] = f1
+
+        return result
+
     # ============ 종합 평가 ============
-    
+
     def evaluate_single(self, gt_labels: List[str], pred_labels: List[str]) -> Dict[str, float]:
         """단일 샘플 평가"""
         # 유효한 라벨만 필터링
@@ -468,7 +585,65 @@ class HierarchicalEvaluator:
                 'sample_metrics': sample_metrics,
             }
         )
-    
+
+    def evaluate_batch_with_top_k(
+        self,
+        ground_truths: List[List[str]],
+        predictions: List[List[str]],
+        k_values: List[int] = [1, 3, 5]
+    ) -> EvaluationResult:
+        """
+        배치 평가 (Top-K 메트릭 포함)
+
+        Args:
+            ground_truths: 각 샘플의 GT 라벨 리스트
+            predictions: 각 샘플의 예측 라벨 리스트 (순서대로: [primary, diff1, diff2, ...])
+            k_values: 계산할 K값들 (기본: [1, 3, 5])
+
+        Returns:
+            EvaluationResult with Top-K metrics
+        """
+        # 기본 평가 수행
+        base_result = self.evaluate_batch(ground_truths, predictions)
+
+        # Top-K 메트릭 계산
+        top_k_exact_counts = {k: 0 for k in k_values}
+        top_k_h_f1_sums = {k: 0.0 for k in k_values}
+        valid_count = 0
+
+        for gt, pred in zip(ground_truths, predictions):
+            gt_valid = self.preprocess_labels(gt)
+            pred_valid = self.preprocess_labels(pred)
+
+            if not gt_valid:
+                continue
+
+            valid_count += 1
+
+            for k in k_values:
+                # Top-K Exact Match
+                if self.top_k_exact_match(gt_valid, pred_valid, k):
+                    top_k_exact_counts[k] += 1
+
+                # Top-K Hierarchical F1
+                if pred_valid:
+                    _, _, f1 = self.top_k_hierarchical_f1(gt_valid, pred_valid, k)
+                    top_k_h_f1_sums[k] += f1
+
+        # 평균 계산
+        if valid_count > 0:
+            base_result.top_k_accuracy = {
+                k: top_k_exact_counts[k] / valid_count for k in k_values
+            }
+            base_result.top_k_hierarchical_f1 = {
+                k: top_k_h_f1_sums[k] / valid_count for k in k_values
+            }
+        else:
+            base_result.top_k_accuracy = {k: 0.0 for k in k_values}
+            base_result.top_k_hierarchical_f1 = {k: 0.0 for k in k_values}
+
+        return base_result
+
     def print_evaluation_report(self, result: EvaluationResult):
         """평가 결과 출력"""
         print("=" * 60)
@@ -498,7 +673,18 @@ class HierarchicalEvaluator:
         print(f"\n[Level-wise Accuracy]")
         for level, acc in sorted(result.level_accuracy.items()):
             print(f"  Level {level}: {acc:.4f}")
-        
+
+        # Top-K 메트릭 출력 (있는 경우)
+        if result.top_k_accuracy:
+            print(f"\n[Top-K Accuracy]")
+            for k, acc in sorted(result.top_k_accuracy.items()):
+                print(f"  Top-{k} Exact Match: {acc:.4f}")
+
+        if result.top_k_hierarchical_f1:
+            print(f"\n[Top-K Hierarchical F1]")
+            for k, f1 in sorted(result.top_k_hierarchical_f1.items()):
+                print(f"  Top-{k} H-F1: {f1:.4f}")
+
         print("=" * 60)
 
 
