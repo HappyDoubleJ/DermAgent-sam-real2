@@ -136,6 +136,37 @@ Focus on identifying skin conditions, lesions, or abnormalities visible in the i
         except Exception as e:
             return f"Error: {str(e)}"
 
+    def chat_img(
+        self,
+        prompt: str,
+        image_paths: List[str],
+        max_tokens: int = 512
+    ) -> str:
+        """
+        이미지 기반 채팅 (wonjun 브랜치 호환 인터페이스)
+
+        Args:
+            prompt: 사용자 프롬프트
+            image_paths: 이미지 경로 리스트
+            max_tokens: 최대 출력 토큰 수
+
+        Returns:
+            모델 응답 텍스트
+        """
+        # 임시로 max_tokens 설정
+        original_max_tokens = self.max_tokens
+        self.max_tokens = max_tokens
+
+        try:
+            if image_paths:
+                result = self.analyze_image(image_paths, prompt)
+            else:
+                result = self.chat(prompt)
+        finally:
+            self.max_tokens = original_max_tokens
+
+        return result
+
     def diagnose(
         self,
         image_path: str,
