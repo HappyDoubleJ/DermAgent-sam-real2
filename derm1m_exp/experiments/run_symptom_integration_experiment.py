@@ -35,12 +35,16 @@ import pandas as pd
 import numpy as np
 
 # 경로 설정
-SCRIPT_DIR = Path(__file__).parent
-PROJECT_ROOT = SCRIPT_DIR.parent.parent
+SCRIPT_DIR = Path(__file__).parent  # derm1m_exp/experiments
+DERM1M_EXP_DIR = SCRIPT_DIR.parent  # derm1m_exp
+PROJECT_ROOT = DERM1M_EXP_DIR.parent  # DermAgent-sam-real2
+
+# 모듈 경로 추가
 sys.path.insert(0, str(PROJECT_ROOT))
-sys.path.insert(0, str(SCRIPT_DIR.parent / "eval"))
-sys.path.insert(0, str(SCRIPT_DIR.parent / "baseline"))
-sys.path.insert(0, str(SCRIPT_DIR.parent / "DermAgent" / "agent"))
+sys.path.insert(0, str(DERM1M_EXP_DIR / "DermAgent" / "eval"))  # ontology_utils, evaluation_metrics
+sys.path.insert(0, str(DERM1M_EXP_DIR / "DermAgent" / "agent"))  # dermatology_agent, etc.
+sys.path.insert(0, str(DERM1M_EXP_DIR / "baseline"))  # model, utils
+sys.path.insert(0, str(SCRIPT_DIR))  # vlm_wrapper
 
 # .env 파일 로드
 def load_env_file():
@@ -427,15 +431,20 @@ class SymptomIntegrationExperiment:
         # SAM 세그멘터 초기화 시도
         self.sam_available = False
         self.segmenter = None
+        self.sam_checkpoint_dir = sam_checkpoint_dir
         try:
-            sam_path = sam_checkpoint_dir or str(SCRIPT_DIR.parent / "SA-project-SAM")
-            sys.path.insert(0, sam_path)
-            from sam_masking import SAMSegmenter, apply_mask_to_image, load_image
-            self.sam_segmenter_class = SAMSegmenter
+            from sam_masking import SAMSegmenter, MockSAMSegmenter, apply_mask_to_image, load_image, SAM_AVAILABLE
             self.apply_mask_to_image = apply_mask_to_image
             self.load_image = load_image
-            self.sam_available = True
-            print("[INFO] SAM 모듈 로드 성공")
+
+            if SAM_AVAILABLE:
+                self.sam_segmenter_class = SAMSegmenter
+                self.sam_available = True
+                print("[INFO] SAM 모듈 로드 성공 (segment-anything 사용)")
+            else:
+                self.sam_segmenter_class = MockSAMSegmenter
+                self.sam_available = True  # MockSAMSegmenter로 대체
+                print("[INFO] SAM 모듈 로드 성공 (색상 기반 세그멘테이션 사용)")
         except ImportError as e:
             print(f"[WARNING] SAM 모듈 로드 실패: {e}")
             print("[INFO] SAM 없이 실험 진행")
@@ -478,7 +487,8 @@ class SymptomIntegrationExperiment:
 
         if self.segmenter is None:
             try:
-                self.segmenter = self.sam_segmenter_class(checkpoint_dir=checkpoint_dir)
+                ckpt_dir = checkpoint_dir or self.sam_checkpoint_dir
+                self.segmenter = self.sam_segmenter_class(checkpoint_dir=ckpt_dir)
                 self._log("SAM 세그멘터 초기화 완료")
             except Exception as e:
                 self._log(f"SAM 세그멘터 초기화 실패: {e}")
