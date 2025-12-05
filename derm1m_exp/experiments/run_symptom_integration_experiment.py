@@ -39,12 +39,18 @@ SCRIPT_DIR = Path(__file__).parent  # derm1m_exp/experiments
 DERM1M_EXP_DIR = SCRIPT_DIR.parent  # derm1m_exp
 PROJECT_ROOT = DERM1M_EXP_DIR.parent  # DermAgent-sam-real2
 
-# 모듈 경로 추가
+# 모듈 경로 추가 (wonjun 브랜치 구조 호환)
 sys.path.insert(0, str(PROJECT_ROOT))
-sys.path.insert(0, str(DERM1M_EXP_DIR / "DermAgent" / "eval"))  # ontology_utils, evaluation_metrics
-sys.path.insert(0, str(DERM1M_EXP_DIR / "DermAgent" / "agent"))  # dermatology_agent, etc.
+sys.path.insert(0, str(SCRIPT_DIR))  # vlm_wrapper, sam_masking
+
+# wonjun 브랜치 구조: derm1m_exp/eval/
+# 현재 브랜치 구조: derm1m_exp/DermAgent/eval/
+# 둘 다 지원
+sys.path.insert(0, str(DERM1M_EXP_DIR / "eval"))  # wonjun 구조
+sys.path.insert(0, str(DERM1M_EXP_DIR / "DermAgent" / "eval"))  # 현재 구조
+sys.path.insert(0, str(DERM1M_EXP_DIR / "DermAgent" / "agent"))  # agent
 sys.path.insert(0, str(DERM1M_EXP_DIR / "baseline"))  # model, utils
-sys.path.insert(0, str(SCRIPT_DIR))  # vlm_wrapper
+sys.path.insert(0, str(DERM1M_EXP_DIR / "SA-project-SAM"))  # wonjun SAM submodule
 
 # .env 파일 로드
 def load_env_file():
