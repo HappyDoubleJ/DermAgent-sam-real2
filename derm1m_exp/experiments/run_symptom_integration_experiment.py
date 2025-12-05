@@ -929,10 +929,15 @@ def get_default_paths():
 
     # 이미지 디렉터리 후보
     image_candidates = [
+        # Colab Google Drive - 사용자 실제 경로
+        Path("/content/drive/MyDrive/DermAgent-sam-real2/Derm1M_v2_pretrain_ontology_sampled_100_images"),
+        # 로컬 경로
         PROJECT_ROOT / "dataset" / "Derm1M" / "images",
+        PROJECT_ROOT / "Derm1M_v2_pretrain_ontology_sampled_100_images",
         PROJECT_ROOT / "images",
-        Path("/content/drive/MyDrive/DermAgent_Data/images"),  # Colab Google Drive
-        Path("/content/images"),  # Colab
+        # Colab 기타 경로
+        Path("/content/drive/MyDrive/Derm1M_v2_pretrain_ontology_sampled_100_images"),
+        Path("/content/images"),
     ]
 
     default_csv = None
