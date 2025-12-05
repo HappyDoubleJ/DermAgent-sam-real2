@@ -439,44 +439,34 @@ class SymptomIntegrationExperiment:
         self.segmenter = None
         self.sam_checkpoint_dir = sam_checkpoint_dir
 
-        # 먼저 experiments 폴더의 sam_masking 시도 (MockSAMSegmenter 포함)
+        # 1. SA-project-SAM의 sam_masking 우선 시도 (실제 SAM 구현)
         try:
-            import importlib.util
-            local_sam_path = SCRIPT_DIR / "sam_masking.py"
-            if local_sam_path.exists():
-                spec = importlib.util.spec_from_file_location("local_sam_masking", local_sam_path)
-                local_sam = importlib.util.module_from_spec(spec)
-                spec.loader.exec_module(local_sam)
+            from sam_masking import SAMSegmenter, apply_mask_to_image, load_image
+            self.sam_segmenter_class = SAMSegmenter
+            self.apply_mask_to_image = apply_mask_to_image
+            self.load_image = load_image
+            self.sam_available = True
+            print("[INFO] SAM 모듈 로드 성공 (SA-project-SAM)")
+        except ImportError as e:
+            print(f"[WARNING] SA-project-SAM 로드 실패: {e}")
 
-                SAMSegmenter = local_sam.SAMSegmenter
-                MockSAMSegmenter = local_sam.MockSAMSegmenter
-                apply_mask_to_image = local_sam.apply_mask_to_image
-                load_image = local_sam.load_image
-                SAM_AVAILABLE = local_sam.SAM_AVAILABLE
-
-                self.apply_mask_to_image = apply_mask_to_image
-                self.load_image = load_image
-
-                if SAM_AVAILABLE:
-                    self.sam_segmenter_class = SAMSegmenter
-                    self.sam_available = True
-                    print("[INFO] SAM 모듈 로드 성공 (segment-anything 사용)")
-                else:
-                    self.sam_segmenter_class = MockSAMSegmenter
-                    self.sam_available = True
-                    print("[INFO] SAM 모듈 로드 성공 (색상 기반 세그멘테이션 사용)")
-            else:
-                raise FileNotFoundError("Local sam_masking.py not found")
-        except Exception as e:
-            # SA-project-SAM의 sam_masking 시도 (폴백)
+            # 2. experiments 폴더의 MockSAMSegmenter로 폴백
             try:
-                from sam_masking import SAMSegmenter, apply_mask_to_image, load_image
-                self.sam_segmenter_class = SAMSegmenter
-                self.apply_mask_to_image = apply_mask_to_image
-                self.load_image = load_image
-                self.sam_available = True
-                print("[INFO] SAM 모듈 로드 성공 (SA-project-SAM)")
-            except ImportError as e2:
+                import importlib.util
+                local_sam_path = SCRIPT_DIR / "sam_masking.py"
+                if local_sam_path.exists():
+                    spec = importlib.util.spec_from_file_location("local_sam_masking", local_sam_path)
+                    local_sam = importlib.util.module_from_spec(spec)
+                    spec.loader.exec_module(local_sam)
+
+                    self.sam_segmenter_class = local_sam.MockSAMSegmenter
+                    self.apply_mask_to_image = local_sam.apply_mask_to_image
+                    self.load_image = local_sam.load_image
+                    self.sam_available = True
+                    print("[INFO] SAM 모듈 로드 성공 (색상 기반 폴백 세그멘테이션)")
+                else:
+                    raise FileNotFoundError("Local sam_masking.py not found")
+            except Exception as e2:
                 print(f"[WARNING] SAM 모듈 로드 실패: {e2}")
                 print("[INFO] SAM 없이 실험 진행")
 
