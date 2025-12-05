@@ -1034,6 +1034,8 @@ def main():
     parser.add_argument('--num_samples', type=int, default=None, help='샘플 수 제한')
     parser.add_argument('--sam_strategies', type=str, default='none,center,lesion_features,both',
                         help='SAM 전략 (쉼표 구분)')
+    parser.add_argument('--sam_checkpoint', type=str, default=None,
+                        help='SAM 체크포인트 경로 (예: sam_vit_h_4b8939.pth)')
     parser.add_argument('--skip_no_symptom', action='store_true', help='증상 없는 실험 건너뛰기')
     parser.add_argument('--skip_no_sam', action='store_true', help='SAM 없는 실험 건너뛰기')
     parser.add_argument('--verbose', action='store_true', help='상세 로그')
@@ -1108,6 +1110,7 @@ def main():
     # 실험 초기화
     experiment = SymptomIntegrationExperiment(
         vlm_model=vlm,
+        sam_checkpoint_dir=args.sam_checkpoint,
         verbose=args.verbose
     )
 
