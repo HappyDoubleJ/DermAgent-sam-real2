@@ -1,5 +1,11 @@
 # DermAgent 증상 통합 실험 - Google Colab 실행 가이드
 
+## 핵심 정보
+
+- **CSV 파일**: `dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv` (자동 탐지)
+- **필수 입력**: 이미지 디렉터리 경로 (`--image_dir`)
+- **자동 포함**: `caption`, `truncated_caption` 컬럼에서 증상 추출
+
 ## 목차
 1. [환경 설정](#1-환경-설정)
 2. [데이터 준비](#2-데이터-준비)
@@ -22,7 +28,7 @@
 !git clone https://github.com/HappyDoubleJ/DermAgent-sam-real2.git
 %cd DermAgent-sam-real2
 
-# wonjun 브랜치로 전환
+# wonjun 브랜치로 전환 (실험 코드 포함)
 !git fetch origin wonjun
 !git checkout wonjun
 ```
@@ -117,47 +123,60 @@ print(df['caption'].iloc[0][:200] + "...")
 
 ## 3. 실험 실행
 
-### 3.1 Colab 셀 6: 빠른 테스트 (5개 샘플)
+### 3.1 Colab 셀 6: 가장 간단한 실행 ⭐
 
 ```bash
 %%bash
 cd /content/DermAgent-sam-real2/derm1m_exp/experiments
 
+# CSV는 자동 탐지! 이미지 경로만 지정하면 됨
 python run_symptom_integration_experiment.py \
-    --input_csv /content/DermAgent-sam-real2/dataset/random100.csv \
     --image_dir /content/drive/MyDrive/DermAgent_Data/images \
-    --output_dir /content/outputs \
     --num_samples 5 \
-    --sam_strategies none,center \
+    --sam_strategies none \
     --verbose
 ```
 
-### 3.2 Colab 셀 7: 전체 실험 (SAM 없이)
+### 3.2 Colab 셀 7: 빠른 테스트 (5개 샘플, SAM 없이)
 
 ```bash
 %%bash
 cd /content/DermAgent-sam-real2/derm1m_exp/experiments
 
-# SAM 없이 증상 분석만 테스트
+# SAM 없이 증상 분석만 테스트 (caption + truncated_caption 자동 사용)
 python run_symptom_integration_experiment.py \
-    --input_csv /content/DermAgent-sam-real2/dataset/random100.csv \
-    --image_dir /content/drive/MyDrive/DermAgent_Data/images \
+    --image_dir /content/drive/MyDrive/images \
+    --output_dir /content/outputs \
+    --num_samples 5 \
+    --sam_strategies none \
+    --verbose
+```
+
+### 3.3 Colab 셀 8: 전체 실험 (SAM 없이, 20개 샘플)
+
+```bash
+%%bash
+cd /content/DermAgent-sam-real2/derm1m_exp/experiments
+
+# SAM 없이 증상 유무에 따른 비교 실험
+# 자동으로 caption과 truncated_caption 모두 테스트
+python run_symptom_integration_experiment.py \
+    --image_dir /content/drive/MyDrive/images \
     --output_dir /content/outputs \
     --num_samples 20 \
     --sam_strategies none \
     --verbose
 ```
 
-### 3.3 Colab 셀 8: 전체 실험 (모든 SAM 전략)
+### 3.4 Colab 셀 9: 전체 실험 (모든 SAM 전략)
 
 ```bash
 %%bash
 cd /content/DermAgent-sam-real2/derm1m_exp/experiments
 
-# 모든 SAM 전략 + 증상 유무 비교
+# 모든 SAM 전략 + 증상 유무 비교 (12개 실험 조합)
 python run_symptom_integration_experiment.py \
-    --input_csv /content/DermAgent-sam-real2/dataset/random100.csv \
-    --image_dir /content/drive/MyDrive/DermAgent_Data/images \
+    --image_dir /content/drive/MyDrive/images \
     --output_dir /content/outputs \
     --num_samples 50 \
     --sam_strategies none,center,lesion_features,both \
@@ -503,10 +522,10 @@ from google.colab import drive
 drive.mount('/content/drive')
 
 # 4. 실험 실행 (10개 샘플, SAM 없이)
+# CSV는 자동 탐지됨 (dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv)
 !cd /content/DermAgent-sam-real2/derm1m_exp/experiments && \
     python run_symptom_integration_experiment.py \
-    --input_csv /content/DermAgent-sam-real2/dataset/random100.csv \
-    --image_dir /content/drive/MyDrive/DermAgent_Data/images \
+    --image_dir /content/drive/MyDrive/images \
     --output_dir /content/outputs \
     --num_samples 10 \
     --sam_strategies none \
@@ -517,6 +536,11 @@ import pandas as pd
 from glob import glob
 summary = sorted(glob("/content/outputs/experiment_summary_*.csv"))[-1]
 print(pd.read_csv(summary).to_string())
+
+# 6. SAM 전략별 비교 결과
+sam_comparison = sorted(glob("/content/outputs/sam_strategy_comparison_*.csv"))[-1]
+print("\n=== SAM 전략별 비교 ===")
+print(pd.read_csv(sam_comparison).to_string())
 ```
 
 ---

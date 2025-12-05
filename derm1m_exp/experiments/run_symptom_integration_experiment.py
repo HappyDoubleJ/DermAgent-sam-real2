@@ -915,32 +915,84 @@ Provide ONLY the JSON output."""
         print("\n" + "=" * 80)
 
 
+# ============ 기본 경로 설정 ============
+
+def get_default_paths():
+    """기본 경로 자동 탐지"""
+    # CSV 경로 후보
+    csv_candidates = [
+        PROJECT_ROOT / "dataset" / "Derm1M" / "Derm1M_v2_pretrain_ontology_sampled_100.csv",
+        PROJECT_ROOT / "dataset" / "random100.csv",
+        Path("/content/DermAgent-sam-real2/dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv"),  # Colab
+        Path("/content/dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv"),  # Colab alt
+    ]
+
+    # 이미지 디렉터리 후보
+    image_candidates = [
+        PROJECT_ROOT / "dataset" / "Derm1M" / "images",
+        PROJECT_ROOT / "images",
+        Path("/content/drive/MyDrive/DermAgent_Data/images"),  # Colab Google Drive
+        Path("/content/images"),  # Colab
+    ]
+
+    default_csv = None
+    for path in csv_candidates:
+        if path.exists():
+            default_csv = str(path)
+            break
+
+    default_image_dir = None
+    for path in image_candidates:
+        if path.exists():
+            default_image_dir = str(path)
+            break
+
+    return default_csv, default_image_dir
+
+
 # ============ CLI ============
 
 def main():
+    # 기본 경로 탐지
+    default_csv, default_image_dir = get_default_paths()
+
     parser = argparse.ArgumentParser(
         description="증상 분석 통합 실험",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
+        epilog=f"""
 사용 예시:
-  # 기본 실험 (모든 SAM 전략 + 증상 유무 비교)
-  python run_symptom_integration_experiment.py \\
-      --input_csv /path/to/random100.csv \\
-      --image_dir /path/to/images \\
-      --output_dir ./outputs \\
-      --api_key $OPENAI_API_KEY \\
+  # 가장 간단한 실행 (기본 경로 자동 탐지)
+  python run_symptom_integration_experiment.py --image_dir /path/to/images
+
+  # Colab에서 실행
+  !python run_symptom_integration_experiment.py \\
+      --image_dir /content/drive/MyDrive/images \\
       --num_samples 10
 
-  # 특정 전략만 실험
+  # 전체 옵션 지정
   python run_symptom_integration_experiment.py \\
       --input_csv /path/to/data.csv \\
-      --sam_strategies center,lesion_features \\
+      --image_dir /path/to/images \\
+      --output_dir ./outputs \\
+      --sam_strategies none,center \\
+      --num_samples 20
+
+  # 증상만 테스트 (SAM 없이)
+  python run_symptom_integration_experiment.py \\
+      --image_dir /path/to/images \\
+      --sam_strategies none \\
       --skip_no_symptom
+
+감지된 기본 경로:
+  CSV: {default_csv or '(없음 - --input_csv 필수)'}
+  이미지: {default_image_dir or '(없음 - --image_dir 필수)'}
         """
     )
 
-    parser.add_argument('--input_csv', type=str, required=True, help='입력 CSV 파일 경로')
-    parser.add_argument('--image_dir', type=str, required=True, help='이미지 디렉터리')
+    parser.add_argument('--input_csv', type=str, default=default_csv,
+                        help=f'입력 CSV 파일 경로 (기본: {default_csv})')
+    parser.add_argument('--image_dir', type=str, default=default_image_dir,
+                        help=f'이미지 디렉터리 (기본: {default_image_dir})')
     parser.add_argument('--output_dir', type=str, default='./outputs', help='출력 디렉터리')
     parser.add_argument('--api_key', type=str, default=None, help='OpenAI API 키')
     parser.add_argument('--num_samples', type=int, default=None, help='샘플 수 제한')
@@ -952,18 +1004,51 @@ def main():
 
     args = parser.parse_args()
 
+    # 필수 경로 검사
+    if not args.input_csv:
+        print("오류: --input_csv가 필요합니다.")
+        print("  기본 CSV 파일을 찾을 수 없습니다.")
+        print("  dataset/Derm1M/Derm1M_v2_pretrain_ontology_sampled_100.csv 파일이 있는지 확인하세요.")
+        return
+
+    if not args.image_dir:
+        print("오류: --image_dir가 필요합니다.")
+        print("  이미지 디렉터리를 지정하세요.")
+        return
+
+    if not os.path.exists(args.input_csv):
+        print(f"오류: CSV 파일을 찾을 수 없습니다: {args.input_csv}")
+        return
+
+    if not os.path.exists(args.image_dir):
+        print(f"오류: 이미지 디렉터리를 찾을 수 없습니다: {args.image_dir}")
+        print("  Google Drive를 마운트했는지 확인하세요.")
+        return
+
     # API 키 설정
     api_key = args.api_key or os.environ.get("OPENAI_API_KEY")
     if not api_key:
         print("오류: OPENAI_API_KEY가 필요합니다.")
         print("  --api_key 옵션 또는 환경 변수로 설정하세요.")
+        print("  Colab에서는: os.environ['OPENAI_API_KEY'] = 'sk-...'")
         return
+
+    # 설정 출력
+    print("=" * 60)
+    print("증상 통합 실험 설정")
+    print("=" * 60)
+    print(f"  CSV: {args.input_csv}")
+    print(f"  이미지 디렉터리: {args.image_dir}")
+    print(f"  출력 디렉터리: {args.output_dir}")
+    print(f"  SAM 전략: {args.sam_strategies}")
+    print(f"  샘플 수: {args.num_samples or '전체'}")
+    print("=" * 60)
 
     # VLM 초기화
     try:
         from vlm_wrapper import GPT4oWrapper
         vlm = GPT4oWrapper(api_key=api_key, use_labels_prompt=False)
-        print("[INFO] VLM 초기화 완료")
+        print("[INFO] VLM (GPT-4o) 초기화 완료")
     except ImportError:
         print("오류: vlm_wrapper 모듈을 찾을 수 없습니다.")
         return
@@ -972,6 +1057,13 @@ def main():
     print(f"[INFO] 데이터 로드: {args.input_csv}")
     df = pd.read_csv(args.input_csv)
     print(f"[INFO] 총 {len(df)}개 샘플")
+
+    # caption 컬럼 확인
+    if 'caption' not in df.columns:
+        print("경고: 'caption' 컬럼이 없습니다. 증상 추출이 제한될 수 있습니다.")
+    else:
+        non_empty_captions = df['caption'].notna().sum()
+        print(f"[INFO] caption 데이터: {non_empty_captions}/{len(df)}개")
 
     if args.num_samples:
         df = df.head(args.num_samples)
