@@ -334,9 +334,9 @@ class ExperimentResult:
     ground_truth: str
     hierarchical_gt: str
 
-    # 예측 결과
-    prediction: str
-    confidence: float
+    # 예측 결과 (기본값 설정 - 나중에 업데이트됨)
+    prediction: str = ""
+    confidence: float = 0.0
     differential_diagnoses: List[str] = field(default_factory=list)
 
     # 실험 설정
